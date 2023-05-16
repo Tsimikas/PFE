@@ -65,6 +65,10 @@ class User extends Authenticatable
         return $this->profil === 'armement';
     }
 
+    public function fasicule(){
+        return $this->hasMany(fasicule::class);
+    }
+
 
 
 
