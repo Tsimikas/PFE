@@ -40,7 +40,7 @@ class Marin extends Model
     }
 
     public function equipage(){
-        return $this->belongsTo(equipage::class);
+        return $this->hasMany(equipage::class);
     }
 
     public function situation(){
@@ -51,8 +51,13 @@ class Marin extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function fasicule(){
+        return $this->hasOne(fasicule::class);
+    }
+    
+
     protected $with = ['User','situation','equipage','visitemedical', 'bondebarquement',
-    'bondembarquement', 'contrat', 'familiarisation'];
+    'bondembarquement', 'contrat', 'familiarisation','fasicule'];
 
 
 

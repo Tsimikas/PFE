@@ -15,7 +15,8 @@ class CreateVisitemedicalsTable extends Migration
     {
         Schema::create('visitemedicals', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('marin_id');
+            $table->foreignId('marin_id')->constrained();
+            $table->foreignId('user_id')->constrained();
             $table->date('date_visite');
             $table->string('Duree', 50);
             $table->timestamps();

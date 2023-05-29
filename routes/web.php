@@ -44,16 +44,16 @@ Route::get('/liste-navires',function(){
    return view('liste-navires', ['navires' => $navires]);
 });
 
-Route::get('/register',[RegisterController::class,'create'])->middleware('guest');
-Route::post('/register',[RegisterController::class,'store'])->middleware('guest');
+Route::get('/register',[RegisterController::class,'create'])->middleware('admin:admin,directeur');
+Route::post('/register',[RegisterController::class,'store'])->middleware('admin:admin,directeur');
 
 Route::get('/login',[AuthController::class,'create'])->middleware('guest');
 Route::post('/login',[AuthController::class,'store'])->middleware('guest');
 
 Route::post('/logout',[AuthController::class,'destroy'])->middleware('auth');
 
-Route::get('/ajoute-marin',[MarinController::class,'create'])->middleware('auth')->middleware('admin:admin,armement');
-Route::post('/ajoute-marin',[MarinController::class,'store'])->middleware('auth')->middleware('admin:admin,armement');
+Route::get('/ajoute-marin',[MarinController::class,'create'])->middleware('admin:gestionnaire,admin');
+Route::post('/ajoute-marin',[MarinController::class,'store'])->middleware('admin:gestionnaire,admin');
 
 
 

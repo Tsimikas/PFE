@@ -11,11 +11,11 @@ class equipage extends Model
 {
     use HasFactory;
     public function Marin(){
-        return $this->hasMany(Marin::class);
+        return $this->hasOne(Marin::class);
     }
 
     public function navire(){
-        return $this->belongsTo(navire::class);
+        return $this->hasOne(navire::class);
     }
 
     protected $fillable = [

@@ -38,7 +38,7 @@
         @auth
             <span class=" ml-4text-sm text-gray-700 dark:text-gray-500" >
 
-                Welcome, {{auth()->user()->Prenom}}
+                Welcome, {{auth()->user()->Username}}
 
             </span>
 
@@ -55,12 +55,17 @@
                 </button>
             </a>
 
+            @if (auth()->user()->profil == 'admin')
+            <a class=" ml-4text-sm text-gray-700 dark:text-gray-500 underline" href="/register">Create User</a>
+        @endif
+            
+
             {{-- <a href="/logout">
             <button type="submit">Log out </button>
             </a> --}}
         @else
-        <a class=" ml-4text-sm text-gray-700 dark:text-gray-500 underline" href="/register">Register</a>
         <a class=" ml-4text-sm text-gray-700 dark:text-gray-500 underline" href="/login">Login</a>
+       
         @endauth
 
         {{-- all by me --}}

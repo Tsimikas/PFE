@@ -18,7 +18,8 @@ class CreateContratsTable extends Migration
             $table->date('date_debut');
             $table->date('date_fin');
             $table->enum('type',['CDD','CDI'] )->default('CDD');
-            $table->foreignId('marin_id');
+            $table->foreignId('marin_id')->constrained();
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
     }

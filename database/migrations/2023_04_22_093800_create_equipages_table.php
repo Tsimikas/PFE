@@ -15,7 +15,8 @@ class CreateEquipagesTable extends Migration
     {
         Schema::create('equipages', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('navire_id');
+            $table->foreignId('navire_id')->constrained();
+            $table->foreignId('marin_id') ->constrained();
             $table->date('date_debut_membre');
             $table->date('date_fin_membre');
             $table->timestamps();

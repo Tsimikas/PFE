@@ -9,9 +9,9 @@ class AuthController extends Controller
 {
     public function store(){
         $attributes = request()->validate([
-            'email'=>['required', 'email'],
+            'Username'=>['required'],
             'password'=>['required'],
-            'profil'=>['required','in:admin,armement,ecrivant']
+            'profil'=>['required','in:admin,gestionnaire,ecrivant,directeur']
         ]);
 
         //auth success and login
@@ -30,7 +30,7 @@ class AuthController extends Controller
         //auth failed
         return back()
         ->withInput()
-        ->withErrors(['email'=>'The email , the password or the profil could be wrong']);
+        ->withErrors(['Username'=>'The Username or password could be wrong']);
     }
 
 

@@ -15,9 +15,9 @@ class CreateBondebarquementsTable extends Migration
     {
         Schema::create('bondebarquements', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('marin_id');
+            $table->foreignId('marin_id')->constrained();
             $table->date('date_debarquement');
-            $table->foreignId('user_id');
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
     }

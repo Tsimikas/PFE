@@ -11,6 +11,8 @@ use App\Models\bondembarquement;
 use App\Models\bondebarquement;
 use App\Models\familiarisation;
 use App\Models\Marin;
+use App\Models\fasicule;
+
 
 
 class User extends Authenticatable
@@ -41,10 +43,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'Nom',
-        'Prenom',
-        'Numero_telephone',
-        'email',
+        'Username',
         'password',
         'profil',
     ];

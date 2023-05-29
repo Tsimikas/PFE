@@ -2,11 +2,12 @@
 
 namespace Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\Marin;
 use App\Models\User;
 
-class visitemedicalFactory extends Factory
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+class fasiculeFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -16,10 +17,9 @@ class visitemedicalFactory extends Factory
     public function definition()
     {
         return [
-            'date_visite'=>$this->faker->date(),
-            'duree'=>$this->faker->date(),
-            'marin_id'=> Marin::factory(),
             'user_id'=> User::factory(),
+            'marin_id'=> Marin::factory(),
+            'Nom' => $this->faker->name(),
         ];
     }
-    }
+}

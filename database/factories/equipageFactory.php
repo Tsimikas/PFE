@@ -2,10 +2,10 @@
 
 namespace Database\Factories;
 
-use App\Models\navire;
-use Illuminate\Database\Eloquent\Factories\Factory;
-//use App\Models\Marin;
 
+use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\navire;
+use App\Models\Marin;
 class equipageFactory extends Factory
 {
     /**
@@ -16,7 +16,8 @@ class equipageFactory extends Factory
     public function definition()
     {
         return [
-            'navire_id'=>$this->faker->numberBetween(1,4),
+            'navire_id'=>navire::factory(),
+            'marin_id'=>Marin::factory(),
             'date_debut_membre'=>$this->faker->date(),
             'date_fin_membre'=>$this->faker->date(),
 

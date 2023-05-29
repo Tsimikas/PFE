@@ -15,12 +15,9 @@ class RegisterController extends Controller
      public function store(){
 
         $attributes = request()->validate([
-             'Nom'=>['required','max:100','min:4'],
-             'Prenom'=>['required','max:100','min:4'],
-             'email'=>['required','email', Rule::unique('users','email')],
-             'profil'=>['required','in:admin,armement,ecrivant'],
+            'Username'=>['required','max:100', 'min:5'],
+             'profil'=>['required','in:admin,gestionnaire,ecrivant,directeur'],
              'password'=>['required','max:100','min:5'],
-             'Numero_telephone'=>['required','numeric']
          ]);
 
          $attributes['password'] = bcrypt($attributes['password']);
@@ -28,16 +25,18 @@ class RegisterController extends Controller
 
          $user =User::create($attributes);
 
-         auth()->login($user);
+          return redirect('/');
 
-         session()->flash('success','GREAT! Your acount has been created.');
+     //    auth()->login($user);
 
-         if ($attributes['profil'] == 'admin' ||
-             $attributes['profil'] == 'armement') {
-             return
-            redirect('/')->with('success','GREAT! Your acount has been created.');
-            }else return
-            redirect('/liste-marin')->with('success','GREAT! Your acount has been created.');
+       //  session()->flash('success','GREAT! Your acount has been created.');
+
+        // if ($attributes['profil'] == 'admin' ||
+           //  $attributes['profil'] == 'armement') {
+           //  return
+           // redirect('/')->with('success','GREAT! Your acount has been created.');
+           // }else return
+         //   redirect('/liste-marin')->with('success','GREAT! Your acount has been created.');
 
 
 

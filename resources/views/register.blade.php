@@ -77,41 +77,28 @@
     </style>
 </head>
 <body>
-    <h1>Register!</h1>
+    <h1>Create User</h1>
     <form method="POST" action="/register" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
-            <label for="name">Nom</label>
-            <input type="text" id="Nom" name="Nom" value="{{ old('Nom') }}" required>
-            @error('Nom')
-            <p class="error"> {{$message}} </p>
-            @enderror
-        </div>
-        <div class="form-group">
-            <label for="name">Prenom</label>
-            <input type="text" id="Prenom" name="Prenom"  value="{{ old('Prenom') }}"  required>
-            @error('Prenom')
-            <p class="error"> {{$message}} </p>
-            @enderror
-        </div>
-        <div class="form-group">
-            <label for="Numero_telephone">Phone Number</label>
-            <input type="tel" id="Numero_telephone" name="Numero_telephone"  value="{{ old('Numero_telephone') }}"  required>
-            @error('Numero_telephone')
-            <p class="error"> {{$message}} </p>
-            @enderror
-        </div>
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email"  value="{{ old('email') }}" required>
-            @error('email')
+            <label for="Username">Username</label>
+            <input type="text" id="Username" name="Username" value="{{ old('Username') }}" required>
+            @error('Username')
             <p class="error"> {{$message}} </p>
             @enderror
         </div>
 
+  
+    
+
         <div class="form-group">
             <label for="profil">Profil</label>
-            <input type="profil" id="profil" name="profil"  value="{{ old('profil') }}" required>
+            <select type="profil" id="profil" name="profil"  value="{{ old('profil') }}" required>
+                <option value="admin">admin</option>
+                <option value="directeur">directeur</option>
+                <option value="gestionnaire">gestionnaire</option>
+                <option value="ecrivant">ecrivant</option>
+            </select>
             @error('profil')
             <p class="error"> {{$message}} </p>
             @enderror
@@ -128,7 +115,7 @@
             <label for="password_confirmation">Confirm Password</label>
             <input type="password" id="password_confirmation" name="password_confirmation" required>
         </div> --}}
-        <button type="submit">Register</button>
+        <button type="submit">Create User</button>
     </form>
 </body>
 </html>

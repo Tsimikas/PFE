@@ -15,7 +15,8 @@ class CreateFasiculesTable extends Migration
     {
         Schema::create('fasicules', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('marin_id')->constrained();
             $table->string('Nom');
             $table->timestamps();
         });
