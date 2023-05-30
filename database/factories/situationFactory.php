@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\Marin;
+use App\Models\User;
 
 class situationFactory extends Factory
 {
@@ -18,6 +19,7 @@ class situationFactory extends Factory
             'date_debut'=>$this->faker->date(),
             'date_fin'=>$this->faker->date(),
             'marin_id'=> Marin::factory(),
+            'user_id'=> User::factory(),
         ];
     }
 }

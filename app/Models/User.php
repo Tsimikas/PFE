@@ -12,6 +12,8 @@ use App\Models\bondebarquement;
 use App\Models\familiarisation;
 use App\Models\Marin;
 use App\Models\fasicule;
+use App\Models\situation;
+use App\Models\visitemedical;
 
 
 
@@ -35,6 +37,22 @@ class User extends Authenticatable
         return $this->hasMany(Marin::class);
     }
 
+    public function situation(){
+        return $this->hasMany(situation::class);
+    }
+
+    public function fasicule(){
+        return $this->hasMany(fasicule::class);
+    }
+
+    public function visitemedicale(){
+        return $this->hasMany(visitemedical::class);
+    }
+
+
+
+
+
     protected $with = ['familiarisation','bondembarquement','bondebarquement'];
 
     /**
@@ -49,24 +67,8 @@ class User extends Authenticatable
     ];
 
 
-    public function isAdmin()
-    {
-        return $this->profil === 'admin';
-    }
 
-    public function isEcrivant()
-    {
-        return $this->profil === 'ecrivant';
-    }
 
-    public function isArmement()
-    {
-        return $this->profil === 'armement';
-    }
-
-    public function fasicule(){
-        return $this->hasMany(fasicule::class);
-    }
 
 
 

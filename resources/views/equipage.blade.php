@@ -51,7 +51,7 @@ font-size: 0.8rem;
 
     <label for="date_debut_membre">Date Debut:</label>
     <input type="date" id="date_debut_membre" name="date_debut_membre" value="{{ old('date_debut_membre') }}" required>
-    @error('date_debut_memebre')
+    @error('date_debut_membre')
     <p class="error"> {{$message}} </p>
     @enderror
 
