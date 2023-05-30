@@ -26,7 +26,6 @@ class MarinController extends Controller
             'email'=>['required','email', Rule::unique('Marins','email')],
             'Post_travail'=>['required'],
             'Numero_telephone'=>['required','numeric', Rule::unique('Marins','Numero_telephone')],
-            'equipage_id'=>['required', Rule::exists('equipages','id')]
 
 
         ]);
