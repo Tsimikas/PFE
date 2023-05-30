@@ -93,12 +93,11 @@ tbody tr:nth-child(odd) {
             <th>Email</th>
             <th>Post travail</th>
             <th>Numero telephone</th>
-            <th>Nouveau Post</th>
+            <th>Situation</th>
         </tr>
     </thead>
     <tbody>
         @foreach ($marins as $marin)
-        @foreach ($marin->familiarisation as $familiarisation)
         <tr>
                 <td>{{ $marin->Nom}}</td>
                 <td>{{ $marin->Prenom }}</td>
@@ -107,12 +106,14 @@ tbody tr:nth-child(odd) {
                 <td>{{ $marin->email }}</td>
                 <td>{{ $marin->Post_travail }}</td>
                 <td>{{ $marin->Numero_telephone }}</td>
-                <td>{{$familiarisation->nouveau_post}}</td>
+             @if (optional($marin->situation)->situation == 'libre')
+             <td> <a href="/bondembarquement" >{{optional($marin->situation)->situation}}</a></td>)
+                 @else
+                 <td>{{ optional($marin->situation)->situation }}</td>
+             @endif
                 </tr>
         @endforeach
-        @endforeach
     </tbody>
-        <h1> </h1>
 </table>
 
 
