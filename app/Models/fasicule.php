@@ -18,4 +18,11 @@ class fasicule extends Model
         return $this->BelongsTo(Marin::class);
     }
 
+    protected $fillable = [
+        'marin_id',
+        'user_id',
+        'numero',
+
+    ];
+
 }

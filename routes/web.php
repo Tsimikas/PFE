@@ -9,7 +9,9 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MarinController;
 use App\Http\Controllers\EmbarquementController;
+use App\Http\Controllers\equipageController;
 use App\Http\Controllers\VisiteController;
+use App\Http\Controllers\fasiculeController;
 
 
 use App\Models\User;
@@ -48,8 +50,8 @@ Route::get('/liste-navires',function(){
    return view('liste-navires', ['navires' => $navires]);
 });
 
-Route::get('/register',[RegisterController::class,'create'])->middleware('admin:admin,directeur');
-Route::post('/register',[RegisterController::class,'store'])->middleware('admin:admin,directeur');
+Route::get('/register',[RegisterController::class,'create']);
+Route::post('/register',[RegisterController::class,'store']);
 
 Route::get('/login',[AuthController::class,'create'])->middleware('guest');
 Route::post('/login',[AuthController::class,'store'])->middleware('guest');
@@ -63,9 +65,16 @@ Route::get('/bondembarquement',[EmbarquementController::class,'create'])->middle
 Route::post('/bondembarquement',[EmbarquementController::class,'store'])->middleware('admin:gestionnaire,admin,directeur');
 
 
-Route::get('/visitemedical',[VisiteController::class,'create']);
-Route::post('/visitemedical',[VisiteController::class,'store']);
+Route::get('/visitemedical',[VisiteController::class,'create'])->middleware('admin:gestionnaire,admin,directeur');
+Route::post('/visitemedical',[VisiteController::class,'store'])->middleware('admin:gestionnaire,admin,directeur');
 
+
+Route::get('/equipage',[equipageController::class,'create']);
+Route::post('/equipage',[equipageController::class,'store']);
+
+
+Route::get('/fasicule',[fasiculeController::class,'create']);
+Route::post('/fasicule',[fasiculeController::class,'store']);
 
 
 

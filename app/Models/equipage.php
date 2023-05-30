@@ -19,10 +19,11 @@ class equipage extends Model
     }
 
     protected $fillable = [
-        //'marin_id',
-        'navire_id',
-        'date_debut_member',
+        'date_debut_membre',
         'date_fin_membre',
+        'marin_id',
+        'navire_id',
+
 
     ];
 

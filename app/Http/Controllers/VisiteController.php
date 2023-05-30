@@ -23,10 +23,10 @@ class VisiteController extends Controller
 
          $marin = Marin::where('Nom', $attributes['marin'])->firstOrFail();
        
-        $bondembarquement = new visitemedical($attributes);
-        $bondembarquement->user_id = auth()->id();
-        $bondembarquement->marin_id = $marin->id;
-        $bondembarquement->save();
+        $visitemedical= new visitemedical($attributes);
+        $visitemedical->user_id = auth()->id();
+        $visitemedical->marin_id = $marin->id;
+        $visitemedical->save();
 
         return redirect('/');
         }

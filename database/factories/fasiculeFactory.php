@@ -19,7 +19,7 @@ class fasiculeFactory extends Factory
         return [
             'user_id'=> User::factory(),
             'marin_id'=> Marin::factory(),
-            'Nom' => $this->faker->name(),
+            'numero' => $this->faker->numberBetween(1,100),
         ];
     }
 }
