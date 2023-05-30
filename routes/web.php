@@ -9,6 +9,8 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MarinController;
 use App\Http\Controllers\EmbarquementController;
+use App\Http\Controllers\VisiteController;
+
 
 use App\Models\User;
 
@@ -54,11 +56,16 @@ Route::post('/login',[AuthController::class,'store'])->middleware('guest');
 
 Route::post('/logout',[AuthController::class,'destroy'])->middleware('auth');
 
-Route::get('/ajoute-marin',[MarinController::class,'create'])->middleware('admin:gestionnaire,admin');
-Route::post('/ajoute-marin',[MarinController::class,'store'])->middleware('admin:gestionnaire,admin');
+Route::get('/ajoute-marin',[MarinController::class,'create'])->middleware('admin:gestionnaire,admin,directeur');
+Route::post('/ajoute-marin',[MarinController::class,'store'])->middleware('admin:gestionnaire,admin,directeur');
 
-Route::get('/bondembarquement',[EmbarquementController::class,'create']);
-Route::post('/bondembarquement',[EmbarquementController::class,'store']);
+Route::get('/bondembarquement',[EmbarquementController::class,'create'])->middleware('admin:gestionnaire,admin,directeur');
+Route::post('/bondembarquement',[EmbarquementController::class,'store'])->middleware('admin:gestionnaire,admin,directeur');
+
+
+Route::get('/visitemedical',[VisiteController::class,'create']);
+Route::post('/visitemedical',[VisiteController::class,'store']);
+
 
 
 

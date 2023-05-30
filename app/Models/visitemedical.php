@@ -17,7 +17,7 @@ class visitemedical extends Model
     protected $fillable = [
         'marin_id',
         'date_visite',
-        'duree',
+        'Duree',
 
     ];
 }
