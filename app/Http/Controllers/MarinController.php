@@ -43,14 +43,15 @@ class MarinController extends Controller
         // 2) Marin::create(array_merge($donne, ['user_id' => auth()->user()->id]));
 
         return redirect('/')->with('success', 'GREAT, Marin has been created');
+     }
 
 
+     public function search(){
 
-
-
-
-
-    }
+           return view('liste-marin', [
+            'marins' => Marin::latest()->filter(request(['search','situation']))->get()
+        ]);
+     }
 
 
 

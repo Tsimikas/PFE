@@ -16,6 +16,7 @@ class situation extends Model
         'user_id',
         'date_debut',
         'date_fin',
+        'situation'
 
     ];
 
@@ -24,7 +25,7 @@ class situation extends Model
     }
 
     public function User(){
-        return $this->belongsTO(User::class); 
+        return $this->belongsTO(User::class);
     }
 
 

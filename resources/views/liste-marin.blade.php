@@ -70,6 +70,37 @@ tbody tr:nth-child(odd) {
 .action-btn:hover {
   background-color: #23527c;
 }
+
+.search-container {
+  display: flex;
+  align-items: center;
+}
+
+input[type="text"] {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 8px;
+}
+
+button[type="submit"] {
+  padding: 8px 12px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+
+
+
+
+
         </style>
     <body>
         @if (session()->has('success'))
@@ -83,7 +114,16 @@ tbody tr:nth-child(odd) {
         </div>
     @endif
 
-   <table>
+    <div class="search-container">
+        <form action="#" method="GET">
+            @csrf
+            <input type="text" placeholder="Search..." name="search">
+            <input type="text" placeholder="Search situation" name="situation">
+            <button type="submit">Search</button>
+        </form>
+    </div>
+
+    <table>
     <thead>
         <tr>
             <th>Nom</th>

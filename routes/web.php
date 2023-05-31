@@ -37,10 +37,7 @@ Route::get('/', function () {
  return view('welcome');
 });
 
-Route::get('/liste-marin',function(){
-   $marins = Marin::all();
-   return view('liste-marin', ['marins' => $marins]);
-});
+Route::get('/liste-marin',[MarinController::class,'search']);
 
 Route::get('/liste-familiarise',function(){
    $familiarisations = familiarisation::all();
@@ -71,22 +68,24 @@ Route::get('/visitemedical',[VisiteController::class,'create'])->middleware('adm
 Route::post('/visitemedical',[VisiteController::class,'store'])->middleware('admin:gestionnaire,admin,directeur');
 
 
-Route::get('/equipage',[equipageController::class,'create']);
-Route::post('/equipage',[equipageController::class,'store']);
+Route::get('/equipage',[equipageController::class,'create'])->middleware('admin:gestionnaire,admin,directeur');
+Route::post('/equipage',[equipageController::class,'store'])->middleware('admin:gestionnaire,admin,directeur');
 
 
-Route::get('/fasicule',[fasiculeController::class,'create']);
-Route::post('/fasicule',[fasiculeController::class,'store']);
 
-Route::get('/familiarisation',[familiarisationController::class,'create']);
-Route::post('/familiarisation',[familiarisationController::class,'store']);
+Route::get('/fasicule',[fasiculeController::class,'create'])->middleware('admin:gestionnaire,admin,directeur');
+Route::post('/fasicule',[fasiculeController::class,'store'])->middleware('admin:gestionnaire,admin,directeur');
+
+Route::get('/familiarisation',[familiarisationController::class,'create'])->middleware('admin:gestionnaire,admin,directeur');
+Route::post('/familiarisation',[familiarisationController::class,'store'])->middleware('admin:gestionnaire,admin,directeur');
 
 
-Route::get('/situation',[situationController::class,'create']);
-Route::post('/situation',[situationController::class,'store']);
+Route::get('/situation',[situationController::class,'create'])->middleware('admin:gestionnaire,admin,directeur');
+Route::post('/situation',[situationController::class,'store'])->middleware('admin:gestionnaire,admin,directeur');
 
-Route::get('/contrat',[contratController::class,'create']);
-Route::post('/contrat',[contratController::class,'store']);
+Route::get('/contrat',[contratController::class,'create'])->middleware('admin:gestionnaire,admin,directeur');
+Route::post('/contrat',[contratController::class,'store'])->middleware('admin:gestionnaire,admin,directeur');
+
 
 
 
