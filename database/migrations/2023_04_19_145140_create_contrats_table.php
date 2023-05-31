@@ -16,7 +16,7 @@ class CreateContratsTable extends Migration
         Schema::create('contrats', function (Blueprint $table) {
             $table->id();
             $table->date('date_debut');
-            $table->date('date_fin');
+            $table->date('date_fin')->nullable();
             $table->enum('type',['CDD','CDI'] )->default('CDD');
             $table->foreignId('marin_id')->constrained();
             $table->foreignId('user_id')->constrained();

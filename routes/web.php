@@ -14,9 +14,8 @@ use App\Http\Controllers\VisiteController;
 use App\Http\Controllers\fasiculeController;
 use App\Http\Controllers\familiarisationController;
 use App\Http\Controllers\situationController;
-
-
-
+use App\Http\Controllers\contratController;
+use App\Models\contrat;
 use App\Models\User;
 
 /*
@@ -85,6 +84,10 @@ Route::post('/familiarisation',[familiarisationController::class,'store']);
 
 Route::get('/situation',[situationController::class,'create']);
 Route::post('/situation',[situationController::class,'store']);
+
+Route::get('/contrat',[contratController::class,'create']);
+Route::post('/contrat',[contratController::class,'store']);
+
 
 
 

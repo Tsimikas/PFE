@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\contrat;
 use App\Models\Marin;
-use App\Models\situation;
 use Illuminate\Http\Request;
 
-class situationController extends Controller
+class contratController extends Controller
 {
     public function create(){
-        return view('/situation');
+        return view('/contrat');
     }
 
     public function store(){
@@ -17,8 +17,8 @@ class situationController extends Controller
         $attributes = request()->validate([
              'marin'=>['required','string', 'exists:Marins,Nom'],
              'date_debut'=>['required','date'],
-             'date_fin'=>['required','date'],
-             'situation'=>['required',],
+             'date_fin'=>['required_if:type,CDD'],
+             'type'=>['in:CDD,CDI','required'],
 
 
          ]);
@@ -26,11 +26,10 @@ class situationController extends Controller
          $marin = Marin::where('Nom', $attributes['marin'])->firstOrFail();
 
 
-
-        $situation = new situation($attributes);
-        $situation->user_id = auth()->id();
-        $situation->marin_id = $marin->id;
-        $situation->save();
+        $contrat = new contrat($attributes);
+        $contrat->user_id = auth()->id();
+        $contrat->marin_id = $marin->id;
+        $contrat->save();
 
         return redirect('/');
         }
