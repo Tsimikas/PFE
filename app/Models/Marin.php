@@ -80,13 +80,15 @@ class Marin extends Model
     public function scopeFilter($query, array $filters)
 {
     $query->when($filters['search'] ?? false, fn ($query, $search) =>
-        $query->where('Nom', 'like', '%' . $search . '%')
+        $query->where(fn($query)=>
+            $query->where('Nom', 'like', '%' . $search . '%')
             ->orWhere('Prenom', 'like', '%' . $search . '%')
             ->orWhere('email', 'like', '%' . $search . '%')
             ->orWhere('Matricule', 'like', '%' . $search . '%')
             ->orWhere('Date_Naissance', 'like', '%' . $search . '%')
             ->orWhere('Numero_telephone', 'like', '%' . $search . '%')
             ->orWhere('Post_travail', 'like', '%' . $search . '%')
+        )
     );
 
     $query->when($filters['situation'] ?? false, fn ($query, $situation) =>
@@ -95,28 +97,4 @@ class Marin extends Model
         )
     );
 }
-
-//     public function scopeFilter($query, array $filters) {
-
-//         $query ->when($filters['search'] ?? false, fn($query,$search)=>
-
-//             $query ->where('Nom','like','%'. $search . '%')
-//             ->orwhere('Prenom','like','%'. $search . '%')
-//             ->orwhere('email','like','%'. $search . '%')
-//             ->orwhere('Matricule','like','%'. $search . '%')
-//             ->orwhere('Date_Naissance','like','%'. $search . '%')
-//             ->orwhere('Numero_telephone','like','%'. $search . '%')
-//             ->orwhere('Post_travail','like','%'. $search . '%'));
-
-
-//             $query ->when($filters['situation'] ?? false, fn($query,$situation)=>
-//             $query ->whereExists(fn($query) =>
-
-//              $query ->from('situations')
-//             //->whereColumn('situations.id','marins.id')
-//             ->where('situation', $situation))
-//           );
-
-
-//  }
 }
