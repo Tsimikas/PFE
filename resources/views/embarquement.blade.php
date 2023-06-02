@@ -205,12 +205,16 @@ font-size: 0.8rem;
       @error('marin_name')
       <p class="error"> {{$message}} </p>
       @enderror
-  
+
+
+      <label for="date_embarquement" id="dateEmbarquementLabel">Date Embarquement</label>
       <input placeholder="Date Embarquement" type="date" id="date_embarquement" name="date_embarquement"required />
       @error('date_embarquement')
       <p class="error"> {{$message}} </p>
       @enderror
 
+
+      <label for="date_debarquement" id="dateDebarquementLabel">Date Debarquement</label>
       <input placeholder="Date Debarquement" type="date" id="date_debarquement" name="date_debarquement" required />
       @error('date_debarquement')
       <p class="error"> {{$message}} </p>
@@ -230,6 +234,47 @@ font-size: 0.8rem;
           container.fadeOut();
         }
       });
+
+      
+      var dateEmbarquementInput = document.getElementById("date_embarquement");
+      var dateDebarquementInput = document.getElementById("date_debarquement");
+      var dateEmbarquementLabel = document.getElementById("dateEmbarquementLabel");
+      var dateDebarquementLabel = document.getElementById("dateDebarquementLabel");
+
+      // Hide the labels when the input fields gain focus
+      dateEmbarquementInput.addEventListener("focus", function() {
+        dateEmbarquementLabel.style.display = "none";
+      });
+
+      dateDebarquementInput.addEventListener("focus", function() {
+        dateDebarquementLabel.style.display = "none";
+      });
+
+      // Show the labels when the input fields lose focus and are empty
+      dateEmbarquementInput.addEventListener("blur", function() {
+        if (!dateEmbarquementInput.value) {
+          dateEmbarquementLabel.style.display = "block";
+        }
+      });
+
+      dateDebarquementInput.addEventListener("blur", function() {
+        if (!dateDebarquementInput.value) {
+          dateDebarquementLabel.style.display = "block";
+        }
+      });
+
+      // Check if the input fields have values on page load and hide/show the labels accordingly
+      if (dateEmbarquementInput.value) {
+        dateEmbarquementLabel.style.display = "none";
+      } else {
+        dateEmbarquementLabel.style.display = "block";
+      }
+
+      if (dateDebarquementInput.value) {
+        dateDebarquementLabel.style.display = "none";
+      } else {
+        dateDebarquementLabel.style.display = "block";
+      }
 
     });
   </script>

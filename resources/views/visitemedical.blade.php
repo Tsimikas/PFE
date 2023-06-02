@@ -183,7 +183,8 @@ font-size: 0.8rem;
       @error('marin')
       <p class="error"> {{$message}} </p>
       @enderror
-  
+
+      <label for="date_visite" id="dateVisiteLabel">Date de la visite</label> 
       <input placeholder="Date de la visite" type="date" id="date_visite" name="date_visite"required />
       @error('date_visite')
       <p class="error"> {{$message}} </p>
@@ -210,6 +211,27 @@ font-size: 0.8rem;
           container.fadeOut();
         }
       });
+      var dateVisiteInput = document.getElementById("date_visite");
+      var dateVisiteLabel = document.getElementById("dateVisiteLabel");
+
+      // Hide the label when the input field gains focus
+      dateVisiteInput.addEventListener("focus", function() {
+        dateVisiteLabel.style.display = "none";
+      });
+
+      // Show the label when the input field loses focus and is empty
+      dateVisiteInput.addEventListener("blur", function() {
+        if (!dateVisiteInput.value) {
+          dateVisiteLabel.style.display = "block";
+        }
+      });
+
+      // Check if the input field has a value on page load and hide/show the label accordingly
+      if (dateVisiteInput.value) {
+        dateVisiteLabel.style.display = "none";
+      } else {
+        dateVisiteLabel.style.display = "block";
+      }
     });
   </script>
 </body>

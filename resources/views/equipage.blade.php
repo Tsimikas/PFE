@@ -195,12 +195,14 @@ font-size: 0.8rem;
       @error('marin')
       <p class="error"> {{$message}} </p>
       @enderror
-  
+
+      <label for="date_debut_membre" id="dateDebutMembreLabel">Date debut membre</label>
       <input placeholder="Date debut membre" type="date" id="date_debut_membre" name="date_debut_membre"required />
       @error('date_debut_membre')
       <p class="error"> {{$message}} </p>
       @enderror
 
+      <label for="date_fin_membre" id="dateFinMembreLabel">Date fin membre</label>
       <input placeholder="Date fin membre" type="date" id="date_fin_membre" name="date_fin_membre" required />
       @error('date_fin_membre')
       <p class="error"> {{$message}} </p>
@@ -232,6 +234,46 @@ font-size: 0.8rem;
           container.fadeOut();
         }
       });
+
+      var dateDebutMembreInput = document.getElementById("date_debut_membre");
+      var dateFinMembreInput = document.getElementById("date_fin_membre");
+      var dateDebutMembreLabel = document.getElementById("dateDebutMembreLabel");
+      var dateFinMembreLabel = document.getElementById("dateFinMembreLabel");
+
+      // Hide the labels when the input fields gain focus
+      dateDebutMembreInput.addEventListener("focus", function() {
+        dateDebutMembreLabel.style.display = "none";
+      });
+
+      dateFinMembreInput.addEventListener("focus", function() {
+        dateFinMembreLabel.style.display = "none";
+      });
+
+      // Show the labels when the input fields lose focus and are empty
+      dateDebutMembreInput.addEventListener("blur", function() {
+        if (!dateDebutMembreInput.value) {
+          dateDebutMembreLabel.style.display = "block";
+        }
+      });
+
+      dateFinMembreInput.addEventListener("blur", function() {
+        if (!dateFinMembreInput.value) {
+          dateFinMembreLabel.style.display = "block";
+        }
+      });
+
+      // Check if the input fields have values on page load and hide/show the labels accordingly
+      if (dateDebutMembreInput.value) {
+        dateDebutMembreLabel.style.display = "none";
+      } else {
+        dateDebutMembreLabel.style.display = "block";
+      }
+
+      if (dateFinMembreInput.value) {
+        dateFinMembreLabel.style.display = "none";
+      } else {
+        dateFinMembreLabel.style.display = "block";
+      }
 
     });
   </script>

@@ -226,13 +226,13 @@ font-size: 0.8rem;
     <form method="POST" action="/ajoute-marin" enctype="multipart/form-data">
         @csrf
 
-      <input placeholder="Nom du Marin" type="text" id="Nom" name="Nom" required 
+      <input placeholder="Nom " type="text" id="Nom" name="Nom" required 
       value="{{ old('Nom') }}" />
       @error('Nom')
       <p class="error"> {{$message}} </p>
       @enderror
   
-      <input placeholder="Prenom du marin" type="text" id="Prenom" name="Prenom" required 
+      <input placeholder="Prenom " type="text" id="Prenom" name="Prenom" required 
       value="{{old('Prenom')}}"/>
       @error('Prenom')
       <p class="error"> {{$message}} </p>
@@ -251,8 +251,10 @@ font-size: 0.8rem;
       <p class="error"> {{$message}} </p>
       @enderror
 
+
+      <label for="Date_Naissance" id="dateLabel">Date Naissance</label>
       <input placeholder="Date Naissance" type="date" id="Date_Naissance" name="Date_Naissance" required 
-      value="{{old('Date_Naissance')}}"/>
+      value="{{old('Date_Naissance')}}">
       @error('Date_Naissance')
       <p class="error"> {{$message}} </p>
       @enderror
@@ -281,7 +283,27 @@ font-size: 0.8rem;
           container.fadeOut();
         }
       });
+      var dateInput = document.getElementById("Date_Naissance");
+      var dateLabel = document.getElementById("dateLabel");
 
+      // Hide the label when the input field gains focus
+      dateInput.addEventListener("focus", function() {
+        dateLabel.style.display = "none";
+      });
+
+      // Show the label when the input field loses focus and is empty
+      dateInput.addEventListener("blur", function() {
+        if (!dateInput.value) {
+          dateLabel.style.display = "block";
+        }
+      });
+
+      // Check if the input field has a value on page load and hide/show the label accordingly
+      if (dateInput.value) {
+        dateLabel.style.display = "none";
+      } else {
+        dateLabel.style.display = "block";
+      }
     });
   </script>
 </body>

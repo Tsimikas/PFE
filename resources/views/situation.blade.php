@@ -195,12 +195,14 @@ font-size: 0.8rem;
       @error('marin')
       <p class="error"> {{$message}} </p>
       @enderror
-  
+
+      <label for="date_debut" id="dateDebutLabel">Date debut situation</label>
       <input placeholder="Date debut situation" type="date" id="date_debut" name="date_debut"required />
       @error('date_debut')
       <p class="error"> {{$message}} </p>
       @enderror
 
+      <label for="date_fin" id="dateFinLabel">Date fin situation</label>
       <input placeholder="Date fin situation" type="date" id="date_fin" name="date_fin" required />
       @error('date_fin')
       <p class="error"> {{$message}} </p>
@@ -231,6 +233,46 @@ font-size: 0.8rem;
           container.fadeOut();
         }
       });
+
+      var dateDebutInput = document.getElementById("date_debut");
+      var dateFinInput = document.getElementById("date_fin");
+      var dateDebutLabel = document.getElementById("dateDebutLabel");
+      var dateFinLabel = document.getElementById("dateFinLabel");
+
+      // Hide the labels when the input fields gain focus
+      dateDebutInput.addEventListener("focus", function() {
+        dateDebutLabel.style.display = "none";
+      });
+
+      dateFinInput.addEventListener("focus", function() {
+        dateFinLabel.style.display = "none";
+      });
+
+      // Show the labels when the input fields lose focus and are empty
+      dateDebutInput.addEventListener("blur", function() {
+        if (!dateDebutInput.value) {
+          dateDebutLabel.style.display = "block";
+        }
+      });
+
+      dateFinInput.addEventListener("blur", function() {
+        if (!dateFinInput.value) {
+          dateFinLabel.style.display = "block";
+        }
+      });
+
+      // Check if the input fields have values on page load and hide/show the labels accordingly
+      if (dateDebutInput.value) {
+        dateDebutLabel.style.display = "none";
+      } else {
+        dateDebutLabel.style.display = "block";
+      }
+
+      if (dateFinInput.value) {
+        dateFinLabel.style.display = "none";
+      } else {
+        dateFinLabel.style.display = "block";
+      }
 
     });
   </script>
