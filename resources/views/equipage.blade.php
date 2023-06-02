@@ -132,7 +132,7 @@ font-size: 0.8rem;
       background: #444;
     }
     #contactForm {
-      display: none;
+
       border: 6px solid 3324be;
       padding: 2em;
       width: 400px;
@@ -190,7 +190,7 @@ font-size: 0.8rem;
     <form method="POST" action="/equipage" enctype="multipart/form-data">
         @csrf
 
-      <input placeholder="Nom du Marin" type="text" id="marin" name="marin" required 
+      <input placeholder="Nom du Marin" type="text" id="marin" name="marin" required
       value="{{ old('marin') }}" />
       @error('marin')
       <p class="error"> {{$message}} </p>
@@ -228,12 +228,7 @@ font-size: 0.8rem;
       $('#contact').click(function() {
         $('#contactForm').fadeToggle();
       });
-      $(document).mouseup(function(e) {
-        var container = $("#contactForm");
-        if (!container.is(e.target) && container.has(e.target).length === 0) {
-          container.fadeOut();
-        }
-      });
+
 
       var dateDebutMembreInput = document.getElementById("date_debut_membre");
       var dateFinMembreInput = document.getElementById("date_fin_membre");
@@ -278,6 +273,6 @@ font-size: 0.8rem;
     });
   </script>
 </body>
-</html> 
+</html>
 
 

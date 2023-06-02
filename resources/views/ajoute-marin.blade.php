@@ -168,7 +168,7 @@
       background: #444;
     }
     #contactForm {
-      display: none;
+      overflow-y: auto;
       border: 6px solid 3324be;
       padding: 2em;
       width: 400px;
@@ -180,6 +180,7 @@
       transform: translate(-50%, -50%);
       -webkit-transform: translate(-50%, -50%);
       border-radius: 16px;
+      max-height: 95vh ;
     }
     input,
     textarea,select {
@@ -226,26 +227,26 @@ font-size: 0.8rem;
     <form method="POST" action="/ajoute-marin" enctype="multipart/form-data">
         @csrf
 
-      <input placeholder="Nom " type="text" id="Nom" name="Nom" required 
+      <input placeholder="Nom " type="text" id="Nom" name="Nom" required
       value="{{ old('Nom') }}" />
       @error('Nom')
       <p class="error"> {{$message}} </p>
       @enderror
-  
-      <input placeholder="Prenom " type="text" id="Prenom" name="Prenom" required 
+
+      <input placeholder="Prenom " type="text" id="Prenom" name="Prenom" required
       value="{{old('Prenom')}}"/>
       @error('Prenom')
       <p class="error"> {{$message}} </p>
       @enderror
 
 
-      <input placeholder="Matricule" type="text" id="Matricule" name="Matricule" required 
+      <input placeholder="Matricule" type="text" id="Matricule" name="Matricule" required
       value="{{old('Matricule')}}"/>
       @error('Matricule')
       <p class="error"> {{$message}} </p>
       @enderror
 
-      <input placeholder="Email" type="text" id="email" name="email" required 
+      <input placeholder="Email" type="text" id="email" name="email" required
       value="{{old('email')}}"/>
       @error('email')
       <p class="error"> {{$message}} </p>
@@ -253,7 +254,7 @@ font-size: 0.8rem;
 
 
       <label for="Date_Naissance" id="dateLabel">Date Naissance</label>
-      <input placeholder="Date Naissance" type="date" id="Date_Naissance" name="Date_Naissance" required 
+      <input placeholder="Date Naissance" type="date" id="Date_Naissance" name="Date_Naissance" required
       value="{{old('Date_Naissance')}}">
       @error('Date_Naissance')
       <p class="error"> {{$message}} </p>
@@ -277,12 +278,7 @@ font-size: 0.8rem;
       $('#contact').click(function() {
         $('#contactForm').fadeToggle();
       });
-      $(document).mouseup(function(e) {
-        var container = $("#contactForm");
-        if (!container.is(e.target) && container.has(e.target).length === 0) {
-          container.fadeOut();
-        }
-      });
+
       var dateInput = document.getElementById("Date_Naissance");
       var dateLabel = document.getElementById("dateLabel");
 
@@ -307,5 +303,5 @@ font-size: 0.8rem;
     });
   </script>
 </body>
-</html> 
+</html>
 

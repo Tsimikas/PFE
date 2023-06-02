@@ -97,7 +97,7 @@ font-size: 0.8rem;
     </html> --}}
 
 
-    
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -142,7 +142,7 @@ font-size: 0.8rem;
       background: #444;
     }
     #contactForm {
-      display: none;
+
       border: 6px solid 3324be;
       padding: 2em;
       width: 400px;
@@ -200,7 +200,7 @@ font-size: 0.8rem;
     <form method="POST" action="/bondembarquement"" enctype="multipart/form-data">
         @csrf
 
-      <input placeholder="Nom du Marin" type="text" id="marin_name" name="marin_name" required 
+      <input placeholder="Nom du Marin" type="text" id="marin_name" name="marin_name" required
       value="{{ old('marin_name') }}" />
       @error('marin_name')
       <p class="error"> {{$message}} </p>
@@ -228,14 +228,9 @@ font-size: 0.8rem;
       $('#contact').click(function() {
         $('#contactForm').fadeToggle();
       });
-      $(document).mouseup(function(e) {
-        var container = $("#contactForm");
-        if (!container.is(e.target) && container.has(e.target).length === 0) {
-          container.fadeOut();
-        }
-      });
 
-      
+
+
       var dateEmbarquementInput = document.getElementById("date_embarquement");
       var dateDebarquementInput = document.getElementById("date_debarquement");
       var dateEmbarquementLabel = document.getElementById("dateEmbarquementLabel");
@@ -279,6 +274,6 @@ font-size: 0.8rem;
     });
   </script>
 </body>
-</html> 
+</html>
 
 

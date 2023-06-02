@@ -129,7 +129,7 @@ font-size: 0.8rem;
       background: #444;
     }
     #contactForm {
-      display: none;
+
       border: 6px solid 3324be;
       padding: 2em;
       width: 400px;
@@ -187,26 +187,26 @@ font-size: 0.8rem;
     <form method="POST" action="/familiarisation" enctype="multipart/form-data">
         @csrf
 
-      <input placeholder="Nom du Marin" type="text" id="marin" name="marin" required 
+      <input placeholder="Nom du Marin" type="text" id="marin" name="marin" required
       value="{{ old('marin') }}" />
       @error('marin')
       <p class="error"> {{$message}} </p>
       @enderror
-  
-      <input placeholder="Fonction Actuel" type="text" id="post_actuel" name="post_actuel" required 
+
+      <input placeholder="Fonction Actuel" type="text" id="post_actuel" name="post_actuel" required
       value="{{old('post_actuel')}}"/>
       @error('post_actuel')
       <p class="error"> {{$message}} </p>
       @enderror
 
 
-      <input placeholder="Nouvelle Fonction" type="text" id="nouveau_post" name="nouveau_post" required 
+      <input placeholder="Nouvelle Fonction" type="text" id="nouveau_post" name="nouveau_post" required
       value="{{old('nouveau_post')}}"/>
       @error('nouveau_post')
       <p class="error"> {{$message}} </p>
       @enderror
 
-      <input placeholder="Cause de la familiarisation" type="text" id="cas_familiarisation" name="cas_familiarisation" required 
+      <input placeholder="Cause de la familiarisation" type="text" id="cas_familiarisation" name="cas_familiarisation" required
       value="{{old('cas_familiarisation')}}"/>
       @error('cas_familiarisation')
       <p class="error"> {{$message}} </p>
@@ -220,14 +220,9 @@ font-size: 0.8rem;
       $('#contact').click(function() {
         $('#contactForm').fadeToggle();
       });
-      $(document).mouseup(function(e) {
-        var container = $("#contactForm");
-        if (!container.is(e.target) && container.has(e.target).length === 0) {
-          container.fadeOut();
-        }
-      });
+
 
     });
   </script>
 </body>
-</html> 
+</html>

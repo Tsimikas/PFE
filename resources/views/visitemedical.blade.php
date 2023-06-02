@@ -120,7 +120,7 @@ font-size: 0.8rem;
       background: #444;
     }
     #contactForm {
-      display: none;
+
       border: 6px solid 3324be;
       padding: 2em;
       width: 400px;
@@ -178,20 +178,20 @@ font-size: 0.8rem;
     <form method="POST" action="/visitemedical" enctype="multipart/form-data">
         @csrf
 
-      <input placeholder="Nom du Marin" type="text" id="marin" name="marin" required 
+      <input placeholder="Nom du Marin" type="text" id="marin" name="marin" required
       value="{{ old('marin') }}" />
       @error('marin')
       <p class="error"> {{$message}} </p>
       @enderror
 
-      <label for="date_visite" id="dateVisiteLabel">Date de la visite</label> 
+      <label for="date_visite" id="dateVisiteLabel">Date de la visite</label>
       <input placeholder="Date de la visite" type="date" id="date_visite" name="date_visite"required />
       @error('date_visite')
       <p class="error"> {{$message}} </p>
       @enderror
 
 
-      <input placeholder="Duree de la visite" type="text" id="Duree" name="Duree" required 
+      <input placeholder="Duree de la visite" type="text" id="Duree" name="Duree" required
       value="{{ old('Duree') }}"/>
       @error('Duree')
       <p class="error"> {{$message}} </p>
@@ -205,12 +205,7 @@ font-size: 0.8rem;
       $('#contact').click(function() {
         $('#contactForm').fadeToggle();
       });
-      $(document).mouseup(function(e) {
-        var container = $("#contactForm");
-        if (!container.is(e.target) && container.has(e.target).length === 0) {
-          container.fadeOut();
-        }
-      });
+
       var dateVisiteInput = document.getElementById("date_visite");
       var dateVisiteLabel = document.getElementById("dateVisiteLabel");
 
@@ -235,7 +230,7 @@ font-size: 0.8rem;
     });
   </script>
 </body>
-</html> 
+</html>
 
 
 
