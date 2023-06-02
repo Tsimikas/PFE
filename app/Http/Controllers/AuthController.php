@@ -30,7 +30,7 @@ class AuthController extends Controller
         //auth failed
         return back()
         ->withInput()
-        ->withErrors(['Username'=>'The Username , profil or password could be wrong']);
+        ->withErrors(['password'=>'Incorrect password , username or profil']);
     }
 
 

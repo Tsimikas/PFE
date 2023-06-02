@@ -134,6 +134,7 @@ button[type="submit"]:hover {
             <th>Post travail</th>
             <th>Numero telephone</th>
             <th>Situation</th>
+            <th>Date derniere visite</th>
         </tr>
     </thead>
     <tbody>
@@ -151,6 +152,9 @@ button[type="submit"]:hover {
                  @else
                  <td>{{ optional($marin->situation)->situation }}</td>
              @endif
+                 <td>
+                    {{optional($marin->visitemedical->last())->date_visite}}
+                 </td>
                 </tr>
         @endforeach
     </tbody>
