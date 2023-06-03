@@ -9,99 +9,145 @@
 
     </head>
     <style>
-        table {
-  border-collapse: collapse;
-  width: 100%;
-  margin-bottom: 30px;
-}
+        * {
+          box-sizing: border-box;
+          -webkit-box-sizing: border-box;
+          -moz-box-sizing: border-box;
+        }
 
-/* Style pour les entêtes de colonnes */
-thead th {
-  background-color: #f2f2f2;
-  border: 1px solid #ddd;
-  padding: 12px;
-  text-align: left;
-  font-size: 14px;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
+        body {
+          font-family: "Helvetica", Arial, sans-serif;
+          -webkit-font-smoothing: antialiased;
+          background: rgba(71, 147, 227, 1);
+        }
 
-/* Style pour les cellules de données */
-tbody td {
-  border: 1px solid #ddd;
-  padding: 12px;
-  font-size: 14px;
-  vertical-align: middle;
-}
+        h2 {
+          text-align: center;
+          font-size: 18px;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          color: white;
+          padding: 30px 0;
+        }
 
-/* Style pour les liens dans les cellules de données */
-tbody td a {
-  color: #337ab7;
-  text-decoration: none;
-}
+        /* Table Styles */
 
-/* Style pour les liens au survol de la souris */
-tbody td a:hover {
-  text-decoration: underline;
-}
+        .table-wrapper {
+          margin: 10px 70px 70px;
+          box-shadow: 0px 35px 50px rgba(0, 0, 0, 0.2);
+          overflow-x: auto;
+        }
 
-/* Style pour les lignes impaires */
-tbody tr:nth-child(odd) {
-  background-color: #f9f9f9;
-}
+        .fl-table {
+          border-radius: 5px;
+          font-size: 12px;
+          font-weight: normal;
+          border: none;
+          border-collapse: collapse;
+          width: 100%;
+          max-width: 100%;
+          white-space: nowrap;
+          background-color: white;
+        }
 
-/* Style pour les boutons d'actions */
-.action-btn {
-  background-color: #337ab7;
-  color: #fff;
-  border: none;
-  padding: 6px 12px;
-  font-size: 14px;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  border-radius: 3px;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
-}
+        .fl-table td,
+        .fl-table th {
+          text-align: center;
+          padding: 8px;
+        }
 
-/* Style pour les boutons d'actions au survol de la souris */
-.action-btn:hover {
-  background-color: #23527c;
-}
+        .fl-table td {
+          border-right: 1px solid #f8f8f8;
+          font-size: 12px;
+        }
 
-.search-container {
-  display: flex;
-  align-items: center;
-}
+        .fl-table thead th {
+          color: #ffffff;
+          background: #4fc3a1;
+          font-weight: bold;
+          padding: 12px;
+        }
 
-input[type="text"] {
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  margin-right: 8px;
-}
+        .fl-table thead th:nth-child(odd) {
+          background: #324960;
+        }
 
-button[type="submit"] {
-  padding: 8px 12px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
+        .fl-table tbody tr:nth-child(even) {
+          background: #f8f8f8;
+        }
 
-button[type="submit"]:hover {
-  background-color: #0056b3;
-}
+        /* Responsive */
+
+        @media (max-width: 767px) {
+          .fl-table {
+            display: block;
+            width: 100%;
+          }
+          .table-wrapper:before {
+            content: "Scroll horizontally >";
+            display: block;
+            text-align: right;
+            font-size: 11px;
+            color: white;
+            padding: 0 0 10px;
+          }
+          .fl-table thead,
+          .fl-table tbody,
+          .fl-table thead th {
+            display: block;
+          }
+          .fl-table thead th:last-child {
+            border-bottom: none;
+          }
+          .fl-table thead {
+            float: left;
+          }
+          .fl-table tbody {
+            width: auto;
+            position: relative;
+            overflow-x: auto;
+          }
+          .fl-table td,
+          .fl-table th {
+            padding: 20px 10px;
+            height: 60px;
+            vertical-align: middle;
+            box-sizing: border-box;
+            overflow-x: hidden;
+            overflow-y: auto;
+            width: 120px;
+            font-size: 13px;
+            text-overflow: ellipsis;
+          }
+          .fl-table thead th {
+            text-align: left;
+            border-bottom: 1px solid #f7f7f9;
+          }
+          .fl-table tbody tr {
+            display: table-cell;
+          }
+          .fl-table tbody tr:nth-child(odd) {
+            background: none;
+          }
+          .fl-table tr:nth-child(even) {
+            background: transparent;
+          }
+          .fl-table tr td:nth-child(odd) {
+            background: #f8f8f8;
+            border-right: 1px solid #e6e4e4;
+          }
+          .fl-table tr td:nth-child(even) {
+            border-right: 1px solid #e6e4e4;
+          }
+          .fl-table tbody td {
+            display: block;
+            text-align: center;
+          }
+        }
 
 
+      </style>
 
-
-
-
-        </style>
     <body>
         @if (session()->has('success'))
         <div style='background: fixed;
@@ -123,7 +169,9 @@ button[type="submit"]:hover {
         </form>
     </div>
 
-    <table>
+    <div  class="table-wrapper">
+
+    <table class="fl-table">
     <thead>
         <tr>
             <th>Nom</th>
@@ -160,6 +208,6 @@ button[type="submit"]:hover {
     </tbody>
 </table>
 
-
+</div>
 
 </body>
