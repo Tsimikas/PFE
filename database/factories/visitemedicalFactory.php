@@ -17,7 +17,7 @@ class visitemedicalFactory extends Factory
     {
         return [
             'date_visite'=>$this->faker->date(),
-            'duree'=>$this->faker->date(),
+            'date_fin'=>$this->faker->date(),
             'marin_id'=> Marin::factory(),
             'user_id'=> User::factory(),
         ];

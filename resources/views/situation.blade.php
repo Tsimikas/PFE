@@ -75,7 +75,7 @@ font-size: 0.8rem;
     <select type="situation" id="situation" name="situation"  value="{{ old('situation') }}" required>
         <option value="libre">libre</option>
         <option value="embarquer">embarquer</option>
-        <option value="vacance">vacance</option>
+        <option value="embarquer">embarquer</option>
     </select>
     @error('situation')
     <p class="error"> {{$message}} </p>
@@ -211,9 +211,9 @@ font-size: 0.8rem;
 
 
       <select placeholder="Situation" type="situation" id="situation" name="situation" required>
-         <option value="libre">libre</option>
+         <option value="conge">conge</option>
+         <option value="disponible">disponible</option>
          <option value="embarquer">embarquer</option>
-         <option value="vacance">vacance</option>
      </select>
       @error('situation')
       <p class="error"> {{$message}} </p>

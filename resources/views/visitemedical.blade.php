@@ -61,9 +61,9 @@ font-size: 0.8rem;
     <p class="error"> {{$message}} </p>
     @enderror
 
-    <label for="Duree">Duration:</label>
-    <input type="text" id="Duree" name="Duree" value="{{ old('Duree') }}" required>
-    @error('Duree')
+    <label for="date_fin">Duration:</label>
+    <input type="text" id="date_fin" name="date_fin" value="{{ old('date_fin') }}" required>
+    @error('date_fin')
     <p class="error"> {{$message}} </p>
     @enderror
 
@@ -191,9 +191,9 @@ font-size: 0.8rem;
       @enderror
 
 
-      <input placeholder="Duree de la visite" type="text" id="Duree" name="Duree" required
-      value="{{ old('Duree') }}"/>
-      @error('Duree')
+      <input placeholder="Date fin de la visite" type="date" id="date_fin" name="date_fin" required
+      value="{{ old('date_fin') }}"/>
+      @error('date_fin')
       <p class="error"> {{$message}} </p>
       @enderror
 

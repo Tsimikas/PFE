@@ -17,6 +17,7 @@ class fasiculeController extends Controller
         $attributes = request()->validate([
             'numero'=>['required','numeric'],
              'marin'=>['required','string', 'exists:Marins,Matricule'],
+             'date_expriration'=>['required','date']
           
          ]);
 

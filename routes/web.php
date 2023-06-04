@@ -49,6 +49,8 @@ Route::get('/liste-navires',function(){
    return view('liste-navires', ['navires' => $navires]);
 });
 
+Route::get('/liste_bonembarquement',[MarinController::class,'liste_embarquement']);
+
 Route::get('/register',[RegisterController::class,'create']);
 Route::post('/register',[RegisterController::class,'store']);
 

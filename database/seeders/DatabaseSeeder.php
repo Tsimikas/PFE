@@ -15,7 +15,7 @@ use App\Models\fasicule;
 use App\Models\navire;
 use App\Models\situation;
 use App\Models\visitemedical;
-
+use App\Models\Port;
 
 class DatabaseSeeder extends Seeder
 {
@@ -31,6 +31,7 @@ class DatabaseSeeder extends Seeder
         marin::factory()->create();
         familiarisation::factory()->create();
         contrat::factory()->create();
+        Port::factory()->create();
         bondembarquement::factory()->create();
         bondebarquement::factory()->create();
         visitemedical::factory()->create();
@@ -62,6 +63,7 @@ class DatabaseSeeder extends Seeder
 
         situation::factory()->create();
         fasicule::factory()->create();
+       
 
 
 

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSituationsTable extends Migration
+class CreateBondembarquementsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,14 @@ class CreateSituationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('situations', function (Blueprint $table) {
+        Schema::create('bondembarquements', function (Blueprint $table) {
             $table->id();
-            $table->date('date_debut');
-            $table->date('date_fin');
-            $table->enum('situation',['disponible','conge','embarquer'])->default('conge');
+            $table->date('date_embarquement');
+            $table->string('wilaya_embarquement');
+            $table->integer('numero');
             $table->foreignId('marin_id')->constrained();
             $table->foreignId('user_id')->constrained();
+            $table->foreignId('port_id')->constrained();
             $table->timestamps();
         });
     }
@@ -31,6 +32,6 @@ class CreateSituationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('situations');
+        Schema::dropIfExists('bondembarquements');
     }
 }

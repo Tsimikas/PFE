@@ -320,7 +320,12 @@ font-size: 0.8rem;
         <p class="error"> {{$message}} </p>
       @enderror
 
-      <button class="formBtn" type="submit">Effectuer le numero</button>
+      <input placeholder="Date d'expriration" type="date" id="date_expriration" name="date_expriration" required />
+      @error('date_expriration')
+      <p class="error"> {{$message}} </p>
+      @enderror
+
+      <button class="formBtn" type="submit">Effectuer la fasicule</button>
     </form>
   </div>
   <script>

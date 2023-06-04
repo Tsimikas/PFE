@@ -252,8 +252,28 @@ font-size: 0.8rem;
       <p class="error"> {{$message}} </p>
       @enderror
 
+      
+      <input placeholder="Adress" type="text" id="adress" name="adress" required
+      value="{{old('adress')}}"/>
+      @error('adress')
+      <p class="error"> {{$message}} </p>
+      @enderror
 
-      <label for="Date_Naissance" id="dateLabel">Date Naissance</label>
+      <input placeholder="Wilaya de domicil" type="text" id="wilaya_de_domicile" name="wilaya_de_domicile" required />
+      @error('wilaya de domicile')
+      <p class="error"> {{$message}} </p>
+      @enderror
+
+
+      <input placeholder="Wilaya de naissance" type="text" id="wilaya_de_naissance" name="wilaya_de_naissance" required />
+      @error('wilaya de naissance')
+      <p class="error"> {{$message}} </p>
+      @enderror
+
+
+
+
+     <label for="Date_Naissance" id="dateLabel">Date Naissance</label>
       <input placeholder="Date Naissance" type="date" id="Date_Naissance" name="Date_Naissance" required
       value="{{old('Date_Naissance')}}">
       @error('Date_Naissance')

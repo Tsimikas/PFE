@@ -49,6 +49,10 @@ class User extends Authenticatable
         return $this->hasMany(visitemedical::class);
     }
 
+    public function Port(){
+        return $this->hasMany(Port::class);
+    }
+
 
 
 

@@ -20,12 +20,12 @@ class situation extends Model
 
     ];
 
-    public function Marin(){
-        return $this->belongsTO(Marin::class);
+    public function marin(){
+        return $this->belongsTo(Marin::class);
     }
 
     public function User(){
-        return $this->belongsTO(User::class);
+        return $this->belongsTo(User::class);
     }
 
 

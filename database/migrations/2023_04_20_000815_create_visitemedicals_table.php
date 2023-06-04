@@ -18,7 +18,7 @@ class CreateVisitemedicalsTable extends Migration
             $table->foreignId('marin_id')->constrained();
             $table->foreignId('user_id')->constrained();
             $table->date('date_visite');
-            $table->string('Duree', 50);
+            $table->date('date_fin');
             $table->timestamps();
         });
     }

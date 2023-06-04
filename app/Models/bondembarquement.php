@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Marin;
 use App\Models\User;
-
+use App\Models\Port;
 class bondembarquement extends Model
 {
     use HasFactory;
@@ -18,13 +18,19 @@ class bondembarquement extends Model
         return $this->belongsTO(User::class);
     }
 
+    public function Port(){
+        return $this->belongsTo(Port::class);
+    }
+
 
 
     protected $fillable = [
         'marin_id',
-        'date_debarquement',
+        'wilaya_embarquement',
         'date_embarquement',
-        'user_id'
+        'numero',
+        'user_id',
+        'port_id',
 
     ];
 }

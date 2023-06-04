@@ -23,6 +23,9 @@ class CreateMarinsTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('Post_travail');
             $table->string('Numero_telephone', 50);
+            $table->string('adress');
+            $table->string('wilaya_de_naissance');
+            $table->string('wilaya_de_domicile');
             $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });

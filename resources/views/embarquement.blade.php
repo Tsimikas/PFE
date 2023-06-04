@@ -74,9 +74,9 @@ font-size: 0.8rem;
 
 
       <div class="form-group">
-        <label for="date_debarquement">Date débarquement:</label>
-        <input type="date" id="date_debarquement" name="date_debarquement" value="{{ old('date_debarquement') }}"required>
-        @error('date_debarquement')
+        <label for="wilaya_embarquement">Date débarquement:</label>
+        <input type="date" id="wilaya_embarquement" name="wilaya_embarquement" value="{{ old('wilaya_embarquement') }}"required>
+        @error('wilaya_embarquement')
         <p class="error"> {{$message}} </p>
         @enderror
       </div>
@@ -214,9 +214,21 @@ font-size: 0.8rem;
       @enderror
 
 
-      <label for="date_debarquement" id="dateDebarquementLabel">Date Debarquement</label>
-      <input placeholder="Date Debarquement" type="date" id="date_debarquement" name="date_debarquement" required />
-      @error('date_debarquement')
+      
+      <input placeholder="Wilaya embarquement" type="text" id="wilaya_embarquement" name="wilaya_embarquement" required />
+      @error('wilaya_embarquement')
+      <p class="error"> {{$message}} </p>
+      @enderror
+
+      <input placeholder="Numero bon d'embarquement" type="number" id="numero" name="numero" required />
+      @error('numero')
+      <p class="error"> {{$message}} </p>
+      @enderror
+
+
+      
+      <input placeholder="Port embarquement" type="text" id="port" name="port" required />
+      @error('port')
       <p class="error"> {{$message}} </p>
       @enderror
 
@@ -232,7 +244,7 @@ font-size: 0.8rem;
 
 
       var dateEmbarquementInput = document.getElementById("date_embarquement");
-      var dateDebarquementInput = document.getElementById("date_debarquement");
+      var dateDebarquementInput = document.getElementById("wilaya_embarquement");
       var dateEmbarquementLabel = document.getElementById("dateEmbarquementLabel");
       var dateDebarquementLabel = document.getElementById("dateDebarquementLabel");
 

@@ -2,12 +2,10 @@
 
 namespace Database\Factories;
 
-use App\Models\Marin;
 use App\Models\User;
-
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class fasiculeFactory extends Factory
+class PortFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,10 +15,9 @@ class fasiculeFactory extends Factory
     public function definition()
     {
         return [
+            'Nom'=> $this->faker->name(),
             'user_id'=> User::factory(),
-            'marin_id'=> Marin::factory(),
-            'numero' => $this->faker->numberBetween(1,100),
-            'date_expriration' => $this->faker->date(),
+        
         ];
     }
 }

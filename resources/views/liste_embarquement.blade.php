@@ -1,7 +1,5 @@
 
-
-
-   <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
     <head>
         <title>Liste des marins</title>
@@ -170,42 +168,34 @@
     </div>
 
     <div  class="table-wrapper">
-        <table class="fl-table">
-            <thead>
-                <tr>
-                    <th>Nom</th>
-                    <th>Prenom</th>
-                    <th>Matricule</th>
-                    <th>Date naissance</th>
-                    <th>Email</th>
-                    <th>Post travail</th>
-                    <th>Numero telephone</th>
-                    <th>Situation</th>
-                    <th>Dernier date visite</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($marins as $marin)
-                <tr>
-                        <td>{{ $marin->Nom}}</td>
-                        <td>{{ $marin->Prenom }}</td>
-                        <td>{{ $marin->Matricule }}</td>
-                        <td>{{ $marin->Date_Naissance }}</td>
-                        <td>{{ $marin->email }}</td>
-                        <td>{{ $marin->Post_travail }}</td>
-                        <td>{{ $marin->Numero_telephone }}</td>
-                     @if (optional($marin->situation->last())->situation == 'disponible')
-                     <td> <a href="/bondembarquement" >{{optional($marin->situation->last())->situation}}</a></td>)
-                         @else
-                         <td>{{ optional($marin->situation->last())->situation }}</td>
-                     @endif
-                     <td>
-                        {{optional($marin->visitemedical->last())->date_visite}}
-                     </td>
-                        </tr>
-                @endforeach
-            </tbody>
-        </table>
-</div>
 
-</body>
+    <table class="fl-table">
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Matricule</th>
+            <th>Post travail</th>
+            <th>Numero telephone</th>
+            <th>Situation</th>
+     
+        </tr>
+    </thead>
+    <tbody>
+        @foreach ($marins as $marin)
+     
+        <tr>      {{--<ajouter un filtre ></ajouter> --}}
+                <td>{{ $marin->Nom}}</td>
+                <td>{{ $marin->Prenom }}</td>
+                <td>{{ $marin->Matricule }}</td>
+                <td>{{ $marin->Post_travail }}</td>
+                <td>{{ $marin->Numero_telephone }}</td>
+                <td>{{ optional($marin->situation->last())->situation}}</td>
+                </tr>
+        @endforeach
+       #
+    
+    </tbody>
+</table>
+
+</div>

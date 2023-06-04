@@ -44,7 +44,7 @@ class Marin extends Model
     }
 
     public function situation(){
-        return $this->hasOne(situation::class);
+        return $this->hasMany(situation::class);
     }
 
     public function User(){
@@ -73,7 +73,10 @@ class Marin extends Model
         'Numero_telephone',
         'Date_Naissance',
         'equipage_id',
-        'marin_id'
+        'marin_id',
+        'wilaya_de_naissance',
+        'wilaya_de_domicile',
+        'adress'
 
     ];
 

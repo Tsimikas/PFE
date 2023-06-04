@@ -3,6 +3,7 @@
 namespace Database\Factories;
 use App\Models\Marin;
 use App\Models\User;
+use App\Models\Port;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class bondembarquementFactory extends Factory
@@ -15,10 +16,12 @@ class bondembarquementFactory extends Factory
     public function definition()
     {
         return [
-                'date_debarquement'=> $this->faker->date(),
+                'wilaya_embarquement'=> $this->faker->lastName(),
                 'date_embarquement'=> $this->faker->date(),
+                'numero' => $this->faker->numberBetween(1,100),
                 'marin_id'=> Marin::factory(),
                 'user_id'=> User::factory(),
+                'port_id'=> Port::factory(),
 
         ];
     }

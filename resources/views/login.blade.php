@@ -828,13 +828,6 @@ body {
            <span class="star"></span>
            <span class="star"></span>
          </section>
-
-         <div class="input-container">
-            <input class="input-pwd" type="profil" id="profil" name="profil" placeholder="Enter profil">
-            @error('profil')
-            <p class="error"> {{$message}} </p>
-            @enderror
-         </div>
    
          <div class="input-container">
            <input class="input-pwd" type="password" id="password" name="password" placeholder="Enter password">

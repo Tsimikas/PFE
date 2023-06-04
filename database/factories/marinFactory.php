@@ -25,7 +25,9 @@ class marinFactory extends Factory
             'email_verified_at' => now(),
             'Numero_telephone' => $this->faker->phoneNumber(),
             'Post_travail' => $this->faker->sentence(),
-
+            'wilaya_de_naissance'=> $this->faker->name(),
+            'wilaya_de_domicile'=> $this->faker->name(),
+            'adress'=> $this->faker->name(),
             'user_id'=> User::factory()
 
         ]

@@ -17,7 +17,7 @@ class VisiteController extends Controller
 
         $attributes = request()->validate([
             'date_visite'=>['required','date'],
-             'Duree'=>['required'],
+             'date_fin'=>['required','date'],
              'marin'=>['required','string', 'exists:Marins,Matricule'],
          ]);
 
