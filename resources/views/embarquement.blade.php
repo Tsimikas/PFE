@@ -201,7 +201,7 @@ font-size: 0.8rem;
         @csrf
 
       <input placeholder="Matricule du Marin" type="text" id="marin_name" name="marin_name" required
-      value="{{ old('marin_name') }}" />
+      value="{{ old('marin_name', request('matricule')) }}" />
       @error('marin_name')
       <p class="error"> {{$message}} </p>
       @enderror

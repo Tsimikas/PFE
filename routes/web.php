@@ -59,11 +59,19 @@ Route::post('/login',[AuthController::class,'store'])->middleware('guest');
 
 Route::post('/logout',[AuthController::class,'destroy'])->middleware('auth');
 
-Route::get('/ajoute-marin',[MarinController::class,'create'])->middleware('admin:gestionnaire,admin,directeur');
-Route::post('/ajoute-marin',[MarinController::class,'store'])->middleware('admin:gestionnaire,admin,directeur');
+Route::get('/ajoute-marin',[MarinController::class,'create'])
+->middleware('admin:gestionnaire,admin,directeur');
 
-Route::get('/bondembarquement',[EmbarquementController::class,'create'])->middleware('admin:gestionnaire,admin,directeur');
-Route::post('/bondembarquement',[EmbarquementController::class,'store'])->middleware('admin:gestionnaire,admin,directeur');
+Route::post('/ajoute-marin',[MarinController::class,'store'])
+->middleware('admin:gestionnaire,admin,directeur');
+
+
+Route::get('/bondembarquement',[EmbarquementController::class,'create'])
+->middleware('admin:gestionnaire,admin,directeur')
+->name('bondembarquement.create');
+Route::post('/bondembarquement',[EmbarquementController::class,'store'])
+->middleware('admin:gestionnaire,admin,directeur')
+->name('bondembarquement.store');
 
 
 Route::get('/visitemedical',[VisiteController::class,'create'])->middleware('admin:gestionnaire,admin,directeur');
