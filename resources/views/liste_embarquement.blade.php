@@ -190,7 +190,11 @@
                 <td>{{ $marin->Matricule }}</td>
                 <td>{{ $marin->Post_travail }}</td>
                 <td>{{ $marin->Numero_telephone }}</td>
-                <td>{{ optional($marin->situation->last())->situation}}</td>
+                @if (optional($marin->situation->last())->situation == 'disponible')
+                     <td> <a href="/bondembarquement" >{{optional($marin->situation->last())->situation}}</a></td>)
+                         @else
+                         <td>{{ optional($marin->situation->last())->situation }}</td>
+                     @endif
                 </tr>
         @endforeach
        #

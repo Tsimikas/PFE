@@ -47,36 +47,60 @@ class MarinController extends Controller
         return redirect('/')->with('success', 'GREAT, Marin has been created');
      }
 
-     public function search()
-     {
-         $marins = Marin::latest()
-             ->filter(request(['search', 'situation']))
-             ->joinSub(function ($query) {
-                 $query->select('situation', 'marin_id')
-                     ->from('situations')
-                     ->whereIn('id', function ($subquery) {
-                         $subquery->selectRaw('MAX(id)')
-                             ->from('situations')
-                             ->groupBy('marin_id');
-                     });
-             }, 'latest_situation', function ($join) {
-                 $join->on('marins.id', '=', 'latest_situation.marin_id');
-             })
-             ->orderByRaw("FIELD(latest_situation.situation, 'disponible', 'conge', 'embarquer')")
-             ->select('marins.*')
-             ->get();
+ // public function search()
+   //  {
+     //    $marins = Marin::latest()
+       //      ->filter(request(['search', 'situation']))
+         //    ->joinSub(function ($query) {
+           //      $query->select('situation', 'marin_id')
+             //        ->from('situations')
+               //      ->whereIn('id', function ($subquery) {
+                 //        $subquery->selectRaw('MAX(id)')
+                   //          ->from('situations')
+                     //        ->groupBy('marin_id');
+                   //  });
+         //    }, 'latest_situation', function ($join) {
+           //      $join->on('marins.id', '=', 'latest_situation.marin_id');
+            // })
+            // ->orderByRaw("FIELD(latest_situation.situation, 'disponible', 'conge', 'embarquer')")
+            // ->select('marins.*')
+            // ->get();
      
-         return view('liste-marin', ['marins' => $marins]);
-     }
+        // return view('liste-marin', ['marins' => $marins]);
+    // }
      
+     public function search(){
+
+
+        return view('liste-marin', [
+         'marins' => Marin::latest()->filter(request(['search','situation']))->get()
+        ]);
+
+    }
      
 
 
 
      public function liste_embarquement()
-     {
+     {   $marins = Marin::latest()
+        ->filter(request(['search', 'situation']))
+        ->joinSub(function ($query) {
+            $query->select('situation', 'marin_id')
+                ->from('situations')
+                ->whereIn('id', function ($subquery) {
+                    $subquery->selectRaw('MAX(id)')
+                        ->from('situations')
+                        ->groupBy('marin_id');
+                });
+        }, 'latest_situation', function ($join) {
+            $join->on('marins.id', '=', 'latest_situation.marin_id');
+        })
+        ->orderByRaw("FIELD(latest_situation.situation, 'disponible', 'conge', 'embarquer')")
+        ->select('marins.*')
+        ->get();
+
          return view('liste_embarquement', [
-             'marins' => Marin::all()
+             'marins' => $marins
          ]);
      }
      
