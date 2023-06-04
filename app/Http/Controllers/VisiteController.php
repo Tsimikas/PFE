@@ -18,10 +18,10 @@ class VisiteController extends Controller
         $attributes = request()->validate([
             'date_visite'=>['required','date'],
              'Duree'=>['required'],
-             'marin'=>['required','string', 'exists:Marins,Nom'],
+             'marin'=>['required','string', 'exists:Marins,Matricule'],
          ]);
 
-         $marin = Marin::where('Nom', $attributes['marin'])->firstOrFail();
+         $marin = Marin::where('Matricule', $attributes['marin'])->firstOrFail();
        
         $visitemedical= new visitemedical($attributes);
         $visitemedical->user_id = auth()->id();

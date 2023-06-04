@@ -15,7 +15,7 @@ class contratController extends Controller
     public function store(){
 
         $attributes = request()->validate([
-             'marin'=>['required','string', 'exists:Marins,Nom'],
+             'marin'=>['required','string', 'exists:Marins,Matricule'],
              'date_debut'=>['required','date'],
              'date_fin'=>['required_if:type,CDD'],
              'type'=>['in:CDD,CDI','required'],
@@ -23,7 +23,7 @@ class contratController extends Controller
 
          ]);
 
-         $marin = Marin::where('Nom', $attributes['marin'])->firstOrFail();
+         $marin = Marin::where('Matricule', $attributes['marin'])->firstOrFail();
 
 
         $contrat = new contrat($attributes);

@@ -200,7 +200,7 @@ font-size: 0.8rem;
     <form method="POST" action="/bondembarquement"" enctype="multipart/form-data">
         @csrf
 
-      <input placeholder="Nom du Marin" type="text" id="marin_name" name="marin_name" required
+      <input placeholder="Matricule du Marin" type="text" id="marin_name" name="marin_name" required
       value="{{ old('marin_name') }}" />
       @error('marin_name')
       <p class="error"> {{$message}} </p>

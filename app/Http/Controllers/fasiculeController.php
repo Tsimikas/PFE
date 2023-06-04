@@ -16,11 +16,11 @@ class fasiculeController extends Controller
 
         $attributes = request()->validate([
             'numero'=>['required','numeric'],
-             'marin'=>['required','string', 'exists:Marins,Nom'],
+             'marin'=>['required','string', 'exists:Marins,Matricule'],
           
          ]);
 
-         $marin = Marin::where('Nom', $attributes['marin'])->firstOrFail();
+         $marin = Marin::where('Matricule', $attributes['marin'])->firstOrFail();
 
 
         $fasicule = new fasicule($attributes);

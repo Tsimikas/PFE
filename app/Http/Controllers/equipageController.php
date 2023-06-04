@@ -18,13 +18,13 @@ class equipageController extends Controller
         $attributes = request()->validate([
             'date_debut_membre'=>['required','date'],
              'date_fin_membre'=>['required','date'],
-             'marin'=>['required','string', 'exists:Marins,Nom'],
+             'marin'=>['required','string', 'exists:Marins,Matricule'],
              'navire'=>['required','exists:navires,nom']
          ]);
 
-         $marin = Marin::where('Nom', $attributes['marin'])->firstOrFail();
+         $marin = Marin::where('Matricule', $attributes['marin'])->firstOrFail();
          $navire = navire::where('nom',$attributes['navire'])->firstOrFail();
-       
+
         $equipage = new equipage($attributes);
        // $equipage->user_id = auth()->id();
         $equipage->marin_id = $marin->id;

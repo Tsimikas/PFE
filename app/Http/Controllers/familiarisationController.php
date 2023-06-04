@@ -16,14 +16,14 @@ class familiarisationController extends Controller
     public function store(){
 
     $attributes = request()->validate([
-         'marin'=>['required','string', 'exists:Marins,Nom'],
+         'marin'=>['required','string', 'exists:Marins,Matricule'],
          'post_actuel'=>['required','string'],
          'nouveau_post'=>['required','string'],
          'cas_familiarisation'=>['required','string'],
-      
+
      ]);
 
-     $marin = Marin::where('Nom', $attributes['marin'])->firstOrFail();
+     $marin = Marin::where('Matricule', $attributes['marin'])->firstOrFail();
 
     $familiarisation = new familiarisation($attributes);
     $familiarisation->user_id = auth()->id();

@@ -191,7 +191,7 @@ font-size: 0.8rem;
     <form method="POST" action="/contrat"" enctype="multipart/form-data">
         @csrf
 
-      <input placeholder="Nom du Marin" type="text" id="marin" name="marin" required
+      <input placeholder="Matricule du Marin" type="text" id="marin" name="marin" required
       value="{{ old('marin') }}" />
       @error('marin')
       <p class="error"> {{$message}} </p>

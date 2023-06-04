@@ -19,10 +19,10 @@ class EmbarquementController extends Controller
         $attributes = request()->validate([
             'date_embarquement'=>['required','date'],
              'date_debarquement'=>['required','date'],
-             'marin_name'=>['required','string', 'exists:Marins,Nom'],
+             'marin_name'=>['required','string', 'exists:Marins,Matricule'],
          ]);
 
-         $marin = Marin::where('Nom', $attributes['marin_name'])->firstOrFail();
+         $marin = Marin::where('Matricule', $attributes['marin_name'])->firstOrFail();
 
         $bondembarquement = new bondembarquement($attributes);
         $bondembarquement->user_id = auth()->id();
