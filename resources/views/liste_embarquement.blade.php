@@ -168,7 +168,6 @@
     </div>
 
     <div  class="table-wrapper">
-
     <table class="fl-table">
     <thead>
         <tr>
@@ -201,7 +200,7 @@
                      @endif
                 </tr>
         @endforeach
-       #
+       
     
     </tbody>
 </table>

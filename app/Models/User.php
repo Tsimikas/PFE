@@ -14,6 +14,7 @@ use App\Models\Marin;
 use App\Models\fasicule;
 use App\Models\situation;
 use App\Models\visitemedical;
+use App\Models\contrat;
 
 
 
@@ -53,6 +54,9 @@ class User extends Authenticatable
         return $this->hasMany(Port::class);
     }
 
+    public function contrat(){
+        return $this->hasMany(contrat::class);
+    }
 
 
 
