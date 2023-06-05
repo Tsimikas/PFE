@@ -65,14 +65,13 @@ Route::get('/ajoute-marin',[MarinController::class,'create'])
 Route::post('/ajoute-marin',[MarinController::class,'store'])
 ->middleware('admin:gestionnaire,admin,directeur');
 
+Route::get('/bondembarquement', [EmbarquementController::class, 'create'])
+    ->middleware('admin:gestionnaire,admin,directeur')
+    ->name('bondembarquement.create');
 
-Route::get('/bondembarquement',[EmbarquementController::class,'create'])
-->middleware('admin:gestionnaire,admin,directeur')
-->name('bondembarquement.create');
-Route::post('/bondembarquement',[EmbarquementController::class,'store'])
-->middleware('admin:gestionnaire,admin,directeur')
-->name('bondembarquement.store');
-
+Route::post('/bondembarquement', [EmbarquementController::class, 'store'])
+    ->middleware('admin:gestionnaire,admin,directeur')
+    ->name('bondembarquement.store');
 
 Route::get('/visitemedical',[VisiteController::class,'create'])->middleware('admin:gestionnaire,admin,directeur');
 Route::post('/visitemedical',[VisiteController::class,'store'])->middleware('admin:gestionnaire,admin,directeur');
@@ -95,6 +94,7 @@ Route::post('/situation',[situationController::class,'store'])->middleware('admi
 
 Route::get('/contrat',[contratController::class,'create'])->middleware('admin:gestionnaire,admin,directeur');
 Route::post('/contrat',[contratController::class,'store'])->middleware('admin:gestionnaire,admin,directeur');
+
 
 
 

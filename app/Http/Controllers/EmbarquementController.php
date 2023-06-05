@@ -34,7 +34,7 @@ class EmbarquementController extends Controller
         $bondembarquement->port_id = $port->id;
         $bondembarquement->save();
 
-        return redirect('/');
+        return redirect('/bondembarquement');
         }
 
 

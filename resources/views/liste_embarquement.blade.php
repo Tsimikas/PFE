@@ -177,12 +177,12 @@
             <th>Post travail</th>
             <th>Numero telephone</th>
             <th>Situation</th>
-     
+
         </tr>
     </thead>
     <tbody>
         @foreach ($marins as $marin)
-     
+
         <tr>      {{--<ajouter un filtre ></ajouter> --}}
                 <td>{{ $marin->Nom}}</td>
                 <td>{{ $marin->Prenom }}</td>
@@ -191,7 +191,8 @@
                 <td>{{ $marin->Numero_telephone }}</td>
                 @if (optional($marin->situation->last())->situation == 'disponible')
                 <td>
-                    <a href="{{ route('bondembarquement.create', ['matricule' => $marin->Matricule]) }}">
+                    <a href="{{ route('bondembarquement.create', ['matricule' => $marin->Matricule ,
+                    'wilaya'=> $marin->wilaya_de_domicile] ) }}">
                         {{ optional($marin->situation->last())->situation }}
                     </a>
                 </td>
@@ -200,8 +201,8 @@
                      @endif
                 </tr>
         @endforeach
-       
-    
+
+
     </tbody>
 </table>
 
