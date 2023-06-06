@@ -168,6 +168,10 @@
     </div>
 
     <div  class="table-wrapper">
+        @php
+        use Carbon\Carbon;
+        @endphp
+        
     <table class="fl-table">
     <thead>
         <tr>
@@ -177,11 +181,26 @@
             <th>Post travail</th>
             <th>Numero telephone</th>
             <th>Situation</th>
+            <th>Visite medical </th>
+            <th>Fasicule</th>
 
         </tr>
     </thead>
     <tbody>
         @foreach ($marins as $marin)
+     
+        @php
+        $lastVisitDate = optional($marin->visitemedical->last())->date_visite;
+        $lastFasicule = optional($marin->fasicule)->date_debut;
+
+        $twoYearsAgo = Carbon::now()->subYears(2);
+        $fiveYearsAgo = Carbon::now()->subYears(5);
+
+        $isMoreThanTwoYears = $lastVisitDate && $lastVisitDate < $twoYearsAgo;
+        $isMoreThanFiveYears = $lastFasicule && $lastFasicule < $fiveYearsAgo;
+
+        $situation = optional($marin->situation->last())->situation;
+        @endphp
 
         <tr>      {{--<ajouter un filtre ></ajouter> --}}
                 <td>{{ $marin->Nom}}</td>
@@ -189,17 +208,51 @@
                 <td>{{ $marin->Matricule }}</td>
                 <td>{{ $marin->Post_travail }}</td>
                 <td>{{ $marin->Numero_telephone }}</td>
-                @if (optional($marin->situation->last())->situation == 'disponible')
-                <td>
-                    <a href="{{ route('bondembarquement.create', ['matricule' => $marin->Matricule ,
-                    'wilaya'=> $marin->wilaya_de_domicile] ) }}">
-                        {{ optional($marin->situation->last())->situation }}
-                    </a>
-                </td>
-                         @else
-                         <td>{{ optional($marin->situation->last())->situation }}</td>
-                     @endif
+                @if (($situation == 'disponible' && $isMoreThanTwoYears) || ($situation == 'disponible' && $isMoreThanFiveYears))
+                        <td>
+                            {{ $situation }} mais visite ou fasicule mort
+                        </td>
+                    @elseif ($situation == 'disponible')
+                        <td>
+                            <a href="{{ route('bondembarquement.create', [
+                                'matricule' => $marin->Matricule,
+                                'wilaya' => $marin->wilaya_de_domicile, 
+                                'nom' => $marin->Nom,
+                                'prenom' => $marin->Prenom,
+                                'numero_fasicule' => optional($marin->fasicule)->numero,
+                                'debut_fasicule' => optional($marin->fasicule)->date_debut,
+                                'fin_fasicule' => optional($marin->fasicule)->date_expriration,
+                                'post_marin' => $marin->Post_travail,
+                                'date_visite' => optional($marin->visitemedical->last())->date_visite,
+                                'fin_visite' => optional($marin->visitemedical->last())->date_fin
+                            ]) }}">
+                                {{ $situation }}
+                            </a>
+                        </td>
+                    @else
+                        <td>{{ $situation }}</td>
+                    @endif
+
+                 @if ($isMoreThanTwoYears)
+                   <td>
+                    <a href="{{ route('visitemedical.create',['matricule' => $marin->Matricule,])}}">Visite medical morte</a>
+                   </td>
+                 @else
+                     <td>Good</td>
+                 @endif
+
+                 @if ($isMoreThanFiveYears)
+                     <td>
+                        <a href="{{ route('fasicule.create',['matricule' => $marin->Matricule,])}}">Fasicule morte</a>
+                     </td>
+                 @else
+                     <td>Good</td>
+                 @endif
+
+
+
                 </tr>
+            
         @endforeach
 
 

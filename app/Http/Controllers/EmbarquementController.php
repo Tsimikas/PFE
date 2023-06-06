@@ -22,10 +22,10 @@ class EmbarquementController extends Controller
              'wilaya_embarquement'=>['required'],
              'port'=>['required','string', 'exists:Ports,Nom'],
              'numero'=>['required'],
-             'marin_name'=>['required','string', 'exists:Marins,Matricule'],
+             'marin_name'=>['required','string', 'exists:Marins,Nom'],
          ]);
 
-         $marin = Marin::where('Matricule', $attributes['marin_name'])->firstOrFail();
+         $marin = Marin::where('Nom', $attributes['marin_name'])->firstOrFail();
          $port = Port::where('Nom', $attributes['port'])->firstOrFail();
 
         $bondembarquement = new bondembarquement($attributes);
@@ -34,15 +34,8 @@ class EmbarquementController extends Controller
         $bondembarquement->port_id = $port->id;
         $bondembarquement->save();
 
-        return redirect('/bondembarquement');
+        return redirect('/')->with('success', 'BON DEMBARQUEMENT CREE.');
         }
-
-
-
-
-
-
-
 }
 
 

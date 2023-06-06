@@ -95,4 +95,4 @@ tbody tr:nth-child(odd) {
         @endforeach
     </tbody>
 </table>
-</body>
+</body> 

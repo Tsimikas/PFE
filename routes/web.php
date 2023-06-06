@@ -73,8 +73,13 @@ Route::post('/bondembarquement', [EmbarquementController::class, 'store'])
     ->middleware('admin:gestionnaire,admin,directeur')
     ->name('bondembarquement.store');
 
-Route::get('/visitemedical',[VisiteController::class,'create'])->middleware('admin:gestionnaire,admin,directeur');
-Route::post('/visitemedical',[VisiteController::class,'store'])->middleware('admin:gestionnaire,admin,directeur');
+Route::get('/visitemedical',[VisiteController::class,'create'])
+->middleware('admin:gestionnaire,admin,directeur')
+->name('visitemedical.create');
+
+Route::post('/visitemedical',[VisiteController::class,'store'])
+->middleware('admin:gestionnaire,admin,directeur')
+->name('visitemedical.store');;
 
 
 Route::get('/equipage',[equipageController::class,'create'])->middleware('admin:gestionnaire,admin,directeur');
@@ -82,8 +87,12 @@ Route::post('/equipage',[equipageController::class,'store'])->middleware('admin:
 
 
 
-Route::get('/fasicule',[fasiculeController::class,'create'])->middleware('admin:gestionnaire,admin,directeur');
-Route::post('/fasicule',[fasiculeController::class,'store'])->middleware('admin:gestionnaire,admin,directeur');
+Route::get('/fasicule',[fasiculeController::class,'create'])
+->middleware('admin:gestionnaire,admin,directeur')
+->name('fasicule.create');
+Route::post('/fasicule',[fasiculeController::class,'store'])
+->middleware('admin:gestionnaire,admin,directeur')
+->name('fasicule.store');
 
 Route::get('/familiarisation',[familiarisationController::class,'create'])->middleware('admin:gestionnaire,admin,directeur');
 Route::post('/familiarisation',[familiarisationController::class,'store'])->middleware('admin:gestionnaire,admin,directeur');

@@ -19,6 +19,7 @@ class CreateFasiculesTable extends Migration
             $table->foreignId('marin_id')->constrained();
             $table->integer('numero');
             $table->date('date_expriration');
+            $table->date('date_debut');
             $table->timestamps();
         });
     }

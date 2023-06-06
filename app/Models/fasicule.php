@@ -22,7 +22,8 @@ class fasicule extends Model
         'marin_id',
         'user_id',
         'numero',
-        'date_expriration'
+        'date_expriration',
+        'date_debut'
 
     ];
 

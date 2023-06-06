@@ -55,6 +55,11 @@
                 </button>
             </a>
 
+            <a href="/liste_bonembarquement">
+            <button type="submit"> Embarquer une marin
+                </button>
+            </a>
+
             @if (auth()->user()->profil == 'admin')
             <a class=" ml-4text-sm text-gray-700 dark:text-gray-500 underline" href="/register">Create User</a>
         @endif

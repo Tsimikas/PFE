@@ -204,7 +204,7 @@ font-size: 0.8rem;
       @enderror
 
       <label for="date_fin" id="dateFinLabel">Date Fin</label>
-      <input placeholder="Date Fin" type="date" id="date_fin" name="date_fin" required />
+      <input placeholder="Date Fin" type="date" id="date_fin" name="date_fin" />
       @error('date_fin')
       <p class="error"> {{$message}} </p>
       @enderror

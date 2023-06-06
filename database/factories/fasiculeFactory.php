@@ -21,6 +21,7 @@ class fasiculeFactory extends Factory
             'marin_id'=> Marin::factory(),
             'numero' => $this->faker->numberBetween(1,100),
             'date_expriration' => $this->faker->date(),
+            'date_debut'=> $this->faker->date(),
         ];
     }
 }

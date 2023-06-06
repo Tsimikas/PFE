@@ -205,9 +205,10 @@ font-size: 0.8rem;
   }
   </script>
 </body>
-</html>
+</html> 
 
-{{--<!DOCTYPE html>
+
+{{-- <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8" />
@@ -218,3 +219,190 @@ font-size: 0.8rem;
         je suis hayder nee dans <span>{{ old('wilaya_embarquement', request('wilaya')) }}</span>
     </p>
 </body>--}}
+
+
+
+{{--<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Bon Emabarquement</title>
+</head>
+<body>
+    <form method="POST" action="/bondembarquement" enctype="multipart/form-data">
+        @csrf
+    
+        <p>Matricule du Marin: {{ request('matricule') }}</p>
+        <input type="hidden" name="marin_name" value="{{ request('matricule') }}" />
+    
+        @error('marin_name')
+        <p class="error"> {{$message}} </p>
+        @enderror
+    
+        <!-- Other form fields and submit button here -->
+    </form>
+</body>     thats a good one hayder--}} 
+
+{{--    document bon <!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <title>Bon d'embarquement</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale-1">
+        <style>
+            @page{
+                size : A4;
+                margin: 0 ;
+            }
+            body{
+              margin:2cm;
+              padding:0;
+            }
+
+           #pdf-container {
+             width:100%;
+             height:100vh;
+             overflow:hidden;
+             position: relative;  }
+
+            #pdf-content {
+                width: calc(100% + 17px); /* Adjust for the width of the hidden scrollbar */
+                height: 100%;
+                overflow: hidden; /* Hide the horizontal scrollbar */
+                margin-right: -17px; /* Adjust for the width of the hidden scrollbar */
+                padding-right: 17px; /* Adjust for the width of the hidden scrollbar */
+                box-sizing: content-box;}
+            #logo{
+                position: absolute;
+                top:0;
+                left:0;
+            }
+            h4{
+                text-align:center;
+            }
+            h6{
+                text-align:center;
+            }
+            h2{
+                text-align:center;
+            }
+
+            input[type="numbre"], 
+            input[type="text"], 
+            input[type="date"],
+            select{
+                border: none;
+                outline: none;
+                background-color: transparent;
+            }
+
+            ul {
+                margin: 0;
+                padding: 0;
+                list-style-type: none;
+            }
+
+            li {
+                margin-bottom: 5px;
+                padding: 0;
+            }
+
+
+            @media print {
+                input[type="numbre"],    
+                input[type="text"], 
+                 input[type="date"],
+                 select {
+                    border: none !important;
+                }
+            }
+
+        </style>
+    </head>
+    <body>
+
+        <div id="pdf-container">
+            <div id="pdf-content">
+                <div class="header">
+
+                <img src="C:\Users\BUYMORE\example-app\Algerie_ferries_entmv_logo.png" alt="logo" id = "logo">
+                <h4>ENTREPRISE NATIONALE DE TRASPORT MARITIME DE VOYAGEURS </h4>
+                <h4>DIRECTION ARMEMENT </h4>
+                <h6>SOUS DIRECTION ARMEMENT </h6>
+                </div>
+                <div id="uno">
+                    <p style="display: inline-block;"> Date : </p> <input style="display: inline-block;" type="date" />
+                </div>
+                <div style="border : 1px solid black; width : 100%; " ></div>
+                <h2> BON D'EMBARQUEMENT </h2>
+                <div style="border : 1px solid black; width : 100%; " ></div>
+                <form method="POST" action="/bondembarquement" enctype="multipart/form-data">
+                    @csrf
+                    <ul><li>
+                        <p> Monsieur {{ request('nom') }} {{ request('prenom')}}</p>
+                          <input type="hidden" name="marin_name" id="marin_name" value="{{ request('nom') }}" />
+                          @error('marin_name')
+                          <p class="error"> {{$message}} </p>
+                          @enderror
+                          {{--<input type="hidden" name="prenom" value="{{ request('prenom') }}" /> 
+                    </li></ul>
+
+
+                    <ul><li>
+                    <p style="display: inline-block;">Inscrit Maritime </p> <input type="numbre" name="numero" id="numero" required />
+                    @error('numero')
+                    <p class="error"> {{$message}} </p>
+                    @enderror
+                    <p style="display: inline-block;">Livret N° {{request('numero_fasicule')}} 
+                    Valable Du  {{request('debut_fasicule')}} Au  {{request('fin_fasicule')}}</p>
+                   </li></ul>
+
+                   <ul><li>
+                    <p style="display: inline-block;"> Est prévu pour embarquer sur le Car-ferry : </p>
+                    <select type="text" name="nom du navire " required>
+                        <option value="Tariq ibn Ziyad">Tariq ibn Ziyad</option>
+                        <option value="El Djazair II">El Djazair II</option>
+                        <option value="Tassili II">Tassili II</option>
+                        <option value="Badji Mokhtar 3">Badji Mokhtar 3</option>
+                    </select>
+
+                    <p  style="display: inline-block;">A : </p><input  style="display: inline-block;" placeholder="Wilaya d'embarquement" type="text" name="wilaya_embarquement" id="wilaya_embarquement" required >
+                    @error('wilaya_embarquement')
+                    <p class="error"> {{$message}} </p>
+                    @enderror
+                    <input  style="display: inline-block;" placeholder="Port d'embarquement" type="text" name="port" id="port" required>
+                    @error('port')
+                    <p class="error"> {{$message}} </p>
+                    @enderror
+              
+                    <p  style="display: inline-block;">Le : </p><input  style="display: inline-block;" type="date" name="date_embarquement" id="date_embarquement" placeholder="Date d'embarquement" required>
+                    @error('date_embarquement')
+                    <p class="error"> {{$message}} </p>
+                    @enderror
+                 <p style="display: inline-block;">En qualité de {{request('post_marin')}}</a>
+
+                  </li></ul>
+                  <ul><li>
+                    <p style="display: inline-block;">En remplacement De  </p><input style="display: inline-block;" type="text" name="Familiarisation" >
+                    <p style="display: inline-block;">Qui débarque le méme jour </p>
+
+                  
+                <div style="border : 1px solid black; width : 100%; " ></div>
+                <h5 style="display: inline-block;">VISITE MEDICALE VALABLE DU {{request('date_visite')}} AU {{request('fin_visite')}}</h5> 
+                <div style="border : 1px solid rgb(54, 39, 39); width : 100%; " ></div>
+                <h5 style="display: inline-block;"> BREVET ET CERTIFICAT REQUIS : </h5> <input type="text" name="Brevet" >
+                <h5 style="display: inline-block;"> N° : </h5> <input type="date" name="toutou" >
+                <h5 style="display: inline-block;"> Date ! </h5> <input type="date" name="date tani" >
+                <button style="margin-top: 10px" class="formBtn" onclick="printForm()" type="submit">Imprimer</button>
+                </div>
+        </div>
+               </form>
+            </div>
+        </div>
+        <script>
+              function printForm() {
+      window.print();
+          }
+        </script>
+    </body>
+</html> --}}
