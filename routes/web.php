@@ -116,4 +116,3 @@ Route::post('/contrat',[contratController::class,'store'])->middleware('admin:ge
 
 
 
-
