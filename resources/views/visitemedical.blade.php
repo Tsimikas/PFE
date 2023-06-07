@@ -230,8 +230,6 @@ font-size: 0.8rem;
     });
   </script>
 </body>
-</html>
-
-
+</html> 
 
 
