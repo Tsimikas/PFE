@@ -800,7 +800,7 @@ body {
   overflow: hidden;
   transition: .12s;
 }
-    }
+    
 
 
 </style>

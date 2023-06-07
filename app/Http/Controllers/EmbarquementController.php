@@ -22,10 +22,10 @@ class EmbarquementController extends Controller
              'wilaya_embarquement'=>['required'],
              'port'=>['required','string', 'exists:Ports,Nom'],
              'numero'=>['required'],
-             'marin_name'=>['required','string', 'exists:Marins,Nom'],
+             'marin_name'=>['required','string', 'exists:Marins,Matricule'],
          ]);
 
-         $marin = Marin::where('Nom', $attributes['marin_name'])->firstOrFail();
+         $marin = Marin::where('Matricule', $attributes['marin_name'])->firstOrFail();
          $port = Port::where('Nom', $attributes['port'])->firstOrFail();
 
         $bondembarquement = new bondembarquement($attributes);
