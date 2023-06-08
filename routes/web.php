@@ -106,6 +106,9 @@ Route::post('/contrat',[contratController::class,'store'])->middleware('admin:ge
 
 
 
+Route::get('/document',[EmbarquementController::class,'document'])
+->middleware('admin:gestionnaire,admin,directeur')
+->name('document');
 
 
 

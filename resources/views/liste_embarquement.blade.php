@@ -191,7 +191,7 @@
      
         @php
         $lastVisitDate = optional($marin->visitemedical->last())->date_visite;
-        $lastFasicule = optional($marin->fasicule)->date_debut;
+        $lastFasicule = optional($marin->fasicule->last())->date_debut;
 
         $twoYearsAgo = Carbon::now()->subYears(2);
         $fiveYearsAgo = Carbon::now()->subYears(5);
@@ -219,12 +219,12 @@
                                 'wilaya' => $marin->wilaya_de_domicile, 
                                 'nom' => $marin->Nom,
                                 'prenom' => $marin->Prenom,
-                                'numero_fasicule' => optional($marin->fasicule)->numero,
-                                'debut_fasicule' => optional($marin->fasicule)->date_debut,
-                                'fin_fasicule' => optional($marin->fasicule)->date_expriration,
+                                'numero_fasicule' => optional($marin->fasicule->last())->numero,
+                                'debut_fasicule' => optional($marin->fasicule->last())->date_debut,
+                                'fin_fasicule' => optional($marin->fasicule->last())->date_expriration,
                                 'post_marin' => $marin->Post_travail,
                                 'date_visite' => optional($marin->visitemedical->last())->date_visite,
-                                'fin_visite' => optional($marin->visitemedical->last())->date_fin
+                                'fin_visite' => optional($marin->visitemedical->last())->date_fin,
                             ]) }}">
                                 {{ $situation }}
                             </a>

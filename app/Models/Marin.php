@@ -52,7 +52,7 @@ class Marin extends Model
     }
 
     public function fasicule(){
-        return $this->hasOne(fasicule::class);
+        return $this->hasMany(fasicule::class);
     }
 
 

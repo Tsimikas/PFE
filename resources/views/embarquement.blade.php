@@ -100,6 +100,7 @@ font-size: 0.8rem;
 
 
   </style>
+
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
@@ -142,8 +143,16 @@ font-size: 0.8rem;
       <p class="error"> {{$message}} </p>
       @enderror
 
+      <input placeholder="Navire" type="text" id="navire" name="navire" required />
+      @error('navire')
+      <p class="error"> {{$message}} </p>
+      @enderror
 
-      <button class="formBtn" onclick="printForm()" type="submit">Imprimer</button>
+        <button class="formBtn" type="submit">Ok</button>
+
+    
+    
+    
 
     </form>
 
