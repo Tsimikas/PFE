@@ -15,6 +15,7 @@ use App\Http\Controllers\fasiculeController;
 use App\Http\Controllers\familiarisationController;
 use App\Http\Controllers\situationController;
 use App\Http\Controllers\contratController;
+use App\Http\Controllers\DebarquementController;
 use App\Models\contrat;
 use App\Models\User;
 
@@ -110,6 +111,15 @@ Route::get('/document',[EmbarquementController::class,'document'])
 ->middleware('admin:gestionnaire,admin,directeur')
 ->name('document');
 
+
+
+Route::get('/debarquement', [DebarquementController::class, 'create'])
+    ->middleware('admin:gestionnaire,admin,directeur')
+    ->name('bondebarquement.create');
+
+Route::post('/debarquement', [DebarquementController::class, 'store'])
+    ->middleware('admin:gestionnaire,admin,directeur')
+    ->name('bondebarquement.store');
 
 
 

@@ -17,6 +17,7 @@ class CreateBondebarquementsTable extends Migration
             $table->id();
             $table->foreignId('marin_id')->constrained();
             $table->date('date_debarquement');
+            $table->foreignId('port_id')->constrained();
             $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });

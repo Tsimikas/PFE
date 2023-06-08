@@ -229,6 +229,25 @@
                                 {{ $situation }}
                             </a>
                         </td>
+                    @elseif ($situation == 'embarquer')
+                    <td>
+                        <a href="{{ route('bondebarquement.create', [
+                            'matricule' => $marin->Matricule,
+                            'wilaya' => $marin->wilaya_de_domicile, 
+                            'nom' => $marin->Nom,
+                            'prenom' => $marin->Prenom,
+                            'numero_fasicule' => optional($marin->fasicule->last())->numero,
+                            'debut_fasicule' => optional($marin->fasicule->last())->date_debut,
+                            'fin_fasicule' => optional($marin->fasicule->last())->date_expriration,
+                            'post_marin' => $marin->Post_travail,
+                            'date_visite' => optional($marin->visitemedical->last())->date_visite,
+                            'fin_visite' => optional($marin->visitemedical->last())->date_fin,
+                            'date_embarquement' => optional($marin->bondembarquement->last())->date_embarquement,
+                        ]) }}">
+                            {{ $situation }}
+                        </a>
+                    </td>
+
                     @else
                         <td>{{ $situation }}</td>
                     @endif
