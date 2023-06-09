@@ -47,6 +47,8 @@ class EmbarquementController extends Controller
             'wilaya' => $marin->wilaya_de_domicile, 
             'nom' => $marin->Nom,
             'prenom' => $marin->Prenom,
+            'date_naissance'=>$marin->Date_Naissance,
+            'lieu_naissance' => $marin->wilaya_de_naissance,
             'numero_fasicule' => optional($marin->fasicule->last())->numero,
             'debut_fasicule' => optional($marin->fasicule->last())->date_debut,
             'fin_fasicule' => optional($marin->fasicule->last())->date_expriration,
@@ -69,6 +71,8 @@ class EmbarquementController extends Controller
                 'wilaya' => $request->wilaya,
                 'nom' => $request->nom,
                 'prenom' => $request->prenom,
+                'date_naissance'=>$request->date_naissance,
+                'lieu_naissance' => $request->lieu_naissance,
                 'numero_fasicule' => $request->numero_fasicule,
                 'debut_fasicule' => $request->debut_fasicule,
                 'fin_fasicule' => $request->fin_fasicule,
@@ -80,7 +84,7 @@ class EmbarquementController extends Controller
                 'navire' => $request->navire,
                 'today' => session('today')
             ];
-        //dd($data);
+        dd($data);
             return view('document', compact('data'));
         }
 

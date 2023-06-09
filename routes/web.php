@@ -51,6 +51,8 @@ Route::get('/liste-navires',function(){
 });
 
 Route::get('/liste_bonembarquement',[MarinController::class,'liste_embarquement']);
+Route::get('/liste_bondebarquement',[MarinController::class,'liste_debarquement']);
+
 
 Route::get('/register',[RegisterController::class,'create']);
 Route::post('/register',[RegisterController::class,'store']);

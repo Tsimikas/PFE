@@ -81,6 +81,16 @@ class MarinController extends Controller
              'marins' => $marins
          ]);
      }
+
+     public function liste_debarquement()
+     {   $marins = Marin::all();
+        return view('liste_debarquement', [
+             'marins' => $marins
+         ]);
+     }
+
+
+     
      
 
 
