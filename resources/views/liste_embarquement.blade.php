@@ -229,7 +229,7 @@
                                 {{ $situation }}
                             </a>
                         </td>
-                    @elseif ($situation == 'embarquer')
+                     @elseif ($situation == 'embarquer')
                     <td>
                         <a href="{{ route('bondebarquement.create', [
                             'matricule' => $marin->Matricule,
