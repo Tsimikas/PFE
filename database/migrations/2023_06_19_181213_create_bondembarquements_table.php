@@ -18,7 +18,7 @@ class CreateBondembarquementsTable extends Migration
             $table->date('date_embarquement');
             $table->string('wilaya_embarquement');
             $table->integer('numero');
-            $table->foreignId('marin_id')->constrained();
+            $table->foreignId('marin_id')->constrained()->onDelete('cascade');
             $table->foreignId('user_id')->constrained();
             $table->foreignId('port_id')->constrained();
             $table->timestamps();

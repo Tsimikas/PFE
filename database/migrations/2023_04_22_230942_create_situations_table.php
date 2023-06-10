@@ -18,7 +18,7 @@ class CreateSituationsTable extends Migration
             $table->date('date_debut');
             $table->date('date_fin');
             $table->enum('situation',['disponible','conge','embarquer'])->default('conge');
-            $table->foreignId('marin_id')->constrained();
+            $table->foreignId('marin_id')->constrained()->onDelete('cascade');
             $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });

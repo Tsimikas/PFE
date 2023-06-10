@@ -123,6 +123,9 @@ Route::post('/debarquement', [DebarquementController::class, 'store'])
     ->middleware('admin:gestionnaire,admin,directeur')
     ->name('bondebarquement.store');
 
+    Route::delete('/marin/{id}', [MarinController::class, 'destroy'])->middleware('admin:gestionnaire,admin,directeur');
+
+
 
 
 

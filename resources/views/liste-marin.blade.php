@@ -182,6 +182,7 @@
                     <th>Numero telephone</th>
                     <th>Situation</th>
                     <th>Dernier date visite</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -202,6 +203,15 @@
                      <td>
                         {{optional($marin->visitemedical->last())->date_visite}}
                      </td>
+
+                     <td>
+                        <form method="POST" action="/marin/{{ $marin->id }}">
+                          @csrf
+                          @method('DELETE')
+                          <button type="submit">Delete</button>
+                        </form>
+                       </td>
+
                         </tr>
                 @endforeach
             </tbody>

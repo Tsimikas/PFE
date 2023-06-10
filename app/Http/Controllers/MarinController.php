@@ -89,6 +89,15 @@ class MarinController extends Controller
          ]);
      }
 
+public function destroy($id)
+{
+    $marin = Marin::findOrFail($id);
+    $marin->delete();
+
+    return redirect('/')->with('success', 'Marin has been deleted');
+}
+
+
 
      
      
