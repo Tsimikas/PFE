@@ -1,134 +1,8 @@
 {{--<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Ajouter un marin</title>
-    <style>
-        /* Form Styles */
-        form {
-            max-width: 500px;
-            margin: 0 auto;
-        }
-        h1 {
-            max-width: 500px;
-            margin: 0 auto;
-
-        }
-        .form-group {
-            margin-bottom: 1rem;
-        }
-        label {
-            display: block;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-        }
-        input[type="text"],
-        input[type="email"],
-        input[type="date"],
-        input[type="number"],
-        input[type="profil"] {
-            display: block;
-            width: 100%;
-            padding: 0.5rem;
-            border: 1px solid #ccc;
-            border-radius: 0.25rem;
-            font-size: 1rem;
-            margin-top: 0.25rem;
-        }
-        button[type="submit"] {
-            display: inline-block;
-            background-color: #4CAF50;
-            color: white;
-            padding: 0.5rem 1rem;
-            border: none;
-            border-radius: 0.25rem;
-            font-size: 1rem;
-            cursor: pointer;
-        }
-        button[type="submit"]:hover {
-            background-color: #3e8e41;
-        }
-        /* Error Styles */
-        .error {
-
-            color:red;
-            margin-top: 0.25rem;
-            font-size: 0.8rem;
-        }
-    </style>
-</head>
-<body>
-    <h1>Ajouter marin</h1>
-    <form method="POST" action="/ajoute-marin" enctype="multipart/form-data">
-        @csrf
-
-        <div class="form-group">
-            <label for="Nom">Nom</label>
-            <input type="text" id="Nom" name="Nom"  value="{{ old('Nom') }}" required>
-            @error('Nom')
-            <p class="error"> {{$message}} </p>
-            @enderror
-        </div>
-
-        <div class="form-group">
-            <label for="Prenom">Prenom</label>
-            <input type="text" id="Prenom" name="Prenom"  value="{{ old('Prenom') }}" required>
-            @error('Prenom')
-            <p class="error"> {{$message}} </p>
-            @enderror
-        </div>
-
-        <div class="form-group">
-            <label for="Matricule">Matricule</label>
-            <input type="text" id="Matricule" name="Matricule" value="{{ old('Matricule') }}"required>
-            @error('Matricule')
-            <p class="error"> {{$message}} </p>
-            @enderror
-        </div>
-
-        <div class="form-group">
-            <label for="Date_Naissance">Date de Naissance</label>
-            <input type="date" id="Date_Naissance" name="Date_Naissance" value="{{ old('Date_Naissance') }}" required>
-            @error('Date_naissance')
-            <p class="error"> {{$message}} </p>
-            @enderror
-        </div>
-
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email"  value="{{ old('email') }}" required>
-            @error('email')
-            <p class="error"> {{$message}} </p>
-            @enderror
-        </div>
-        <div class="form-group">
-            <label for="Post_travail">Post de travail</label>
-            <input type="text" id="Post_travail" name="Post_travail"  value="{{ old('Post_travail') }}" required>
-            @error('Post_travail')
-            <p class="error"> {{$message}} </p>
-            @enderror
-        </div>
-
-        <div class="form-group">
-            <label for="Numero_telephone">Numero de Telephone</label>
-            <input type="number" id="Numero_telephone" name="Numero_telephone"  value="{{ old('Numero_telephone') }}" required>
-            @error('Numero_telephone')
-            <p class="error"> {{$message}} </p>
-            @enderror
-        </div>
-<button type="submit">Ajouter Marin</button>
-    </form>
-</body>
-</html> --}}
-
-
-
-
-<!DOCTYPE html>
-<html>
-<head>
   <meta charset="utf-8" />
-  <title>Familiarisation</title>
+  <title>Ajouter marin</title>
   <style>
     @import "https://fonts.googleapis.com/css?family=Poppins";
     * {
@@ -252,7 +126,7 @@ font-size: 0.8rem;
       <p class="error"> {{$message}} </p>
       @enderror
 
-      
+
       <input placeholder="Adress" type="text" id="adress" name="adress" required
       value="{{old('adress')}}"/>
       @error('adress')
@@ -323,5 +197,88 @@ font-size: 0.8rem;
     });
   </script>
 </body>
+</html> --}}
+
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <title>ShipMates</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+
+
+  <body style ="background-color: #000328;">
+<form class="form" method="POST" enctype="multipart/form-data" action="/ajoute-marin">
+    @csrf
+    <p class="heading">Ajouter un Marin</p>
+
+    <input class="input" placeholder="Nom" type="text" id="Nom" name="Nom" value="{{old('Nom')}}"/>
+    @error('Nom')
+    <p class="error"> {{$message}} </p>
+    @enderror
+
+    <input class="input" required placeholder="Prenom" type="text" id="Prenom" name="Prenom" value="{{old('Prenom')}}"/>
+    @error('Prenom')
+    <p class="error"> {{$message}} </p>
+    @enderror
+
+
+    <input class="input" required placeholder="Matricule" type="text" id="Matricule" name="Matricule"  value="{{old('Matricule')}}"/>
+    @error('Matricule')
+    <p class="error"> {{$message}} </p>
+    @enderror
+
+    <input class="input"  required placeholder="Email" type="email" value="{{old('email')}}" id="email" name="email"/>
+    @error('email')
+    <p class="error"> {{$message}} </p>
+    @enderror
+
+
+    <input class="input"  required placeholder="Adresse" type="text" id="adress" name="adress" required
+    value="{{old('adress')}}"/>
+    @error('adress')
+    <p class="error"> {{$message}} </p>
+    @enderror
+    
+    
+    <input class="input" placeholder="Wilaya domicile" type="text" id="wilaya_de_domicile" name="wilaya_de_domicile" required 
+    value="{{old('wilaya_de_domicile')}}"/>
+    @error('wilaya_de_domicile')
+    <p class="error"> {{$message}} </p>
+    @enderror
+
+
+    <input class="input" placeholder="Wilaya de naissance" type="text" id="wilaya_de_naissance" name="wilaya_de_naissance" required 
+    value="{{old('wilaya_de_naissance')}}"/>
+    @error('wilaya_de_naissance')
+    <p class="error"> {{$message}} </p>
+    @enderror
+
+
+    <input class="input" placeholder="Date Naissance" type="date" id="Date_Naissance" name="Date_Naissance" required
+    value="{{old('Date_Naissance')}}"/>
+    @error('Date_Naissance')
+    <p class="error"> {{$message}} </p>
+    @enderror
+    
+
+    <input class="input" placeholder="Fonction" type="text" id="Post_travail" name="Post_travail"  value="{{ old('Post_travail') }}" required
+    value="{{old('Date_Naissance')}}"/>
+    @error('Post_travail')
+    <p class="error"> {{$message}} </p>
+    @enderror
+
+    <input class="input" placeholder="Numero telephone"  type="number" id="Numero_telephone" name="Numero_telephone"  value="{{ old('Numero_telephone') }}" required>
+    @error('Numero_telephone')
+    <p class="error"> {{$message}} </p>
+    @enderror
+
+    <button class="btn" type="submit">Ajouter Marin</button>
+</form>
+  </body>
 </html>
 

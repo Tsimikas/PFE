@@ -1,92 +1,4 @@
-{{--<!DOCTYPE html>
-<html>
-<head>
-  <title>Medical Visit Form</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-    }
-
-    form {
-      max-width: 400px;
-      margin: 0 auto;
-    }
-
-    label {
-      display: block;
-      margin-bottom: 10px;
-    }
-
-    input[type="text"],
-    select {
-      width: 100%;
-      padding: 5px;
-      border-radius: 4px;
-      border: 1px solid #ccc;
-    }
-
-    input[type="submit"] {
-      background-color: #4CAF50;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    .error {
-
-color:red;
-margin-top: 0.25rem;
-font-size: 0.8rem;
-}
-  <
-  </style>
-</head>
-<body>
-  <h2> CREATE AN EQUIPAGE</h2>
-  <form method="POST" action="/equipage" enctype="multipart/form-data">
-   @csrf
-
-    <label for="date_debut_membre_membre">Date Debut:</label>
-    <input type="date" id="date_debut_membre_membre" name="date_debut_membre_membre" value="{{ old('date_debut_membre_membre') }}" required>
-    @error('date_debut_membre_membre')
-    <p class="error"> {{$message}} </p>
-    @enderror
-
-
-    <label for="date_fin_membre_membre">Date Fin:</label>
-    <input type="date" id="date_fin_membre_membre" name="date_fin_membre_membre" value="{{ old('date_fin_membre_membre') }}" required>
-    @error('date_fin_membre_membre')
-    <p class="error"> {{$message}} </p>
-    @enderror
-
-
-
-    <label for="marin">Marin:</label>
-    <input type="text" id="marin" name="marin" value="{{ old('marin') }}" equired>
-    @error('marin')
-    <p class="error"> {{$message}} </p>
-    @enderror
-
-
-    <label for="navire">Navire:</label>
-    <select type="text" id="navire" name="navire" value="{{ old('navire') }}" required>
-        <option value="Tariq ibn Ziyad">Tariq ibn Ziyad</option>
-        <option value="El Djazair II">El Djazair II</option>
-        <option value="Tassili II">Tassili II</option>
-        <option value="Badji Mokhtar 3">Badji Mokhtar 3</option>
-
-    </select>
-    @error('navire')
-    <p class="error"> {{$message}} </p>
-    @enderror
-
-    <input type="submit" value="Submit">
-  </form>
-</body>
-</html> --}}
+{{--}}
 
 <!DOCTYPE html>
 <html>
@@ -196,13 +108,13 @@ font-size: 0.8rem;
       <p class="error"> {{$message}} </p>
       @enderror
 
-      <label for="date_debut_membre" id="dateDebutMembreLabel">Date debut membre</label>
+      <p for="date_debut_membre" id="dateDebutMembrep">Date debut membre</p>
       <input placeholder="Date debut membre" type="date" id="date_debut_membre" name="date_debut_membre"required />
       @error('date_debut_membre')
       <p class="error"> {{$message}} </p>
       @enderror
 
-      <label for="date_fin_membre" id="dateFinMembreLabel">Date fin membre</label>
+      <p for="date_fin_membre" id="dateFinMembrep">Date fin membre</p>
       <input placeholder="Date fin membre" type="date" id="date_fin_membre" name="date_fin_membre" required />
       @error('date_fin_membre')
       <p class="error"> {{$message}} </p>
@@ -232,47 +144,101 @@ font-size: 0.8rem;
 
       var dateDebutMembreInput = document.getElementById("date_debut_membre");
       var dateFinMembreInput = document.getElementById("date_fin_membre");
-      var dateDebutMembreLabel = document.getElementById("dateDebutMembreLabel");
-      var dateFinMembreLabel = document.getElementById("dateFinMembreLabel");
+      var dateDebutMembrep = document.getElementById("dateDebutMembrep");
+      var dateFinMembrep = document.getElementById("dateFinMembrep");
 
-      // Hide the labels when the input fields gain focus
+      // Hide the ps when the input fields gain focus
       dateDebutMembreInput.addEventListener("focus", function() {
-        dateDebutMembreLabel.style.display = "none";
+        dateDebutMembrep.style.display = "none";
       });
 
       dateFinMembreInput.addEventListener("focus", function() {
-        dateFinMembreLabel.style.display = "none";
+        dateFinMembrep.style.display = "none";
       });
 
-      // Show the labels when the input fields lose focus and are empty
+      // Show the ps when the input fields lose focus and are empty
       dateDebutMembreInput.addEventListener("blur", function() {
         if (!dateDebutMembreInput.value) {
-          dateDebutMembreLabel.style.display = "block";
+          dateDebutMembrep.style.display = "block";
         }
       });
 
       dateFinMembreInput.addEventListener("blur", function() {
         if (!dateFinMembreInput.value) {
-          dateFinMembreLabel.style.display = "block";
+          dateFinMembrep.style.display = "block";
         }
       });
 
-      // Check if the input fields have values on page load and hide/show the labels accordingly
+      // Check if the input fields have values on page load and hide/show the ps accordingly
       if (dateDebutMembreInput.value) {
-        dateDebutMembreLabel.style.display = "none";
+        dateDebutMembrep.style.display = "none";
       } else {
-        dateDebutMembreLabel.style.display = "block";
+        dateDebutMembrep.style.display = "block";
       }
 
       if (dateFinMembreInput.value) {
-        dateFinMembreLabel.style.display = "none";
+        dateFinMembrep.style.display = "none";
       } else {
-        dateFinMembreLabel.style.display = "block";
+        dateFinMembrep.style.display = "block";
       }
 
     });
   </script>
 </body>
+</html> --}}
+
+<!DOCTYPE html>
+<html lang="fr"> 
+  <head>
+    <meta charset="utf-8">
+    <title>ShipMates</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+
+
+  <body style ="background-color: #000328;">
+<form class="form"  method="POST" action="/equipage" enctype="multipart/form-data">
+    @csrf
+    <p class="heading">Equipage</p>
+
+
+    <input class="input" placeholder="Matricule du Marin" type="text" id="marin" name="marin" required
+    value="{{ old('marin') }}" />
+    @error('marin')
+    <p class="error"> {{$message}} </p>
+    @enderror
+
+    <p>Date debut membre :</p>
+    <input class="input" placeholder="Date debut membre" type="date" id="date_debut_membre" name="date_debut_membre"required />
+    @error('date_debut_membre')
+    <p class="error"> {{$message}} </p>
+    @enderror
+
+    <p>Date fin membre :</p>
+    <input class="input" placeholder="Date fin membre" type="date" id="date_fin_membre" name="date_fin_membre" required />
+    @error('date_fin_membre')
+    <p class="error"> {{$message}} </p>
+    @enderror
+
+
+
+  <select class="input" placeholder="Navire" type="navire" id="navire" name="navire" required>
+       <option value="Tariq ibn Ziyad">Tariq ibn Ziyad</option>
+       <option value="El Djazair II">El Djazair II</option>
+       <option value="Tassili II">Tassili II</option>
+       <option value="Badji Mokhtar 3">Badji Mokhtar 3</option>
+   </select>
+    @error('navire')
+    <p class="error"> {{$message}} </p>
+    @enderror
+
+    
+    <button class="btn" type="submit">Done</button>
+</form>
+  </body>
 </html>
 
 

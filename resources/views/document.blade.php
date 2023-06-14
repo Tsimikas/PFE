@@ -283,6 +283,10 @@
       padding: 0;
     }
 
+    .document {
+        page-break-after: always;
+    }
+
     @media print {
         display: none;
       input[type="numbre"],
@@ -292,11 +296,54 @@
         border: none !important;
       }
     }
+
+  
+            #logo{
+                position: absolute;
+                top:0;
+                left:0;
+            }
+
+            table {
+                border-collapse: collapse;
+             }
+            .centered {
+                text-align: center;
+            }
+            table, th, td {
+                border: 1px solid black;
+                padding: 0px ;
+            }
+            .inner-table th,
+            .inner-table td {
+                border: 1px solid black;
+                padding: 0px;
+            }
+            .inner-table input[type="text"] {
+                border: none;
+                padding: 0px;
+            }
+            .inner-table {
+                border: none;
+            }
+            .left-align{
+                text-align: left;
+                margin: 0px;
+            }
+            .right-align{
+                text-align: right;
+                margin: 0px;
+            }
+
+            .souligne{
+                font-weight: bold;
+                text-decoration: underline;
+            }
   </style>
 </head>
 <body>
-  <div id="pdf-container">
-    <div id="pdf-content">
+  <div id="pdf-container-1" class="document">
+    <div id="pdf-content-1">
       <div class="header">
         <img src="C:\Users\BUYMORE\example-app\Algerie_ferries_entmv_logo.png" alt="logo" id="logo">
         <h4>ENTREPRISE NATIONALE DE TRASPORT MARITIME DE VOYAGEURS</h4>
@@ -340,14 +387,14 @@
               <h5 style="display: inline-block;"> BREVET ET CERTIFICAT REQUIS</h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <h5 style="display: inline-block;"> N° </h5> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <h5 style="display: inline-block;"> Date </h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <button class="print-button formBtn" onclick="printForm()">Imprimer</button>
+        
           </ul>
         </form>
       </div>
     </div>
   </div>
 
-  <div id="pdf-container-2">
+  <div id="pdf-container-2" class="document">
     <div id="pdf-content-2">
       <div class="header">
         <h4>ENTREPRISE NATIONALE DE TRASPORT MARITIME DE VOYAGEURS</h4>
@@ -429,6 +476,127 @@
     </div>
   </div>
   </div>
+
+  <div id="pdf-container-3" class="document">
+    <div id="pdf-content-3">
+         <div class="header">
+           <img src="C:\Users\BUYMORE\example-app\Algerie_ferries_entmv_logo.png" alt="logo" id = "logo">
+           <h4 class="centered">ENTREPRISE NATIONALE DE TRANSPORTS MARITIMES DE VOYAGEURS </h4>
+        </div>
+        <div id="uno">
+           <a>INSCRIT Fascicule NUMERO N°: {{request('numero_fasicule')}} </a>
+           <h2 class="centered">BON D'EMBARQUEMENT</h2>
+        </div>
+        <div>
+               <ul><li>
+                 <a> NOM ET PRENOM : {{request('nom')}} {{request('prenom')}} </a>
+               </li></ul>
+              <ul><li>
+               <a> NE LE : {{request('date_naissance')}} </a> 
+               <a>A : {{request('lieu_naissance')}} </a>
+               <a>BREVET (2)</a><input type="text" name="brevet" >
+              </li></ul>
+
+              <ul><li>
+               <a>DOMICILE : {{request('wilaya_de_domicile')}}</a>
+             </li></ul>
+             <ul><li>
+               <a>SITUATION DE FAMILLE </a><input type="text" name="Situation familiale" >
+               <a>ENFANT </a><input type="text" name="enfant " >
+             </li></ul>
+
+             <ul><li>
+               <a>DELEGATION</a>
+               <a>Montant</a><input type="text" name="montant" ><a>DA</a>
+               <a>a regler à</a><input type="text" name="reglement" >
+             </li></ul>
+            </br>
+            <table>
+               <tr>
+                   <th>NAVIRE</th>
+                   <th>PORT ET N° D'ARMEMENT</th>
+                   <th>GENRE DE NAVIGATION</th>
+                   <th>FONCTION</th>
+                   <th>CATEGORIE</th>
+                   <th colspan="3">EMBARQUEMENT</th>
+               </tr>
+               <tr>
+                   <td>{{request('navire')}}</td>
+                   <td>{{request('port')}}  {{request('numero_role')}}</td>
+                   <td>NR</td>
+                   <td>{{request('post_marin')}}</td>
+                   <td><input type="text" name="categorie"></td>
+                   <td colspan="2">
+                       <table class="inner-table">
+                           <tr>
+                               <th>DATE</th>
+                               <th>LIEU</th>
+                           </tr>
+                           <tr>
+                               <td>{{request('date_embarquement')}}</td>
+                               <td>{{request('wilaya_embarquement')}}</td>
+                           </tr>
+                       </table>
+                   </td>
+               </tr>
+            </table>
+            <h6 class="left-align" style="margin-top: 20px">DIRECTION ARMEMENT </br> </br> SOUS DIRECTION ARMEMENT</h6>
+            <h6 class="right-align" style="margin-bottom: 20px">ADMINISTRATION MARITIME </h6>
+           </div>
+       </div>
+   </div>
+
+
+   <div id="pdf-container-4" class='document'>
+    <div id="pdf-content-4">
+        <div class="header">
+
+        <img src="C:\Users\BUYMORE\example-app\Algerie_ferries_entmv_logo.png" alt="logo" id = "logo">
+        <h4 class="centered">ENTREPRISE NATIONALE DE TRASPORT MARITIME DE VOYAGEURS </h4>
+        <h4 class="centered">DIRECTION ARMEMENT </h4>
+        <h6 class="centered">SOUS DIRECTION ARMEMENT </h6>
+        </div>
+        <div class="right-align">
+            <a> Alger le  {{ $data['today'] }}</a>
+        </div>
+        <div style="border : 1px solid black; width : 100%; " ></div>
+        <h4 class="centered"> A Monsieur le Commissaire </h4>
+        <h4 class="centered"> Principale de la P.A.F </h4>
+        <h4 class="centered"> ALGER - PORT </h4>
+        <div style="border : 1px solid black; width : 100%; " ></div>
+    </br>
+    </br>
+        <a>OBJET : EMBARQUEMENT </a>
+    </br>
+    </br>
+        <p> Nous avons l'honneur de vous demander de bien vouloir embarquer
+    </br>
+    </br>
+            <a>Monsieur : {{request('nom')}} {{request('prenom')}} </a></br>
+            <a>Fascicule N° : {{request('numero_fasicule')}} </a> &nbsp; &nbsp; &nbsp; &nbsp; 
+            <a>Valable Du : {{request('debut_fasicule')}} </a> &nbsp; &nbsp; 
+            <a>AU : {{request('fin_fasicule')}} </a> &nbsp; &nbsp; &nbsp; &nbsp; 
+            <a>Nationalité : Algérienne </a>    </br> &nbsp; &nbsp; &nbsp; &nbsp; 
+            <a>C/F : {{request('navire')}} </a> &nbsp; &nbsp; &nbsp; &nbsp; 
+            <a>Pavillon : Algerie </a>
+    </br>
+    </br>
+    </br>
+            <p>Veuillez agréer, Monsieur le Commisaire, l'expression de nos salutations distinguées. </p>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+        <h5 class="souligne">Le Visa / du sous Directeur Personnel Naviguant</h5>
+    </div>
+</div>
+
+   <button class="print-button formBtn" onclick="printForm()">Imprimer</button>
   <script>
      function printForm() {
                 window.print();
@@ -437,4 +605,3 @@
   </body>
 
 </html>
-

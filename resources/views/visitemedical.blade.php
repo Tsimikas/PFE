@@ -1,78 +1,5 @@
-{{--<!DOCTYPE html>
-<html>
-<head>
-  <title>Medical Visit Form</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-    }
 
-    form {
-      max-width: 400px;
-      margin: 0 auto;
-    }
-
-    label {
-      display: block;
-      margin-bottom: 10px;
-    }
-
-    input[type="text"],
-    select {
-      width: 100%;
-      padding: 5px;
-      border-radius: 4px;
-      border: 1px solid #ccc;
-    }
-
-    input[type="submit"] {
-      background-color: #4CAF50;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    .error {
-
-color:red;
-margin-top: 0.25rem;
-font-size: 0.8rem;
-}
-  <
-  </style>
-</head>
-<body>
-  <h2>Medical Visit Form</h2>
-  <form method="POST" action="/visitemedical" enctype="multipart/form-data">
-   @csrf
-
-    <label for="date_visite">Date of Visit:</label>
-    <input type="date" id="date_visite" name="date_visite" value="{{ old('date_visite') }}" required>
-    @error('date_visite')
-    <p class="error"> {{$message}} </p>
-    @enderror
-
-    <label for="marin">Marin:</label>
-    <input type="text" id="marin" name="marin" value="{{ old('marin') }}" equired>
-    @error('marin')
-    <p class="error"> {{$message}} </p>
-    @enderror
-
-    <label for="date_fin">Duration:</label>
-    <input type="text" id="date_fin" name="date_fin" value="{{ old('date_fin') }}" required>
-    @error('date_fin')
-    <p class="error"> {{$message}} </p>
-    @enderror
-
-    <input type="submit" value="Submit">
-  </form>
-</body>
-</html> --}}
-
-{{-- 2 --}}
+{{--
 
 
 
@@ -230,6 +157,49 @@ font-size: 0.8rem;
     });
   </script>
 </body>
-</html> 
+</html> --}}
+
+<!DOCTYPE html>
+<html lang="fr"> 
+  <head>
+    <meta charset="utf-8">
+    <title>ShipMates</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+
+
+  <body style ="background-color: #000328;">
+<form class="form"  method="POST" action="/visitemedical" enctype="multipart/form-data">
+    @csrf
+    <p class="heading">Visite medical</p>
+
+    <input class="input" placeholder="Matricule du Marin" type="text" id="marin" name="marin" required
+      value="{{ old('marin', request('matricule'))}}" />
+      @error('marin')
+      <p class="error"> {{$message}} </p>
+      @enderror
+
+      <p>Date de la visite</p>
+      <input class="input" placeholder="Date de la visite" type="date" id="date_visite" name="date_visite"required />
+      @error('date_visite')
+      <p class="error"> {{$message}} </p>
+      @enderror
+
+      <p>Date fin visite : </p>
+      <input class="input" placeholder="Date fin de la visite" type="date" id="date_fin" name="date_fin" required
+      value="{{ old('date_fin') }}"/>
+      @error('date_fin')
+      <p class="error"> {{$message}} </p>
+      @enderror
+
+
+    
+    <button class="btn" type="submit">Cree la visite</button>
+</form>
+  </body>
+</html>
 
 

@@ -89,7 +89,7 @@ font-size: 0.8rem;
     {{-- 2 --}}
 
 
-<!DOCTYPE html>
+{{--<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8" />
@@ -273,6 +273,61 @@ font-size: 0.8rem;
     });
   </script>
 </body>
+</html> --}}
+
+
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <title>ShipMates</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+
+
+  <body style ="background-color: #000328;">
+<form class="form" method="POST" enctype="multipart/form-data" action="/contrat">
+    @csrf
+    <p class="heading">Creation d'une contrat</p>
+
+    <input class="input"  placeholder="Matricule du Marin" type="text" id="marin" name="marin" required
+    value="{{ old('marin') }}" />
+    @error('marin')
+    <p class="error"> {{$message}} </p>
+    @enderror
+
+
+    <p>Date Debut : </p>
+    <input class="input" placeholder="Date Debut " type="date" id="date_debut" name="date_debut"required />
+    @error('date_debut')
+    <p class="error"> {{$message}} </p>
+    @enderror
+
+
+    <p>Date Fin : </p>
+    <input class="input" placeholder="Date Fin" type="date" id="date_fin" name="date_fin" />
+    @error('date_fin')
+    <p class="error"> {{$message}} </p>
+    @enderror
+
+
+    <select class="input" placeholder="Type Contrat" type="date" id="type" name="type" required >
+        <option value="CDD">CDD</option>
+        <option value="CDI">CDI</option>
+      </select>
+      @error('type')
+      <p class="error"> {{$message}} </p>
+      @enderror
+
+
+    <button class="btn" type="submit">Ajouter Contrat</button>
+</form>
+  </body>
 </html>
+
+
 
 

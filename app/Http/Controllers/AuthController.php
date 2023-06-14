@@ -34,7 +34,7 @@ class AuthController extends Controller
 
     public function destroy(){
         auth()->logout();
-        return redirect('/')->with('success','Good bye!');
+        return redirect('/login')->with('success','Good bye!');
     }
 
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\bondembarquement;
 use App\Models\Marin;
+use App\Models\navire;
 use App\Models\Port;
 use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Http\Request;
@@ -31,6 +32,8 @@ class EmbarquementController extends Controller
 
          $marin = Marin::where('Matricule', $attributes['marin_name'])->firstOrFail();
          $port = Port::where('Nom', $attributes['port'])->firstOrFail();
+         $navire = navire::where('nom',$attributes['navire'])->firstOrFail();
+         
 
         $bondembarquement = new bondembarquement($attributes);
         $bondembarquement->user_id = auth()->id();
@@ -40,13 +43,15 @@ class EmbarquementController extends Controller
 
         $wilaya_embarquement = $attributes['wilaya_embarquement'];
         $date_embarquement = $attributes['date_embarquement'];
-        $navire = $attributes['navire'];
+       // $navire = $attributes['navire'];
+        $port = $attributes['port'];
 
         return redirect()->route('document', [
             'matricule' => $marin->Matricule,
             'wilaya' => $marin->wilaya_de_domicile, 
             'nom' => $marin->Nom,
             'prenom' => $marin->Prenom,
+            'wilaya_de_domicile' => $marin->wilaya_de_domicile,
             'date_naissance'=>$marin->Date_Naissance,
             'lieu_naissance' => $marin->wilaya_de_naissance,
             'numero_fasicule' => optional($marin->fasicule->last())->numero,
@@ -57,7 +62,9 @@ class EmbarquementController extends Controller
             'fin_visite' => optional($marin->visitemedical->last())->date_fin,
             'wilaya_embarquement' => $wilaya_embarquement,
             'date_embarquement' => $date_embarquement,
-            'navire'=> $navire
+            'port'=> $port,
+            'navire'=> $navire->nom,
+            'numero_role'=> $navire->numero_de_role
             ])->with('today',$today);
 
         }
@@ -82,9 +89,12 @@ class EmbarquementController extends Controller
                 'wilaya_embarquement' => $request->wilaya_embarquement,
                 'date_embarquement' => $request->date_embarquement,
                 'navire' => $request->navire,
+                'wilaya_de_domicile' => $request->wilaya_de_domicile,
+                'port'=>$request->port,
+               'numero_role'=> $request->numero_role,
                 'today' => session('today')
             ];
-        dd($data);
+        //dd($data);
             return view('document', compact('data'));
         }
 

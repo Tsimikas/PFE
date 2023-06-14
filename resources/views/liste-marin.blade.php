@@ -163,8 +163,7 @@
     <div class="search-container">
         <form action="#" method="GET">
             @csrf
-            <input type="text" placeholder="Search..." name="search">
-            <input type="text" placeholder="Search situation" name="situation">
+            <input type="text" placeholder="Search......" name="search">
             <button type="submit">Search</button>
         </form>
     </div>

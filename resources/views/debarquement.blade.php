@@ -1,5 +1,5 @@
 
-<!DOCTYPE html>
+{{--!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8" />
@@ -135,72 +135,58 @@ font-size: 0.8rem;
       <input placeholder="Navire" type="text" id="navire" name="navire" required />
       @error('navire')
       <p class="error"> {{$message}} </p>
-      @enderror
+      @enderror --}}
 
-        <button class="formBtn" type="submit">Ok</button>
+<!DOCTYPE html>
+<html lang="fr"> 
+  <head>
+    <meta charset="utf-8">
+    <title>ShipMates</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+
+
+  <body style ="background-color: #000328;">
+<form class="form" action="/debarquement" method="POST" enctype="multipart/form-data">
+    @csrf
+
+    <p class="heading">Bon debarquement</p>
+
+
+    <input class="input" laceholder="Matricule du Marin" type="text" id="marin_name" name="marin_name" required
+    value="{{ old('marin_name', request('matricule')) }}">
+    @error('marin_name')
+    <p class="error"> {{$message}} </p>
+    @enderror
+
+
+    <p>Date Debarquement :</p>
+    <input class="input" placeholder="Date Debarquement" type="date" id="date_debarquement" name="date_debarquement"required />
+    @error('date_debarquement')
+    <p class="error"> {{$message}} </p>
+    @enderror
+
+   <p>Date Embarquement :</p>
+    <input class="input" placeholder="Date Embarquement" type="date" id="date_dembarquement" name="date_dembarquement"required 
+    value="{{ request('date_embarquement')}}"/> 
+
+
+    <input class="input" placeholder="Port debarquement" type="text" id="port" name="port" required />
+    @error('port')
+    <p class="error"> {{$message}} </p>
+    @enderror
+
+
+    <input class="input" placeholder="Navire" type="text" id="navire" name="navire" required />
+    @error('navire')
+    <p class="error"> {{$message}} </p>
+    @enderror
 
     
-    
-    
-
-    </form>
-
-
-
-  </div>
-  <script>
-    $(function() {
-      $('#contact').click(function() {
-        $('#contactForm').fadeToggle();
-      });
-
-
-
-      var dateEmbarquementInput = document.getElementById("date_embarquement");
-      var dateDebarquementInput = document.getElementById("wilaya_embarquement");
-      var dateEmbarquementLabel = document.getElementById("dateEmbarquementLabel");
-      var dateDebarquementLabel = document.getElementById("dateDebarquementLabel");
-
-      // Hide the labels when the input fields gain focus
-      dateEmbarquementInput.addEventListener("focus", function() {
-        dateEmbarquementLabel.style.display = "none";
-      });
-
-      dateDebarquementInput.addEventListener("focus", function() {
-        dateDebarquementLabel.style.display = "none";
-      });
-
-      // Show the labels when the input fields lose focus and are empty
-      dateEmbarquementInput.addEventListener("blur", function() {
-        if (!dateEmbarquementInput.value) {
-          dateEmbarquementLabel.style.display = "block";
-        }
-      });
-
-      dateDebarquementInput.addEventListener("blur", function() {
-        if (!dateDebarquementInput.value) {
-          dateDebarquementLabel.style.display = "block";
-        }
-      });
-
-      // Check if the input fields have values on page load and hide/show the labels accordingly
-      if (dateEmbarquementInput.value) {
-        dateEmbarquementLabel.style.display = "none";
-      } else {
-        dateEmbarquementLabel.style.display = "block";
-      }
-
-      if (dateDebarquementInput.value) {
-        dateDebarquementLabel.style.display = "none";
-      } else {
-        dateDebarquementLabel.style.display = "block";
-      }
-
-    });
-
-    function printForm() {
-    window.print();
-  }
-  </script>
-</body>
-</html> 
+    <button class="btn" type="submit">Debarquer le marin</button>
+</form>
+  </body>
+</html>

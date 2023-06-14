@@ -57,30 +57,38 @@ class MarinController extends Controller
     }
      
 
-
-
-     public function liste_embarquement()
-     {   $marins = Marin::latest()
-        ->filter(request(['search', 'situation']))
-        ->joinSub(function ($query) {
-            $query->select('situation', 'marin_id')
-                ->from('situations')
-                ->whereIn('id', function ($subquery) {
-                    $subquery->selectRaw('MAX(id)')
-                        ->from('situations')
-                        ->groupBy('marin_id');
+    public function liste_embarquement(Request $request)
+    {
+        $search = $request->input('search');
+    
+        $marins = Marin::leftJoin('situations', function ($join) {
+                $join->on('marins.id', '=', 'situations.marin_id')
+                     ->whereRaw('situations.id = (SELECT MAX(id) FROM situations WHERE marin_id = marins.id)');
+            })
+            ->when($search, function ($query, $search) {
+                $query->where(function ($subquery) use ($search) {
+                    $subquery->where('marins.Nom', 'LIKE', '%'.$search.'%')
+                             ->orWhere('situations.situation', 'LIKE', '%'.$search.'%')
+                             ->orWhere('Prenom', 'like', '%' . $search . '%')
+                             ->orWhere('email', 'like', '%' . $search . '%')
+                             ->orWhere('Matricule', 'like', '%' . $search . '%')
+                             ->orWhere('Date_Naissance', 'like', '%' . $search . '%')
+                             ->orWhere('Numero_telephone', 'like', '%' . $search . '%')
+                             ->orWhere('Post_travail', 'like', '%' . $search . '%');
                 });
-        }, 'latest_situation', function ($join) {
-            $join->on('marins.id', '=', 'latest_situation.marin_id');
-        })
-        ->orderByRaw("FIELD(latest_situation.situation, 'disponible', 'conge', 'embarquer')")
-        ->select('marins.*')
-        ->get();
-
-         return view('liste_embarquement', [
-             'marins' => $marins
-         ]);
-     }
+            })
+            ->orderByRaw("FIELD(situations.situation, 'disponible', 'conge', 'embarquer')")
+            ->select('marins.*')
+            ->get();
+    
+        return view('liste_embarquement', [
+            'marins' => $marins,
+            'search' => $search
+        ]);
+    }
+    
+    
+    
 
      public function liste_debarquement()
      {   $marins = Marin::all();

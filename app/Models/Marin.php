@@ -94,10 +94,10 @@ class Marin extends Model
         )
     );
 
-    $query->when($filters['situation'] ?? false, fn ($query, $situation) =>
+ /*   $query->when($filters['situation'] ?? false, fn ($query, $situation) =>
         $query->whereHas('situation', fn ($query) => // whereHas ref situations table
             $query->where('situation', $situation)
         )
-    );
+    ); */
 }
 }
