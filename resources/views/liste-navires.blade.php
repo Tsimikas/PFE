@@ -180,16 +180,23 @@ tbody tr:nth-child(odd) {
                                     <a href="" class="dropdown-item">Liste Ports</a>
                                 </div>
                             </div>
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Gestion Marin</a>
-                            <div class="dropdown-menu bg-transparent border-0">
-                                <a href="ajoute-marin" class="dropdown-item">Ajoute Marin</a>
-                                <a href="fasicule" class="dropdown-item">Ajoute Fascicule</a>
-                                <a href="visitemedical" class="dropdown-item">Create Visite Medicale</a>
-                                <a href="contrat" class="dropdown-item">Create Contrat</a>
-                                <a href="familiarisation" class="dropdown-item">Familiariser</a>
-                                <a href="situation" class="dropdown-item">Situation</a>
-                                <a href="equipage" class="dropdown-item">Equipage</a>
-                            </div>
+
+
+                            <div class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Gestion Marin</a>
+                                <div class="dropdown-menu bg-transparent border-0">
+                                    <a href="ajoute-marin" class="dropdown-item">Ajoute Marin</a>
+                                    <a href="fasicule" class="dropdown-item">Ajoute Fascicule</a>
+                                    <a href="visitemedical" class="dropdown-item">Create Visite Medicale</a>
+                                    <a href="contrat" class="dropdown-item">Create Contrat</a>
+                                    <a href="familiarisation" class="dropdown-item">Familiariser</a>
+                                    <a href="situation" class="dropdown-item">Situation</a>
+                                    <a href="equipage" class="dropdown-item">Equipage</a>
+                                </div>
+                                </div>
+
+                                
+                    
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Embarquement</a>
                                 <div class="dropdown-menu bg-transparent border-0">
