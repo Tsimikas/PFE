@@ -17,6 +17,7 @@ use App\Http\Controllers\situationController;
 use App\Http\Controllers\contratController;
 use App\Http\Controllers\DebarquementController;
 use App\Models\contrat;
+use App\Models\Port;
 use App\Models\User;
 
 /*
@@ -48,6 +49,11 @@ Route::get('/liste-familiarise',function(){
 Route::get('/liste-navires',function(){
    $navires = navire::all();
    return view('liste-navires', ['navires' => $navires]);
+});
+
+Route::get('/liste-port',function(){
+    $port = Port::all();
+    return view('liste-port',['port'=> $port]);
 });
 
 Route::get('/liste_bonembarquement',[MarinController::class,'liste_embarquement']);
@@ -112,6 +118,11 @@ Route::post('/contrat',[contratController::class,'store'])->middleware('admin:ge
 Route::get('/document',[EmbarquementController::class,'document'])
 ->middleware('admin:gestionnaire,admin,directeur')
 ->name('document');
+
+
+Route::get('/imprimer-bondebarquement',[DebarquementController::class,'imprimer'])
+->middleware('admin:gestionnaire,admin,directeur')
+->name('imprimer');
 
 
 

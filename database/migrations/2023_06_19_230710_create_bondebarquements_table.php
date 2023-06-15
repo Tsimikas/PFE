@@ -17,6 +17,7 @@ class CreateBondebarquementsTable extends Migration
             $table->id();
             $table->foreignId('marin_id')->constrained()->onDelete('cascade');
             $table->date('date_debarquement');
+           // $table->date('')
             $table->foreignId('port_id')->constrained();
             $table->foreignId('user_id')->constrained();
             $table->timestamps();
