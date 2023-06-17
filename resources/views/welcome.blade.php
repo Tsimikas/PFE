@@ -21,7 +21,7 @@
         </style>
     </head>
        {{-- flash when he creat an acount --}}
-       {{-- all by me 
+       {{-- all by me
        @if (session()->has('success'))
        <div style='background: fixed;
        text-align: center;
@@ -66,13 +66,13 @@
 
              <a href="/logout">
             <button type="submit">Log out </button>
-            </a> 
+            </a>
         @else
         <a class=" ml-4text-sm text-gray-700 dark:text-gray-500 underline" href="/login">Login</a>
 
         @endauth
 
-        {{-- all by me 
+        {{-- all by me
 
          <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
             @if (Route::has('login'))
@@ -87,9 +87,9 @@
                         @endif
                     @endauth
                 </div>
-            @endif 
+            @endif
 
-           
+
          </div>
     </body>
         </html> --}}
@@ -110,8 +110,8 @@
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet"> 
-    
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
+
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
@@ -127,10 +127,20 @@
     <link href="css/style.css" rel="stylesheet">
 </head>
 
-        
-      
-        
+
+
+
         <body>
+            @if (session()->has('success'))
+            <div style='background: fixed;
+            text-align: center;
+            border: double;
+            background-color: green'>
+                <p>
+                    {{session('success')}}
+                </p>
+            </div>
+        @endif
             <div class="container-fluid position-relative d-flex p-0">
                 <!-- Spinner Start -->
                 <div id="spinner" class="show bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
@@ -139,8 +149,8 @@
                     </div>
                 </div>
                 <!-- Spinner End -->
-        
-        
+
+
                 <!-- Sidebar Start -->
                 <div class="sidebar pe-4 pb-3">
                     <nav class="navbar bg-secondary navbar-dark">
@@ -180,25 +190,25 @@
                                     <a href="equipage" class="dropdown-item">Equipage</a>
                                 </div>
                                 </div>
-                        
+
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Embarquement</a>
                                 <div class="dropdown-menu bg-transparent border-0">
                                     <a href="liste_bonembarquement" class="dropdown-item">Embarquer un Marin</a>
-                                    
+
                                 </div>
                             </div>
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Débarquement</a>
                                 <div class="dropdown-menu bg-transparent border-0">
                                     <a href="liste_bondebarquement" class="dropdown-item">Debarquer un marin</a>
-                                    
+
                                 </div>
                                 <div class="nav-item dropdown">
                                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Rapport</a>
                                     <div class="dropdown-menu bg-transparent border-0">
                                         <a href="#" class="dropdown-item">Statistique</a>
-                                        
+
                                     </div>
                             </div>
                         </div>
@@ -232,8 +242,8 @@
                         </a>
                     </div>
                 </div>
-        
-                           
+
+
                 <div class="navbar-nav ms-auto order-1">
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
@@ -247,7 +257,7 @@
                                 @csrf
 
                                 <button class="dropdown-item" type="submit"> Log Out</button>
-            
+
                         </div>
                         @endauth
                     </div>
@@ -257,20 +267,18 @@
             <!-- Navbar End -->
 
 
-            
-
 
 
 
 
             <!-- Widgets Start -->
-        
-                    
-                    
-                            
-                        
-                           
-          
+
+
+
+
+
+
+
 
 
         <!-- Back to Top -->

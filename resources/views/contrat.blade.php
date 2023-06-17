@@ -288,7 +288,7 @@ font-size: 0.8rem;
   </head>
 
 
-  <body style ="background-color: #000328;">
+  <body style="background-color: #000328; background-image: url('img/oo.jpg');">
 <form class="form" method="POST" enctype="multipart/form-data" action="/contrat">
     @csrf
     <p class="heading">Creation d'une contrat</p>

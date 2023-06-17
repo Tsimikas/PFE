@@ -188,7 +188,7 @@ font-size: 0.8rem;
 </html> --}}
 
 <!DOCTYPE html>
-<html lang="fr"> 
+<html lang="fr">
   <head>
     <meta charset="utf-8">
     <title>ShipMates</title>
@@ -196,10 +196,11 @@ font-size: 0.8rem;
     <meta content="" name="keywords">
     <meta content="" name="description">
     <link href="css/style.css" rel="stylesheet">
+
   </head>
 
 
-  <body style ="background-color: #000328;">
+  <body style="background-color: #000328; background-image: url('img/oo.jpg');">
 <form class="form"  method="POST" action="/equipage" enctype="multipart/form-data">
     @csrf
     <p class="heading">Equipage</p>
@@ -235,7 +236,7 @@ font-size: 0.8rem;
     <p class="error"> {{$message}} </p>
     @enderror
 
-    
+
     <button class="btn" type="submit">Done</button>
 </form>
   </body>

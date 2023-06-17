@@ -386,7 +386,8 @@ body {
             justify-content: center;
             position: relative;
             overflow: hidden;
-            background-color: #000328;
+            background-color:  rgb(4, 35, 138);
+            
             border-radius: 15px;
             box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.03);
             border: 0.1px solid rgba(128, 128, 128, 0.178);
@@ -512,7 +513,7 @@ body {
 
     </style>
 </head>
-<body>
+<body style="background-color: #f86c00; background-image: url('img/oo.jpg');">
     <div class="container">
         <div class="left">
             <form class="form" method="POST" action="/login" enctype="multipart/form-data">

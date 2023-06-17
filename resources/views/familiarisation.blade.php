@@ -143,7 +143,7 @@ font-size: 0.8rem;
 </html>  --}}
 
 <!DOCTYPE html>
-<html lang="fr"> 
+<html lang="fr">
   <head>
     <meta charset="utf-8">
     <title>ShipMates</title>
@@ -154,7 +154,7 @@ font-size: 0.8rem;
   </head>
 
 
-  <body style ="background-color: #000328;">
+  <body style="background-color: #000328; background-image: url('img/oo.jpg');">
 <form class="form"  method="POST" action="/familiarisation" enctype="multipart/form-data">
     @csrf
     <p class="heading">Familiarisation</p>
@@ -185,8 +185,8 @@ font-size: 0.8rem;
       @enderror
 
 
- 
-    
+
+
     <button class="btn" type="submit">Familiariser</button>
 </form>
   </body>

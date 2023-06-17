@@ -288,11 +288,13 @@
     border-color: var(--primary);
 }
 
+
+
 .form {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    background-color: #4a4afb;
+    background-color: rgb(33, 142, 192);
     padding: 2.5em;
     border-radius: 25px;
     transition: .4s ease-in-out;

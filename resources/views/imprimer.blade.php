@@ -159,10 +159,12 @@
                                                                     En deux(2) exemplaires dans un port d'escale </p>
                     <br>
                     <p>2-Indication à porter par les services de la S.M.P </p>
+
+                    <button class="print-button formBtn" onclick="printForm()">Imprimer</button>
                 </div>
             </div>
         </div>
-        <button class="print-button formBtn" onclick="printForm()">Imprimer</button>
+        
         <script>
             function printForm() {
                 window.print();

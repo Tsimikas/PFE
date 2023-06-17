@@ -139,7 +139,7 @@
 
 
 <!DOCTYPE html>
-<html lang="fr"> 
+<html lang="fr">
   <head>
     <meta charset="utf-8">
     <title>ShipMates</title>
@@ -150,12 +150,12 @@
   </head>
 
 
-  <body style ="background-color: #000328;">
+  <body style="background-color: #000328; background-image: url('img/oo.jpg');">
 <form class="form"  method="POST" action="/fasicule" enctype="multipart/form-data">
     @csrf
     <p class="heading">Fasicule</p>
-    
-    
+
+
     <input class="input" placeholder="Matricule du Marin" type="text" id="marin" name="marin" required
     value="{{ old('marin', request('matricule')) }}" />
   @error('marin')

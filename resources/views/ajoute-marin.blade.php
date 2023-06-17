@@ -211,7 +211,8 @@ font-size: 0.8rem;
   </head>
 
 
-  <body style ="background-color: #000328;">
+
+  <body style="background-color: #000328; background-image: url('img/oo.jpg');">
 <form class="form" method="POST" enctype="multipart/form-data" action="/ajoute-marin">
     @csrf
     <p class="heading">Ajouter un Marin</p>
@@ -243,16 +244,16 @@ font-size: 0.8rem;
     @error('adress')
     <p class="error"> {{$message}} </p>
     @enderror
-    
-    
-    <input class="input" placeholder="Wilaya domicile" type="text" id="wilaya_de_domicile" name="wilaya_de_domicile" required 
+
+
+    <input class="input" placeholder="Wilaya domicile" type="text" id="wilaya_de_domicile" name="wilaya_de_domicile" required
     value="{{old('wilaya_de_domicile')}}"/>
     @error('wilaya_de_domicile')
     <p class="error"> {{$message}} </p>
     @enderror
 
 
-    <input class="input" placeholder="Wilaya de naissance" type="text" id="wilaya_de_naissance" name="wilaya_de_naissance" required 
+    <input class="input" placeholder="Wilaya de naissance" type="text" id="wilaya_de_naissance" name="wilaya_de_naissance" required
     value="{{old('wilaya_de_naissance')}}"/>
     @error('wilaya_de_naissance')
     <p class="error"> {{$message}} </p>
@@ -264,7 +265,7 @@ font-size: 0.8rem;
     @error('Date_Naissance')
     <p class="error"> {{$message}} </p>
     @enderror
-    
+
 
     <input class="input" placeholder="Fonction" type="text" id="Post_travail" name="Post_travail"  value="{{ old('Post_travail') }}" required
     value="{{old('Date_Naissance')}}"/>

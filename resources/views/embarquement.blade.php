@@ -78,21 +78,21 @@
 <body>
     <form method="POST" action="/bondembarquement" enctype="multipart/form-data">
         @csrf
-    
+
         <p>Matricule du Marin: {{ request('matricule') }}</p>
         <input type="hidden" name="marin_name" value="{{ request('matricule') }}" />
-    
+
         @error('marin_name')
         <p class="error"> {{$message}} </p>
         @enderror
-    
+
         <!-- Other form fields and submit button here -->
     </form>
-</body>     thats a good one hayder--}} 
+</body>     thats a good one hayder--}}
 
 
 <!DOCTYPE html>
-<html lang="fr"> 
+<html lang="fr">
   <head>
     <meta charset="utf-8">
     <title>ShipMates</title>
@@ -103,7 +103,7 @@
   </head>
 
 
-  <body style ="background-color: #000328;">
+  <body style="background-color: #000328; background-image: url('img/oo.jpg');">
 <form class="form" method="POST" action="/bondembarquement"" enctype="multipart/form-data">
     @csrf
     <p class="heading">Bon Embarquement</p>
@@ -154,8 +154,8 @@
      @error('navire')
      <p class="error"> {{$message}} </p>
      @enderror
- 
-    
+
+
     <button class="btn" type="submit">Embarquer le marin </button>
 </form>
   </body>

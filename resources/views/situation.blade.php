@@ -185,7 +185,7 @@ font-size: 0.8rem;
 </html> --}}
 
 <!DOCTYPE html>
-<html lang="fr"> 
+<html lang="fr">
   <head>
     <meta charset="utf-8">
     <title>ShipMates</title>
@@ -196,7 +196,7 @@ font-size: 0.8rem;
   </head>
 
 
-  <body style ="background-color: #000328;">
+  <body style="background-color: #000328; background-image: url('img/oo.jpg');">
 <form class="form" method="POST" action="/situation" enctype="multipart/form-data">
     @csrf
     <p class="heading">Situation</p>
@@ -207,13 +207,13 @@ font-size: 0.8rem;
     <p class="error"> {{$message}} </p>
     @enderror
 
-    <p> Date debut situation :</p> 
+    <p> Date debut situation :</p>
     <input class="input" placeholder="Date debut situation" type="date" id="date_debut" name="date_debut"required />
     @error('date_debut')
     <p class="error"> {{$message}} </p>
     @enderror
 
-    <p> Date fin situation :</p> 
+    <p> Date fin situation :</p>
     <input class="input"  placeholder="Date fin situation" type="date" id="date_fin" name="date_fin" required />
     @error('date_fin')
     <p class="error"> {{$message}} </p>

@@ -123,7 +123,7 @@ font-size: 0.8rem;
 
 
       <label for="date_embarquement" id="dateEmbarquementLabel">Date embarquement</label>
-      <input placeholder="Date Embarquement" type="date" id="date_dembarquement" name="date_dembarquement"required 
+      <input placeholder="Date Embarquement" type="date" id="date_dembarquement" name="date_dembarquement"required
       value="{{ request('date_embarquement')}}"/>
 
 
@@ -138,7 +138,7 @@ font-size: 0.8rem;
       @enderror --}}
 
 <!DOCTYPE html>
-<html lang="fr"> 
+<html lang="fr">
   <head>
     <meta charset="utf-8">
     <title>ShipMates</title>
@@ -149,7 +149,7 @@ font-size: 0.8rem;
   </head>
 
 
-  <body style ="background-color: #000328;">
+  <body style="background-color: #000328; background-image: url('img/oo.jpg');">
 <form class="form" action="/debarquement" method="POST" enctype="multipart/form-data">
     @csrf
 
@@ -170,8 +170,8 @@ font-size: 0.8rem;
     @enderror
 
    <p>Date Embarquement :</p>
-    <input class="input" placeholder="Date Embarquement" type="date" id="date_dembarquement" name="date_dembarquement"required 
-    value="{{ request('date_embarquement')}}"/> 
+    <input class="input" placeholder="Date Embarquement" type="date" id="date_dembarquement" name="date_dembarquement"required
+    value="{{ request('date_embarquement')}}"/>
 
 
     <input class="input" placeholder="Port debarquement" type="text" id="port" name="port" required />
@@ -185,7 +185,7 @@ font-size: 0.8rem;
     <p class="error"> {{$message}} </p>
     @enderror
 
-    
+
     <button class="btn" type="submit">Debarquer le marin</button>
 </form>
   </body>
