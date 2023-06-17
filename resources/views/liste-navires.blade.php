@@ -216,6 +216,13 @@ tbody tr:nth-child(odd) {
                                         <a href="#" class="dropdown-item">Statistique</a>
                                         
                                     </div>
+
+                                    <div class="nav-item dropdown">
+                                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Gestion Users</a>
+                                        <div class="dropdown-menu bg-transparent border-0">
+                                            <a href="register" class="dropdown-item">Create an User</a>
+                                        </div>
+                                        </div>
                             </div>
                         </div>
                     </nav>
