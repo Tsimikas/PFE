@@ -118,9 +118,9 @@
         <button type="submit">Create User</button>
     </form>
 </body>
-</html> --}}
+</html> 
 
-2
+
 
 <!DOCTYPE html>
 <html>
@@ -249,5 +249,57 @@
         <button type="submit">Create User</button>
     </form>
 </body>
-</html> 
+</html> --}}
+
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <title>ShipMates</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+
+
+  <body style="background-color: #000328; background-image: url('img/oo.jpg');">
+<form class="form" method="POST" action="/register" enctype="multipart/form-data">
+    @csrf
+    <p class="heading">Situation</p>
+
+    <input class="input" placeholder="Matricule du Marin" type="text" id="marin" name="marin" required
+    value="{{ old('marin') }}" />
+    @error('marin')
+    <p class="error"> {{$message}} </p>
+    @enderror
+
+    <p> Date debut situation :</p>
+    <input class="input" placeholder="Date debut situation" type="date" id="date_debut" name="date_debut"required />
+    @error('date_debut')
+    <p class="error"> {{$message}} </p>
+    @enderror
+
+    <p> Date fin situation :</p>
+    <input class="input"  placeholder="Date fin situation" type="date" id="date_fin" name="date_fin" required />
+    @error('date_fin')
+    <p class="error"> {{$message}} </p>
+    @enderror
+
+
+
+    <select class="input" placeholder="Situation" type="situation" id="situation" name="situation" required>
+       <option value="conge">conge</option>
+       <option value="disponible">disponible</option>
+       <option value="embarquer">embarquer</option>
+   </select>
+    @error('situation')
+    <p class="error"> {{$message}} </p>
+    @enderror
+
+    <button class="btn" type="submit">Changer situation</button>
+</form>
+  </body>
+</html>
+
  
