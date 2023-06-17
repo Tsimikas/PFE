@@ -5,9 +5,9 @@
     <form action="/register" method="post" class="mt-20">
        <div class="mb-6">
 
-            <label class="block ml-2 uppercase font-bold text-xs text-gray-700"     for="Nom">
+            <p class="block ml-2 uppercase font-bold text-xs text-gray-700"     for="Nom">
                   Nom
-          </label>
+          </p>
 
                <input class="border border-gray-400 p-2 w-full"
                 type="text"
@@ -36,7 +36,7 @@
         .form-group {
             margin-bottom: 1rem;
         }
-        label {
+        p {
             display: block;
             font-weight: bold;
             margin-bottom: 0.5rem;
@@ -81,7 +81,7 @@
     <form method="POST" action="/register" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
-            <label for="Username">Username</label>
+            <p for="Username">Username</p>
             <input type="text" id="Username" name="Username" value="{{ old('Username') }}" required>
             @error('Username')
             <p class="error"> {{$message}} </p>
@@ -92,7 +92,7 @@
 
 
         <div class="form-group">
-            <label for="profil">Profil</label>
+            <p for="profil">Profil</p>
             <select type="profil" id="profil" name="profil"  value="{{ old('profil') }}" required>
                 <option value="admin">admin</option>
                 <option value="directeur">directeur</option>
@@ -105,14 +105,14 @@
         </div>
 
         <div class="form-group">
-            <label for="password">Password</label>
+            <p for="password">Password</p>
             <input type="password" id="password" name="password" required>
             @error('password')
             <p class="error"> {{$message}} </p>
             @enderror
         </div>
         {{-- <div class="form-group">
-            <label for="password_confirmation">Confirm Password</label>
+            <p for="password_confirmation">Confirm Password</p>
             <input type="password" id="password_confirmation" name="password_confirmation" required>
         </div> //
         <button type="submit">Create User</button>
@@ -157,7 +157,7 @@
             margin-bottom: 1rem;
         }
 
-        label {
+        p {
             display: block;
             font-weight: bold;
             margin-bottom: 0.5rem;
@@ -218,7 +218,7 @@
         @csrf
         <h1>Create User</h1>
         <div class="form-group">
-            <label for="Username">Username</label>
+            <p for="Username">Username</p>
             <input type="text" id="Username" name="Username" value="{{ old('Username') }}" required>
             @error('Username')
             <p class="error"> {{$message}} </p>
@@ -226,7 +226,7 @@
         </div>
 
         <div class="form-group">
-            <label for="profil">Profil</label>
+            <p for="profil">Profil</p>
             <select type="profil" id="profil" name="profil" value="{{ old('profil') }}" required>
                 <option value="admin">admin</option>
                 <option value="directeur">directeur</option>
@@ -239,7 +239,7 @@
         </div>
 
         <div class="form-group">
-            <label for="password">Password</label>
+            <p for="password">Password</p>
             <input type="password" id="password" name="password" required>
             @error('password')
             <p class="error"> {{$message}} </p>
@@ -266,38 +266,31 @@
   <body style="background-color: #000328; background-image: url('img/oo.jpg');">
 <form class="form" method="POST" action="/register" enctype="multipart/form-data">
     @csrf
-    <p class="heading">Situation</p>
+    <p class="heading">CREATE AN USER </p>
 
-    <input class="input" placeholder="Matricule du Marin" type="text" id="marin" name="marin" required
-    value="{{ old('marin') }}" />
-    @error('marin')
-    <p class="error"> {{$message}} </p>
-    @enderror
+   
+            <input class="input" placeholder="Username" type="text" id="Username" name="Username" value="{{ old('Username') }}" required>
+            @error('Username')
+            <p class="error"> {{$message}} </p>
+            @enderror
 
-    <p> Date debut situation :</p>
-    <input class="input" placeholder="Date debut situation" type="date" id="date_debut" name="date_debut"required />
-    @error('date_debut')
-    <p class="error"> {{$message}} </p>
-    @enderror
+            <select class="input" placeholder="Profil" type="profil" id="profil" name="profil" value="{{ old('profil') }}" required>
+                <option value="admin">admin</option>
+                <option value="directeur">directeur</option>
+                <option value="gestionnaire">gestionnaire</option>
+                <option value="ecrivant">ecrivant</option>
+            </select>
+            @error('profil')
+            <p class="error"> {{$message}} </p>
+            @enderror
 
-    <p> Date fin situation :</p>
-    <input class="input"  placeholder="Date fin situation" type="date" id="date_fin" name="date_fin" required />
-    @error('date_fin')
-    <p class="error"> {{$message}} </p>
-    @enderror
+           
+            <input class="input" placeholder="Password" type="password" id="password" name="password" required>
+            @error('password')
+            <p class="error"> {{$message}} </p>
+            @enderror
 
-
-
-    <select class="input" placeholder="Situation" type="situation" id="situation" name="situation" required>
-       <option value="conge">conge</option>
-       <option value="disponible">disponible</option>
-       <option value="embarquer">embarquer</option>
-   </select>
-    @error('situation')
-    <p class="error"> {{$message}} </p>
-    @enderror
-
-    <button class="btn" type="submit">Changer situation</button>
+    <button class="btn" type="submit">Create an user</button>
 </form>
   </body>
 </html>
