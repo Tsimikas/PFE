@@ -71,6 +71,16 @@
                 text-align: right;
                 margin: 50px;
             }
+
+            .print-button {
+    display: block;
+  }
+
+  @media print {
+    .print-button {
+      display: none;
+    }
+  }
         </style>
      
     </head>
@@ -160,15 +170,20 @@
                     <br>
                     <p>2-Indication à porter par les services de la S.M.P </p>
 
-                    <button class="print-button formBtn" onclick="printForm()">Imprimer</button>
+                    <button class="print-button formBtn" id="yacine" onclick="printForm()">Imprimer</button>
                 </div>
             </div>
         </div>
         
         <script>
-            function printForm() {
-                window.print();
-            }
+             function printForm() {
+    // Hide the button when clicked
+    const submitBtn = document.getElementById('yacine');
+    submitBtn.style.display = 'none';
+
+    // Trigger the print dialog
+    window.print();
+  }
         </script>
     </body>
 </html>

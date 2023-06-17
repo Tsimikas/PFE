@@ -339,6 +339,16 @@
                 font-weight: bold;
                 text-decoration: underline;
             }
+
+            .print-button {
+    display: block;
+  }
+
+  @media print {
+    .print-button {
+      display: none;
+    }
+  }
   </style>
 </head>
 <body>
@@ -596,12 +606,17 @@
     </div>
 </div>
 
-   <button class="print-button formBtn" onclick="printForm()">Imprimer</button>
+   <button class="print-button  formBtn" onclick="printForm()" id="hayder">Imprimer</button>
   <script>
-     function printForm() {
-                window.print();
-            }
-  </script>
+   function printForm() {
+    // Hide the button when clicked
+    const submitBtn = document.getElementById('hayder');
+    submitBtn.style.display = 'none';
+
+    // Trigger the print dialog
+    window.print();
+  }
+</script>
   </body>
 
 </html>
