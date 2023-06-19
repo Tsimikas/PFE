@@ -17,6 +17,7 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')->hourly();
         $schedule->command('send:visitemedical-reminder-email')->daily();
+        $schedule->command('send:fasicule-reminder-email')->daily();
 
     }
 

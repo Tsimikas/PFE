@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\bondembarquement;
+use App\Models\familiarisation;
 use App\Models\Marin;
 use App\Models\navire;
 use App\Models\Port;
@@ -28,6 +29,9 @@ class EmbarquementController extends Controller
              'numero'=>['required'],
              'marin_name'=>['required','string', 'exists:Marins,Matricule'],
              'navire'=>['required','string', 'exists:navires,nom'],
+             'post_actuel'=>['required','string'],
+             'nouveau_post'=>['required','string'],
+              'cas_familiarisation'=>['required','string'],
          ]);
 
          $marin = Marin::where('Matricule', $attributes['marin_name'])->firstOrFail();
@@ -36,10 +40,14 @@ class EmbarquementController extends Controller
          
 
         $bondembarquement = new bondembarquement($attributes);
+        $familiarisation = new familiarisation($attributes);
         $bondembarquement->user_id = auth()->id();
         $bondembarquement->marin_id = $marin->id;
         $bondembarquement->port_id = $port->id;
+        $familiarisation->user_id = auth()->id();
+        $familiarisation->marin_id = $marin->id;
         $bondembarquement->save();
+        $familiarisation->save();
 
         $wilaya_embarquement = $attributes['wilaya_embarquement'];
         $date_embarquement = $attributes['date_embarquement'];

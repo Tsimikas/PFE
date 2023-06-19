@@ -155,8 +155,38 @@
      <p class="error"> {{$message}} </p>
      @enderror
 
-
-    <button class="btn" type="submit">Embarquer le marin </button>
+     <form class="form"  method="POST" action="/familiarisation" enctype="multipart/form-data">
+        @csrf
+      
+    
+        <input class="input" placeholder="Matricule du Marin" type="text" id="marin" name="marin" required
+        value="{{ old('marin_name', request('matricule')) }}" />
+          @error('marin')
+          <p class="error"> {{$message}} </p>
+          @enderror
+    
+          <input class="input" placeholder="Fonction Actuel" type="text" id="post_actuel" name="post_actuel" required
+          value="{{old('post_actuel')}}"/>
+          @error('post_actuel')
+          <p class="error"> {{$message}} </p>
+          @enderror
+    
+    
+          <input class="input" placeholder="Nouvelle Fonction" type="text" id="nouveau_post" name="nouveau_post" required
+          value="{{old('nouveau_post')}}"/>
+          @error('nouveau_post')
+          <p class="error"> {{$message}} </p>
+          @enderror
+    
+          <input class="input" placeholder="Cause de la familiarisation" type="text" id="cas_familiarisation" name="cas_familiarisation" required
+          value="{{old('cas_familiarisation')}}"/>
+          @error('cas_familiarisation')
+          <p class="error"> {{$message}} </p>
+          @enderror
+        
+          
+    <button class="btn" type="submit">ok </button>
+     </form>
 </form>
   </body>
 </html>

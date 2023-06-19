@@ -24,13 +24,19 @@ class fasiculeController extends Controller
 
          $marin = Marin::where('Matricule', $attributes['marin'])->firstOrFail();
 
+         $matricule = $attributes['marin'];
+
 
         $fasicule = new fasicule($attributes);
         $fasicule->user_id = auth()->id();
         $fasicule->marin_id = $marin->id;
         $fasicule->save();
 
-        return redirect('/');
+        return redirect()->route('visitemedical.create',[
+            'matricule' => $matricule
+        ]);
         }
+
+    
 }
 

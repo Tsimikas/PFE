@@ -37,6 +37,8 @@ class MarinController extends Controller
         $marin->user_id = auth()->id(); // user_id ta3 marin howa user_id te3 li creyah
         $marin->save();
 
+        $matricule= $donne['Matricule'];
+
 
         // hado mamchawch
         // 1) $donne['user_id'] = auth()->user()->user_id;
@@ -44,7 +46,9 @@ class MarinController extends Controller
 
         // 2) Marin::create(array_merge($donne, ['user_id' => auth()->user()->id]));
 
-        return redirect('/')->with('success', 'GREAT, Marin has been created');
+        return redirect()->route('fasicule.create',[
+              'matricule' => $matricule
+        ]);
      }
 
      public function search(){

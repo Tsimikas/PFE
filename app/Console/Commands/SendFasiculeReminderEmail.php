@@ -52,5 +52,6 @@ class SendFasiculeReminderEmail extends Command
     private function sendEmail($marin, $fasicule)
     {
         Mail::to($marin->email)->send(new FasiculeReminderEmail($fasicule));
+    
     }
 } 

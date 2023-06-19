@@ -426,7 +426,9 @@
                     </form>
                     <div class="d-flex align-items-center justify-content-between mb-4">
                         <h6 class="mb-0">Liste des marins</h6>
-                        <a href="">Show All</a>
+                        <a href="ajoute-marin">
+                          <button>Ajouter un marin</button>
+                        </a>
                     </div>
                     <div class="table-responsive">
                         <table class="table text-start align-middle table-bordered table-hover mb-0">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
@@ -440,7 +442,6 @@
                                     <th scope="col">Poste de travail</th>
                                     <th scope="col">Numéro de téléphone</th>
                                     <th scope="col">Situation</th>
-                                    <th scope="col">Dernier date visite</th>
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
@@ -459,9 +460,7 @@
                                          @else
                                          <td>{{ optional($marin->situation->last())->situation }}</td>
                                      @endif
-                                     <td>
-                                        {{optional($marin->visitemedical->last())->date_visite}}
-                                     </td>
+
                 
                                      <td>
                                         <form method="POST" action="/marin/{{ $marin->id }}">

@@ -277,8 +277,8 @@ font-size: 0.8rem;
     @error('Numero_telephone')
     <p class="error"> {{$message}} </p>
     @enderror
-
     <button class="btn" type="submit">Ajouter Marin</button>
+</a>
 </form>
   </body>
 </html>
