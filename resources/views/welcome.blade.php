@@ -36,7 +36,7 @@
 
 
 
-        <body>
+        <body class="dark-mode">
             @if (session()->has('success'))
             <div style='background: fixed;
             text-align: center;
@@ -60,7 +60,7 @@
                 <!-- Sidebar Start -->
                 <div class="sidebar pe-4 pb-3">
                     <nav class="navbar bg-secondary navbar-dark">
-                        <a href="index.html" class="navbar-brand mx-4 mb-3">
+                        <a href="/" class="navbar-brand mx-4 mb-3">
                             <h3 class="text-primary"><i class="fa fa-user-edit me-2"></i>ShipMates</h3>
                         </a>
                         <div class="d-flex align-items-center ms-4 mb-4">
@@ -74,12 +74,12 @@
                             </div>
                         </div>
                         <div class="navbar-nav w-100">
-                          
+
 
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Tableau de bord</a>
                                 <div class="dropdown-menu bg-transparent border-0">
-                                    <a href="liste-marin" class="dropdown-item">Equipage</a>
+                                    <a href="equipe" class="dropdown-item">Equipage</a>
                                     <a href="recapmarin" class="dropdown-item">Recape marin</a>
                                     <a href="liste-port" class="dropdown-item">Movement</a>
                                 </div>
@@ -97,14 +97,14 @@
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Gestion Marin</a>
                                 <div class="dropdown-menu bg-transparent border-0">
-                                    
+
                                     <a href="liste-marin" class="dropdown-item">Liste Marins</a>
                                     <a href="fasicule" class="dropdown-item">Mise a jour Fascicule</a>
                                     <a href="visitemedical" class="dropdown-item">Mise a jour Visite Medicale</a>
                                     <a href="contrat" class="dropdown-item">Create Contrat</a>
-                                    
-                                    <a href="situation" class="dropdown-item">Situation</a>
-                                   
+
+                                    <a href="situation" class="dropdown-item">Gestion des canges</a>
+
                                 </div>
                                 </div>
 
@@ -121,7 +121,7 @@
                                     <a href="liste_bondebarquement" class="dropdown-item">Debarquer un marin</a>
 
                                 </div>
-                    
+
                                     <div class="nav-item dropdown">
                                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Gestion Users</a>
                                         <div class="dropdown-menu bg-transparent border-0">
@@ -162,6 +162,7 @@
                 </div>
 
 
+
                 <div class="navbar-nav ms-auto order-1">
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
@@ -181,7 +182,7 @@
                     </div>
                 </div>
             </nav>
-            </div>
+                </div>
             <!-- Navbar End -->
 
 
