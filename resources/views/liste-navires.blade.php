@@ -1,101 +1,13 @@
-{{--<!DOCTYPE html>
-<html>
-    <head>
-        <title>Liste des navire</title>
+
+      
+
+
+            
+
+
 
         
-    </head>
-    <style>
-        /* Style pour le tableau */
-table {
-  border-collapse: collapse;
-  width: 100%;
-  margin-bottom: 30px;
-}
 
-/* Style pour les entêtes de colonnes */
-thead th {
-  background-color: #f2f2f2;
-  border: 1px solid #ddd;
-  padding: 12px;
-  text-align: left;
-  font-size: 14px;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-/* Style pour les cellules de données */
-tbody td {
-  border: 1px solid #ddd;
-  padding: 12px;
-  font-size: 14px;
-  vertical-align: middle;
-}
-
-/* Style pour les liens dans les cellules de données */
-tbody td a {
-  color: #337ab7;
-  text-decoration: none;
-}
-
-/* Style pour les liens au survol de la souris */
-tbody td a:hover {
-  text-decoration: underline;
-}
-
-/* Style pour les lignes impaires */
-tbody tr:nth-child(odd) {
-  background-color: #f9f9f9;
-}
-
-/* Style pour les boutons d'actions */
-.action-btn {
-  background-color: #337ab7;
-  color: #fff;
-  border: none;
-  padding: 6px 12px;
-  font-size: 14px;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  border-radius: 3px;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
-}
-
-/* Style pour les boutons d'actions au survol de la souris */
-.action-btn:hover {
-  background-color: #23527c;
-}
-
-     </style>
-    <body>
-   <table>
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Nom</th>
-            <th>Numero de role</th>
-            <th>Nombre equipage</th>
-            <th>Created at</th>
-            <th>Updated at</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach ($navires as $navire)
-            <tr>
-                <td>{{ $navire->id }}</td>
-                <td>{{ $navire->nom }}</td>
-                <td>{{ $navire->numero_de_role }}</td>
-                <td>{{ $navire->nombre_equipage }}</td>
-                <td>{{ $navire->created_at }}</td>
-                <td>{{ $navire->updated_at }}</td>
-            </tr>
-        @endforeach
-    </tbody>
-</table>
-</body> --}}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -113,8 +25,8 @@ tbody tr:nth-child(odd) {
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet"> 
-    
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
+
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
@@ -139,10 +51,10 @@ tbody tr:nth-child(odd) {
         }
     </style>
 </head>
-   
-        
-      
-        
+
+
+
+
         <body>
             <div class="container-fluid position-relative d-flex p-0">
                 <!-- Spinner Start -->
@@ -152,8 +64,8 @@ tbody tr:nth-child(odd) {
                     </div>
                 </div>
                 <!-- Spinner End -->
-        
-        
+
+
                 <!-- Sidebar Start -->
                 <div class="sidebar pe-4 pb-3">
                     <nav class="navbar bg-secondary navbar-dark">
@@ -171,50 +83,52 @@ tbody tr:nth-child(odd) {
                             </div>
                         </div>
                         <div class="navbar-nav w-100">
-                            <a href="index.html" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+
+
+                            <div class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Tableau de bord</a>
+                                <div class="dropdown-menu bg-transparent border-0">
+                                    <a href="equipe" class="dropdown-item">Equipage</a>
+                                    <a href="recapmarin" class="dropdown-item">Recape marin</a>
+                                    <a href="liste-port" class="dropdown-item">Movement</a>
+                                </div>
+                            </div>
+
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Données de Base</a>
                                 <div class="dropdown-menu bg-transparent border-0">
-                                    <a href="liste-marin" class="dropdown-item">Liste Marins</a>
                                     <a href="liste-navires" class="dropdown-item">Liste Navires</a>
                                     <a href="liste-port" class="dropdown-item">Liste Ports</a>
                                 </div>
                             </div>
 
-
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Gestion Marin</a>
                                 <div class="dropdown-menu bg-transparent border-0">
-                                    <a href="ajoute-marin" class="dropdown-item">Ajoute Marin</a>
-                                    <a href="fasicule" class="dropdown-item">Ajoute Fascicule</a>
-                                    <a href="visitemedical" class="dropdown-item">Create Visite Medicale</a>
+
+                                    <a href="liste-marin" class="dropdown-item">Liste Marins</a>
+                                    <a href="fasicule" class="dropdown-item">Mise a jour Fascicule</a>
+                                    <a href="visitemedical" class="dropdown-item">Mise a jour Visite Medicale</a>
                                     <a href="contrat" class="dropdown-item">Create Contrat</a>
-                                    <a href="familiarisation" class="dropdown-item">Familiariser</a>
-                                    <a href="situation" class="dropdown-item">Situation</a>
-                                    <a href="equipage" class="dropdown-item">Equipage</a>
+
+                                    <a href="situation" class="dropdown-item">Gestion des canges</a>
+
                                 </div>
                                 </div>
 
-                                
-                    
-                            <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Embarquement</a>
-                                <div class="dropdown-menu bg-transparent border-0">
-                                    <a href="liste_bonembarquement" class="dropdown-item">Embarquer un marin</a>
-                                    
-                                </div>
-                            </div>
-                            <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Débarquement</a>
-                                <div class="dropdown-menu bg-transparent border-0">
-                                    <a href="liste_bondebarquement" class="dropdown-item">Debarquer un marin</a>
-                                    
+
+                                <div class="nav-item dropdown">
+                                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Embarquement</a>
+                                    <div class="dropdown-menu bg-transparent border-0">
+                                        <a href="liste_bonembarquement" class="dropdown-item">Embarquer un marin</a>
+
+                                    </div>
                                 </div>
                                 <div class="nav-item dropdown">
-                                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Rapport</a>
+                                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Débarquement</a>
                                     <div class="dropdown-menu bg-transparent border-0">
-                                        <a href="#" class="dropdown-item">Statistique</a>
-                                        
+                                        <a href="liste_bondebarquement" class="dropdown-item">Debarquer un marin</a>
+
                                     </div>
 
                                     <div class="nav-item dropdown">
@@ -230,7 +144,7 @@ tbody tr:nth-child(odd) {
         <!-- Sidebar End -->
 
 
-      
+
         <!-- Content Start -->
         <div class="content">
             <!-- Navbar Start -->
@@ -256,7 +170,7 @@ tbody tr:nth-child(odd) {
                         </a>
                     </div>
                 </div>
- 
+
                    <div class="navbar-nav ms-auto order-1">
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
@@ -270,15 +184,19 @@ tbody tr:nth-child(odd) {
                                 @csrf
 
                                 <button class="dropdown-item" type="submit"> Log Out</button>
-            
+
                         </div>
                         @endauth
                     </div>
                 </div>
-            
+
             </nav>
-            
+
             <!-- Navbar End -->
+
+
+            
+            
 
 
             
@@ -297,7 +215,7 @@ tbody tr:nth-child(odd) {
                             <thead>
                                 <tr class="text-white">
                                     <th scope="col">Nom du navire</th>
-                                    <th scope="col">Num de Role</th>
+                                    <th scope="col">Numero de Role</th>
                                     <th scope="col">Nombre equipage</th>
                                     <th scope="col">Created at</th>
                                     <th scope="col">Updated at</th>
@@ -319,6 +237,9 @@ tbody tr:nth-child(odd) {
                     </div>
                 </div>
             </div>
+
+
+
 
         <!-- Content End -->
 

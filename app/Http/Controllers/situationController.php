@@ -11,9 +11,7 @@ class situationController extends Controller
 {
     public function create(){
         $situations = Situation::where('situation', '=', 'conge')->get();
-               
-
-
+        
         return view('situation',['situations' => $situations]);
     }
 

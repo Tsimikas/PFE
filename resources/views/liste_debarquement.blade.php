@@ -1,244 +1,13 @@
 
-{{--<!DOCTYPE html>
-<html>
-    <head>
-        <title>Liste des marins</title>
 
 
-    </head>
-    <style>
-        * {
-          box-sizing: border-box;
-          -webkit-box-sizing: border-box;
-          -moz-box-sizing: border-box;
-        }
-
-        body {
-          font-family: "Helvetica", Arial, sans-serif;
-          -webkit-font-smoothing: antialiased;
-          background: rgba(71, 147, 227, 1);
-        }
-
-        h2 {
-          text-align: center;
-          font-size: 18px;
-          text-transform: uppercase;
-          letter-spacing: 1px;
-          color: white;
-          padding: 30px 0;
-        }
-
-        /* Table Styles */
-
-        .table-wrapper {
-          margin: 10px 70px 70px;
-          box-shadow: 0px 35px 50px rgba(0, 0, 0, 0.2);
-          overflow-x: auto;
-        }
-
-        .fl-table {
-          border-radius: 5px;
-          font-size: 12px;
-          font-weight: normal;
-          border: none;
-          border-collapse: collapse;
-          width: 100%;
-          max-width: 100%;
-          white-space: nowrap;
-          background-color: white;
-        }
-
-        .fl-table td,
-        .fl-table th {
-          text-align: center;
-          padding: 8px;
-        }
-
-        .fl-table td {
-          border-right: 1px solid #f8f8f8;
-          font-size: 12px;
-        }
-
-        .fl-table thead th {
-          color: #ffffff;
-          background: #4fc3a1;
-          font-weight: bold;
-          padding: 12px;
-        }
-
-        .fl-table thead th:nth-child(odd) {
-          background: #324960;
-        }
-
-        .fl-table tbody tr:nth-child(even) {
-          background: #f8f8f8;
-        }
-
-        /* Responsive */
-
-        @media (max-width: 767px) {
-          .fl-table {
-            display: block;
-            width: 100%;
-          }
-          .table-wrapper:before {
-            content: "Scroll horizontally >";
-            display: block;
-            text-align: right;
-            font-size: 11px;
-            color: white;
-            padding: 0 0 10px;
-          }
-          .fl-table thead,
-          .fl-table tbody,
-          .fl-table thead th {
-            display: block;
-          }
-          .fl-table thead th:last-child {
-            border-bottom: none;
-          }
-          .fl-table thead {
-            float: left;
-          }
-          .fl-table tbody {
-            width: auto;
-            position: relative;
-            overflow-x: auto;
-          }
-          .fl-table td,
-          .fl-table th {
-            padding: 20px 10px;
-            height: 60px;
-            vertical-align: middle;
-            box-sizing: border-box;
-            overflow-x: hidden;
-            overflow-y: auto;
-            width: 120px;
-            font-size: 13px;
-            text-overflow: ellipsis;
-          }
-          .fl-table thead th {
-            text-align: left;
-            border-bottom: 1px solid #f7f7f9;
-          }
-          .fl-table tbody tr {
-            display: table-cell;
-          }
-          .fl-table tbody tr:nth-child(odd) {
-            background: none;
-          }
-          .fl-table tr:nth-child(even) {
-            background: transparent;
-          }
-          .fl-table tr td:nth-child(odd) {
-            background: #f8f8f8;
-            border-right: 1px solid #e6e4e4;
-          }
-          .fl-table tr td:nth-child(even) {
-            border-right: 1px solid #e6e4e4;
-          }
-          .fl-table tbody td {
-            display: block;
-            text-align: center;
-          }
-        }
 
 
-      </style>
 
-    <body>
-        @if (session()->has('success'))
-        <div style='background: fixed;
-        text-align: center;
-        border: double;
-        background-color: green'>
-            <p>
-                {{session('success')}}
-            </p>
-        </div>
-    @endif
 
-    <div class="search-container">
-        <form action="#" method="GET">
-            @csrf
-            <input type="text" placeholder="Search..." name="search">
-            <input type="text" placeholder="Search situation" name="situation">
-            <button type="submit">Search</button>
-        </form>
-    </div>
 
-    <div  class="table-wrapper">
-        @php
-        use Carbon\Carbon;
-        @endphp
+
         
-    <table class="fl-table">
-    <thead>
-        <tr>
-            <th>Nom</th>
-            <th>Prenom</th>
-            <th>Matricule</th>
-            <th>Post travail</th>
-            <th>Numero telephone</th>
-            <th>Situation</th>
-
-        </tr>
-    </thead>
-    <tbody>
-        @foreach ($marins as $marin)
-     
-        @php
-        $lastVisitDate = optional($marin->visitemedical->last())->date_visite;
-        $lastFasicule = optional($marin->fasicule->last())->date_debut;
-
-        $twoYearsAgo = Carbon::now()->subYears(2);
-        $fiveYearsAgo = Carbon::now()->subYears(5);
-
-        $isMoreThanTwoYears = $lastVisitDate && $lastVisitDate < $twoYearsAgo;
-        $isMoreThanFiveYears = $lastFasicule && $lastFasicule < $fiveYearsAgo;
-
-        $situation = optional($marin->situation->last())->situation;
-        @endphp
-
-        <tr>     
-            @if ($situation == 'embarquer')
-
-            <td>{{ $marin->Nom}}</td>
-                <td>{{ $marin->Prenom }}</td>
-                <td>{{ $marin->Matricule }}</td>
-                <td>{{ $marin->Post_travail }}</td>
-                <td>{{ $marin->Numero_telephone }}</td>
-                <td>
-                    <a href="{{ route('bondebarquement.create', [
-                            'matricule' => $marin->Matricule,
-                            'wilaya' => $marin->wilaya_de_domicile, 
-                            'nom' => $marin->Nom,
-                            'prenom' => $marin->Prenom,
-                            'numero_fasicule' => optional($marin->fasicule->last())->numero,
-                            'debut_fasicule' => optional($marin->fasicule->last())->date_debut,
-                            'fin_fasicule' => optional($marin->fasicule->last())->date_expriration,
-                            'post_marin' => $marin->Post_travail,
-                            'date_visite' => optional($marin->visitemedical->last())->date_visite,
-                            'fin_visite' => optional($marin->visitemedical->last())->date_fin,
-                            'date_embarquement' => optional($marin->bondembarquement->last())->date_embarquement,
-                        ]) }}">
-                            {{ $situation }}
-                        </a>
-                </td>
-
-                
-            @endif
-                
-
-        </tr>
-            
-        @endforeach
-
-
-    </tbody>
-</table>
-
-</div> --}}
 
 
 <!DOCTYPE html>
@@ -257,8 +26,8 @@
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet"> 
-    
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
+
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
@@ -283,10 +52,10 @@
         }
     </style>
 </head>
-   
-        
-      
-        
+
+
+
+
         <body>
             <div class="container-fluid position-relative d-flex p-0">
                 <!-- Spinner Start -->
@@ -296,8 +65,8 @@
                     </div>
                 </div>
                 <!-- Spinner End -->
-        
-        
+
+
                 <!-- Sidebar Start -->
                 <div class="sidebar pe-4 pb-3">
                     <nav class="navbar bg-secondary navbar-dark">
@@ -315,47 +84,52 @@
                             </div>
                         </div>
                         <div class="navbar-nav w-100">
-                            <a href="index.html" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+
+
+                            <div class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Tableau de bord</a>
+                                <div class="dropdown-menu bg-transparent border-0">
+                                    <a href="equipe" class="dropdown-item">Equipage</a>
+                                    <a href="recapmarin" class="dropdown-item">Recape marin</a>
+                                    <a href="liste-port" class="dropdown-item">Movement</a>
+                                </div>
+                            </div>
+
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Données de Base</a>
                                 <div class="dropdown-menu bg-transparent border-0">
-                                    <a href="liste-marin" class="dropdown-item">Liste Marins</a>
                                     <a href="liste-navires" class="dropdown-item">Liste Navires</a>
                                     <a href="liste-port" class="dropdown-item">Liste Ports</a>
                                 </div>
                             </div>
 
                             <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Gestion Marin</a>
-                            <div class="dropdown-menu bg-transparent border-0">
-                                <a href="ajoute-marin" class="dropdown-item">Ajoute Marin</a>
-                                <a href="fasicule" class="dropdown-item">Ajoute Fascicule</a>
-                                <a href="visitemedical" class="dropdown-item">Create Visite Medicale</a>
-                                <a href="contrat" class="dropdown-item">Create Contrat</a>
-                                <a href="familiarisation" class="dropdown-item">Familiariser</a>
-                                <a href="situation" class="dropdown-item">Situation</a>
-                                <a href="equipage" class="dropdown-item">Equipage</a>
-                            </div>
-                            </div>
-                            
-                            <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Embarquement</a>
+                                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Gestion Marin</a>
                                 <div class="dropdown-menu bg-transparent border-0">
-                                    <a href="liste_bonembarquement" class="dropdown-item">Embrquer un marin</a>
-                                    
+
+                                    <a href="liste-marin" class="dropdown-item">Liste Marins</a>
+                                    <a href="fasicule" class="dropdown-item">Mise a jour Fascicule</a>
+                                    <a href="visitemedical" class="dropdown-item">Mise a jour Visite Medicale</a>
+                                    <a href="contrat" class="dropdown-item">Create Contrat</a>
+
+                                    <a href="situation" class="dropdown-item">Gestion des canges</a>
+
                                 </div>
-                            </div>
-                            <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Débarquement</a>
-                                <div class="dropdown-menu bg-transparent border-0">
-                                    <a href="liste_bondebarquement" class="dropdown-item">Debarquer un marin</a>
-                                    
+                                </div>
+
+
+                                <div class="nav-item dropdown">
+                                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Embarquement</a>
+                                    <div class="dropdown-menu bg-transparent border-0">
+                                        <a href="liste_bonembarquement" class="dropdown-item">Embarquer un marin</a>
+
+                                    </div>
                                 </div>
                                 <div class="nav-item dropdown">
-                                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Rapport</a>
+                                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Débarquement</a>
                                     <div class="dropdown-menu bg-transparent border-0">
-                                        <a href="#" class="dropdown-item">Statistique</a>
-                                        
+                                        <a href="liste_bondebarquement" class="dropdown-item">Debarquer un marin</a>
+
                                     </div>
 
                                     <div class="nav-item dropdown">
@@ -371,7 +145,7 @@
         <!-- Sidebar End -->
 
 
-      
+
         <!-- Content Start -->
         <div class="content">
             <!-- Navbar Start -->
@@ -397,7 +171,7 @@
                         </a>
                     </div>
                 </div>
- 
+
                    <div class="navbar-nav ms-auto order-1">
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
@@ -406,25 +180,21 @@
                         </a>
                         @auth
                         <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
-                
+
                             <form method="POST" action="/logout" enctype="multipart/form-data">
                                 @csrf
 
                                 <button class="dropdown-item" type="submit"> Log Out</button>
-            
-                        </div>                    
+
+                        </div>
                         @endauth
-        
                     </div>
                 </div>
-            
+
             </nav>
-            
+
             <!-- Navbar End -->
 
-
-            
-        
 
             <form action="#" method="GET">
                 @csrf
@@ -519,6 +289,8 @@
                 </div>
             </div>
 
+
+           
         <!-- Content End -->
 
 

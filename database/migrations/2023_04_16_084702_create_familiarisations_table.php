@@ -15,11 +15,11 @@ class CreateFamiliarisationsTable extends Migration
     {
         Schema::create('familiarisations', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('marin_id')->constrained()->onDelete('cascade');
-            $table->foreignId('user_id')->constrained();
-            $table->string('post_actuel');
-            $table->string('nouveau_post');
-            $table->string('cas_familiarisation');
+            $table->foreignId('marin_id')->nullable()->constrained()->onDelete('cascade');
+            $table->foreignId('user_id')->nullable()->constrained();
+            $table->string('post_actuel')->nullable();
+            $table->string('nouveau_post')->nullable();
+            $table->string('cas_familiarisation')->nullable();
             $table->timestamps();
         });
     }

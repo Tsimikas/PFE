@@ -138,6 +138,8 @@
         }
     });
 
+    
+
 
     // Single Bar Chart
     var ctx4 = $("#bar-chart").get(0).getContext("2d");
