@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\bondebarquement;
 use App\Models\bondembarquement;
 use App\Models\familiarisation;
 use App\Models\Marin;
 use App\Models\navire;
 use App\Models\Port;
+use App\Models\situation;
 use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Http\Request;
 use  Carbon\Carbon;
@@ -19,63 +21,83 @@ class EmbarquementController extends Controller
     }
 
 
-    public function store(){
-        $today = Carbon::now();
+        public function store(){
+            $today = Carbon::now();
+    
+            $attributes = request()->validate([
+                'date_embarquement'=>['required','date'],
+                 'wilaya_embarquement'=>['required'],
+                 'port'=>['required','string', 'exists:Ports,Nom'],
+                 'numero'=>['required'],
+                 'marin_name'=>['required','string', 'exists:Marins,Matricule'],
+                 'navire'=>['required','string', 'exists:navires,nom'],
+                 'post_actuel'=>['required','string'],
+                 'nouveau_post'=>['required','string'],
+                  'cas_familiarisation'=>['required','string'],
+                 
+             ]);
+    
+             $marin = Marin::where('Matricule', $attributes['marin_name'])->firstOrFail();
+             $port = Port::where('Nom', $attributes['port'])->firstOrFail();
+             $navire = navire::where('nom',$attributes['navire'])->firstOrFail();
 
-        $attributes = request()->validate([
-            'date_embarquement'=>['required','date'],
-             'wilaya_embarquement'=>['required'],
-             'port'=>['required','string', 'exists:Ports,Nom'],
-             'numero'=>['required'],
-             'marin_name'=>['required','string', 'exists:Marins,Matricule'],
-             'navire'=>['required','string', 'exists:navires,nom'],
-             'post_actuel'=>['required','string'],
-             'nouveau_post'=>['required','string'],
-              'cas_familiarisation'=>['required','string'],
-         ]);
+             $date_embarquement = $attributes['date_embarquement'];
+             
+    
+             $bondembarquement = new bondembarquement($attributes);
+             $familiarisation = new familiarisation($attributes);
+             $situation = new situation($attributes);
 
-         $marin = Marin::where('Matricule', $attributes['marin_name'])->firstOrFail();
-         $port = Port::where('Nom', $attributes['port'])->firstOrFail();
-         $navire = navire::where('nom',$attributes['navire'])->firstOrFail();
-         
 
-        $bondembarquement = new bondembarquement($attributes);
-        $familiarisation = new familiarisation($attributes);
-        $bondembarquement->user_id = auth()->id();
-        $bondembarquement->marin_id = $marin->id;
-        $bondembarquement->port_id = $port->id;
-        $familiarisation->user_id = auth()->id();
-        $familiarisation->marin_id = $marin->id;
-        $bondembarquement->save();
-        $familiarisation->save();
+             $bondembarquement->user_id = auth()->id();
+             $bondembarquement->marin_id = $marin->id;
+             $bondembarquement->port_id = $port->id;
 
-        $wilaya_embarquement = $attributes['wilaya_embarquement'];
-        $date_embarquement = $attributes['date_embarquement'];
-       // $navire = $attributes['navire'];
-        $port = $attributes['port'];
+             $familiarisation->user_id = auth()->id();
+             $familiarisation->marin_id = $marin->id;
 
-        return redirect()->route('document', [
-            'matricule' => $marin->Matricule,
-            'wilaya' => $marin->wilaya_de_domicile, 
-            'nom' => $marin->Nom,
-            'prenom' => $marin->Prenom,
-            'wilaya_de_domicile' => $marin->wilaya_de_domicile,
-            'date_naissance'=>$marin->Date_Naissance,
-            'lieu_naissance' => $marin->wilaya_de_naissance,
-            'numero_fasicule' => optional($marin->fasicule->last())->numero,
-            'debut_fasicule' => optional($marin->fasicule->last())->date_debut,
-            'fin_fasicule' => optional($marin->fasicule->last())->date_expriration,
-            'post_marin' => $marin->Post_travail,
-            'date_visite' => optional($marin->visitemedical->last())->date_visite,
-            'fin_visite' => optional($marin->visitemedical->last())->date_fin,
-            'wilaya_embarquement' => $wilaya_embarquement,
-            'date_embarquement' => $date_embarquement,
-            'port'=> $port,
-            'navire'=> $navire->nom,
-            'numero_role'=> $navire->numero_de_role
-            ])->with('today',$today);
+             $situation->user_id = auth()->id();
+             $situation->marin_id = $marin->id;
+             $situation->situation = 'embarquer';
+             $situation->date_debut = $date_embarquement;
+             $situation->date_fin = $date_embarquement;
 
-        }
+
+
+
+             $wilaya_embarquement = $attributes['wilaya_embarquement'];
+            
+           // // $navire = $attributes['navire'];
+             $port = $attributes['port'];
+             
+             $bondembarquement->save();
+             $familiarisation->save();
+             $situation->save();
+
+
+            return redirect()->route('document', [
+                'matricule' => $marin->Matricule,
+                'wilaya' => $marin->wilaya_de_domicile, 
+                'nom' => $marin->Nom,
+                'prenom' => $marin->Prenom,
+                'wilaya_de_domicile' => $marin->wilaya_de_domicile,
+                'date_naissance'=>$marin->Date_Naissance,
+                'lieu_naissance' => $marin->wilaya_de_naissance,
+                'numero_fasicule' => optional($marin->fasicule->last())->numero,
+                'debut_fasicule' => optional($marin->fasicule->last())->date_debut,
+                'fin_fasicule' => optional($marin->fasicule->last())->date_expriration,
+                'post_marin' => $marin->Post_travail,
+                'date_visite' => optional($marin->visitemedical->last())->date_visite,
+                'fin_visite' => optional($marin->visitemedical->last())->date_fin,
+                'wilaya_embarquement' => $wilaya_embarquement,
+                'date_embarquement' => $date_embarquement,
+                'port'=> $port,
+                'navire'=> $navire->nom,
+                'numero_role'=> $navire->numero_de_role,
+                ])->with('today',$today);
+    
+            }
+    
 
        
 

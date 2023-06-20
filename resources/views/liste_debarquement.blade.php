@@ -459,7 +459,7 @@
                                     <th scope="col">Prénom</th>
                                     <th scope="col">Matricule</th>
                                     <th scope="col">Poste de travail</th>
-                                    <th scope="col">Numero telephone</th>
+                                
                                     <th scope="col">Situation</th>
                                 </tr>
                             </thead>
@@ -486,7 +486,7 @@
                 <td>{{ $marin->Prenom }}</td>
                 <td>{{ $marin->Matricule }}</td>
                 <td>{{ $marin->Post_travail }}</td>
-                <td>{{ $marin->Numero_telephone }}</td>
+             
                 <td>
                     <a href="{{ route('bondebarquement.create', [
                             'matricule' => $marin->Matricule,

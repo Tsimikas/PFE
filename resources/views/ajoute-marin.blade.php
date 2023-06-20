@@ -278,7 +278,6 @@ font-size: 0.8rem;
     <p class="error"> {{$message}} </p>
     @enderror
     <button class="btn" type="submit">Ajouter Marin</button>
-</a>
 </form>
   </body>
 </html>

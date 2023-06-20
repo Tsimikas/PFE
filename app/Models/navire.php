@@ -10,7 +10,7 @@ class navire extends Model
 {
     use HasFactory;
     public function equipage(){
-        return $this->hasMany(equipage::class);
+        return $this->hasOne(equipage::class);
     }
 
     protected $with = ['equipage'];

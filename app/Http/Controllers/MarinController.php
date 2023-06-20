@@ -110,7 +110,35 @@ public function destroy($id)
 }
 
 
+public function recap(){
+    $marins = Marin::with('contrat', 'fasicule', 'visitemedical')->filter(request(['search','situation']))
+    ->get();
 
+    $table = '<table>';
+    
+    // Loop through the marins
+    foreach ($marins as $marin) {
+    
+        // Get the contrat and fasicule for the marin
+        $contrat = $marin->contrat()->latest('date_fin')->first();
+        $fasicule = $marin->fasicule()->latest('date_expriration')->first();
+        $visitemedical = $marin->visitemedical()->latest('date_fin')->first();
+    
+        // Add a row to the table
+        $table .= '<tr>';
+        $table .= '<td>' . $marin->Nom . '</td>';
+        $table .= '<td>' . ($contrat ? $contrat->date_fin : 'N/A') . '</td>';
+        $table .= '<td>' . ($fasicule ? $fasicule->date_expriration : 'N/A') . '</td>';
+        $table .= '<td>' . ($visitemedical ? $visitemedical->date_fin : 'N/A') . '</td>';
+        $table .= '</tr>';
+    }
+    
+    // Close the table
+    $table .= '</table>';
+    
+    // Return the table
+    return view('recap', compact('table','marins'));
+}
      
      
 

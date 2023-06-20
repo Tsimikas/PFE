@@ -31,6 +31,16 @@ class equipageController extends Controller
         $equipage->navire_id = $navire->id;
         $equipage->save();
 
+
         return redirect('/');
         }
+
+
+        public function equipe()
+        {
+            
+            $equipages = equipage::all();
+
+            return view('equipe', ['equipages' => $equipages]);
+    }
 }

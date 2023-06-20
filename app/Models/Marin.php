@@ -40,7 +40,7 @@ class Marin extends Model
     }
 
     public function equipage(){
-        return $this->hasMany(equipage::class);
+        return $this->hasOne(equipage::class);
     }
 
     public function situation(){

@@ -6,6 +6,7 @@ use App\Models\bondebarquement;
 use App\Models\Marin;
 use App\Models\navire;
 use App\Models\Port;
+use App\Models\situation;
 use Illuminate\Http\Request;
 use  Carbon\Carbon;
 
@@ -30,10 +31,29 @@ class DebarquementController extends Controller
         $navire = navire::where('nom',$hayder['navire'])->firstOrFail();
 
         $bondebarquement = new bondebarquement($hayder);
+        $situation = new situation($hayder);
+
+
+        $date_debarquement = $hayder['date_debarquement'];
+
+
         $bondebarquement->user_id = auth()->id();
         $bondebarquement->marin_id = $marin->id;
         $bondebarquement->port_id = $port->id;
+
+
+        
+        $situation->user_id = auth()->id();
+        $situation->marin_id = $marin->id;
+        $situation->situation = 'conge';
+        $situation->date_debut = $date_debarquement;
+        $situation->date_fin = $date_debarquement;
+
+
         $bondebarquement->save();
+        $situation->save();
+
+
 
         $datedebarquement = $hayder['date_debarquement'];
         $datedembarquement = $hayder['date_dembarquement'];

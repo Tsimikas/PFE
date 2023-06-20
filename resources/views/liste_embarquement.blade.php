@@ -502,7 +502,6 @@
                                     <th scope="col">Prénom</th>
                                     <th scope="col">Matricule</th>
                                     <th scope="col">Poste de travail</th>
-                                    <th scope="col">Numero telephone</th>
                                     <th scope="col">Situation</th>
                                     <th scope="col">Visite medical</th>
                                     <th scope="col">fasicule</th>
@@ -530,7 +529,7 @@
                                     <td>{{ $marin->Prenom }}</td>
                                     <td>{{ $marin->Matricule }}</td>
                                     <td>{{ $marin->Post_travail }}</td>
-                                    <td>{{ $marin->Numero_telephone }}</td>
+                                  
                                     @if (($situation == 'disponible' && $isMoreThanTwoYears) || ($situation == 'disponible' && $isMoreThanFiveYears))
                                             <td>
                                                 {{ $situation }} mais visite ou fasicule mort

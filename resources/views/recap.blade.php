@@ -1,223 +1,5 @@
 
 
-{{--
-   <!DOCTYPE html>
-<html>
-    <head>
-        <title>Liste des marins</title>
-
-
-    </head>
-    <style>
-        * {
-          box-sizing: border-box;
-          -webkit-box-sizing: border-box;
-          -moz-box-sizing: border-box;
-        }
-
-        body {
-          font-family: "Helvetica", Arial, sans-serif;
-          -webkit-font-smoothing: antialiased;
-          background: rgba(71, 147, 227, 1);
-        }
-
-        h2 {
-          text-align: center;
-          font-size: 18px;
-          text-transform: uppercase;
-          letter-spacing: 1px;
-          color: white;
-          padding: 30px 0;
-        }
-
-        /* Table Styles */
-
-        .table-wrapper {
-          margin: 10px 70px 70px;
-          box-shadow: 0px 35px 50px rgba(0, 0, 0, 0.2);
-          overflow-x: auto;
-        }
-
-        .fl-table {
-          border-radius: 5px;
-          font-size: 12px;
-          font-weight: normal;
-          border: none;
-          border-collapse: collapse;
-          width: 100%;
-          max-width: 100%;
-          white-space: nowrap;
-          background-color: white;
-        }
-
-        .fl-table td,
-        .fl-table th {
-          text-align: center;
-          padding: 8px;
-        }
-
-        .fl-table td {
-          border-right: 1px solid #f8f8f8;
-          font-size: 12px;
-        }
-
-        .fl-table thead th {
-          color: #ffffff;
-          background: #4fc3a1;
-          font-weight: bold;
-          padding: 12px;
-        }
-
-        .fl-table thead th:nth-child(odd) {
-          background: #324960;
-        }
-
-        .fl-table tbody tr:nth-child(even) {
-          background: #f8f8f8;
-        }
-
-        /* Responsive */
-
-        @media (max-width: 767px) {
-          .fl-table {
-            display: block;
-            width: 100%;
-          }
-          .table-wrapper:before {
-            content: "Scroll horizontally >";
-            display: block;
-            text-align: right;
-            font-size: 11px;
-            color: white;
-            padding: 0 0 10px;
-          }
-          .fl-table thead,
-          .fl-table tbody,
-          .fl-table thead th {
-            display: block;
-          }
-          .fl-table thead th:last-child {
-            border-bottom: none;
-          }
-          .fl-table thead {
-            float: left;
-          }
-          .fl-table tbody {
-            width: auto;
-            position: relative;
-            overflow-x: auto;
-          }
-          .fl-table td,
-          .fl-table th {
-            padding: 20px 10px;
-            height: 60px;
-            vertical-align: middle;
-            box-sizing: border-box;
-            overflow-x: hidden;
-            overflow-y: auto;
-            width: 120px;
-            font-size: 13px;
-            text-overflow: ellipsis;
-          }
-          .fl-table thead th {
-            text-align: left;
-            border-bottom: 1px solid #f7f7f9;
-          }
-          .fl-table tbody tr {
-            display: table-cell;
-          }
-          .fl-table tbody tr:nth-child(odd) {
-            background: none;
-          }
-          .fl-table tr:nth-child(even) {
-            background: transparent;
-          }
-          .fl-table tr td:nth-child(odd) {
-            background: #f8f8f8;
-            border-right: 1px solid #e6e4e4;
-          }
-          .fl-table tr td:nth-child(even) {
-            border-right: 1px solid #e6e4e4;
-          }
-          .fl-table tbody td {
-            display: block;
-            text-align: center;
-          }
-        }
-
-
-      </style>
-
-    <body>
-        @if (session()->has('success'))
-        <div style='background: fixed;
-        text-align: center;
-        border: double;
-        background-color: green'>
-            <p>
-                {{session('success')}}
-            </p>
-        </div>
-    @endif
-
-    <div class="search-container">
-        <form action="#" method="GET">
-            @csrf
-            <input type="text" placeholder="Search......" name="search">
-            <button type="submit">Search</button>
-        </form>
-    </div>
-
-    <div  class="table-wrapper">
-        <table class="fl-table">
-            <thead>
-                <tr>
-                    <th>Nom</th>
-                    <th>Prenom</th>
-                    <th>Matricule</th>
-                    <th>Date naissance</th>
-                    <th>Email</th>
-                    <th>Post travail</th>
-                    <th>Numero telephone</th>
-                    <th>Situation</th>
-                    <th>Dernier date visite</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($marins as $marin)
-                <tr>
-                        <td>{{ $marin->Nom}}</td>
-                        <td>{{ $marin->Prenom }}</td>
-                        <td>{{ $marin->Matricule }}</td>
-                        <td>{{ $marin->Date_Naissance }}</td>
-                        <td>{{ $marin->email }}</td>
-                        <td>{{ $marin->Post_travail }}</td>
-                        <td>{{ $marin->Numero_telephone }}</td>
-                     @if (optional($marin->situation->last())->situation == 'disponible')
-                     <td> <a href="/bondembarquement" >{{optional($marin->situation->last())->situation}}</a></td>)
-                         @else
-                         <td>{{ optional($marin->situation->last())->situation }}</td>
-                     @endif
-                     <td>
-                        {{optional($marin->visitemedical->last())->date_visite}}
-                     </td>
-
-                     <td>
-                        <form method="POST" action="/marin/{{ $marin->id }}">
-                          @csrf
-                          @method('DELETE')
-                          <button type="submit">Delete</button>
-                        </form>
-                       </td>
-
-                        </tr>
-                @endforeach
-            </tbody>
-        </table>
-</div>
-
-</body> --}}
 
 
 <!DOCTYPE html>
@@ -425,52 +207,51 @@
                         </div>
                     </form>
                     <div class="d-flex align-items-center justify-content-between mb-4">
-                        <h6 class="mb-0">Liste des marins</h6>
-                        <a href="ajoute-marin">
-                          <button>Ajouter un marin</button>
-                        </a>
+                        <h6 class="mb-0">Recap Marins</h6>
                     </div>
                     <div class="table-responsive">
                         <table class="table text-start align-middle table-bordered table-hover mb-0">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
                             <thead>
                                 <tr class="text-white">
+                                    <th scope="col">Matricule</th>
                                     <th scope="col">Nom</th>
                                     <th scope="col">Prénom</th>
-                                    <th scope="col">Matricule</th>
-                                    <th scope="col">Date de naissance</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">Poste de travail</th>
-                                    <th scope="col">Numéro de téléphone</th>
-                                    <th scope="col">Situation</th>
-                                    <th scope="col">Action</th>
+                                    <th scope="col">Fonction</th>
+                                    <th scope="col">Date fin contrat</th>
+                                    <th scope="col">Date fin fasicule</th>
+                                    <th scope="col">Date din visitemedical</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($marins as $marin)
                                 <tr>
-                                        <td>{{ $marin->Nom}}</td>
-                                        <td>{{ $marin->Prenom }}</td>
-                                        <td>{{ $marin->Matricule }}</td>
-                                        <td>{{ $marin->Date_Naissance }}</td>
-                                        <td>{{ $marin->email }}</td>
-                                        <td>{{ $marin->Post_travail }}</td>
-                                        <td>{{ $marin->Numero_telephone }}</td>
-                                     @if (optional($marin->situation->last())->situation == 'disponible')
-                                     <td> <a href="/bondembarquement" >{{optional($marin->situation->last())->situation}}</a></td>)
-                                         @else
-                                         <td>{{ optional($marin->situation->last())->situation }}</td>
-                                     @endif
-
-                
-                                     <td>
-                                        <form method="POST" action="/marin/{{ $marin->id }}">
-                                          @csrf
-                                          @method('DELETE')
-                                          <button type="submit">Delete</button>
-                                        </form>
-                                       </td>
-                
-                                        </tr>
+                                    <td>{{ $marin->Matricule }}</td>
+                                    <td>{{ $marin->Nom }}</td>
+                                    <td>{{ $marin->Prenom }}</td>
+                                    <td>{{ $marin->Post_travail }}</td>
+                                    <td>
+                                    
+                                        @if ($marin->contrat->last())
+                                        {{ $marin->contrat->last()->date_fin }}
+                                       @endif
+                        
+                                    </td>
+                        
+                                    <td>
+                                        @if ($marin->fasicule->last())
+                                       {{ $marin->fasicule->last()->date_expriration }}
+                                       @endif
+                                    </td>
+                        
+                                    <td>
+                                        @if ($marin->visitemedical->last())
+                                        {{ $marin->visitemedical->last()->date_fin }}
+                                       @endif
+                                    </td>
+                              
+                        
+                          
+                                </tr>
                                 @endforeach
                             </tbody>
                         </table>

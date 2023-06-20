@@ -10,12 +10,12 @@ use App\Models\navire;
 class equipage extends Model
 {
     use HasFactory;
-    public function Marin(){
-        return $this->hasOne(Marin::class);
+    public function marin(){
+        return $this->belongsTo(Marin::class);
     }
 
     public function navire(){
-        return $this->hasOne(navire::class);
+        return $this->belongsTo(navire::class);
     }
 
     protected $fillable = [

@@ -80,7 +80,7 @@
                                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Tableau de bord</a>
                                 <div class="dropdown-menu bg-transparent border-0">
                                     <a href="liste-marin" class="dropdown-item">Equipage</a>
-                                    <a href="liste-navires" class="dropdown-item">Recape marin</a>
+                                    <a href="recapmarin" class="dropdown-item">Recape marin</a>
                                     <a href="liste-port" class="dropdown-item">Movement</a>
                                 </div>
                             </div>
@@ -166,7 +166,7 @@
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             <img class="rounded-circle me-lg-2" src="img/avatar.jpg" alt="" style="width: 40px; height: 40px;">
-                            <span class="d-none d-lg-inline-flex">{{auth()->user()->profil}}</span>
+                            <span class="d-none d-lg-inline-flex"> {{auth()->user()->profil}}</span>
                         </a>
                         @auth
                         <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">

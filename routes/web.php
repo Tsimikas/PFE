@@ -108,7 +108,7 @@ Route::post('/familiarisation',[familiarisationController::class,'store'])->midd
 
 
 Route::get('/situation',[situationController::class,'create'])->middleware('admin:gestionnaire,admin,directeur');
-Route::post('/situation',[situationController::class,'store'])->middleware('admin:gestionnaire,admin,directeur');
+
 
 Route::get('/contrat',[contratController::class,'create'])->middleware('admin:gestionnaire,admin,directeur');
 Route::post('/contrat',[contratController::class,'store'])->middleware('admin:gestionnaire,admin,directeur');
@@ -134,14 +134,18 @@ Route::post('/debarquement', [DebarquementController::class, 'store'])
     ->middleware('admin:gestionnaire,admin,directeur')
     ->name('bondebarquement.store');
 
-    Route::delete('/marin/{id}', [MarinController::class, 'destroy'])->middleware('admin:gestionnaire,admin,directeur');
+Route::delete('/marin/{id}', [MarinController::class, 'destroy'])->middleware('admin:gestionnaire,admin,directeur');
+
+
+Route::get('/recapmarin',[MarinController::class,'recap'])->middleware('admin:gestionnaire,admin,directeur');
 
 
 
+Route::get('/equipe',[equipageController::class,'equipe'])->middleware('admin:gestionnaire,admin,directeur');
 
 
 
-
-
+Route::get('/situation-dispo',[situationController::class,'createdispo'])->middleware('admin:gestionnaire,admin,directeur')->name('situation-dispo');
+Route::post('/situation-dispo',[situationController::class,'storedispo'])->middleware('admin:gestionnaire,admin,directeur');
 
 
