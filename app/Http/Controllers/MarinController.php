@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Marin;
+use App\Models\situation;
 use Illuminate\Validation\Rule;
 use App\Models\User;
-
+use Carbon\Carbon;
 
 class MarinController extends Controller
 {
@@ -17,6 +18,8 @@ class MarinController extends Controller
 
 
     public function store(){
+
+        $today = Carbon::now();
 
         $donne = request()->validate([
             'Nom'=>['required','max:100','min:4'],
@@ -36,6 +39,16 @@ class MarinController extends Controller
         $marin = new Marin($donne);
         $marin->user_id = auth()->id(); // user_id ta3 marin howa user_id te3 li creyah
         $marin->save();
+
+
+        $situation = new situation($donne);
+        $situation->user_id = auth()->id();
+        $situation->marin_id = $marin->id;
+        $situation->situation = 'disponible';
+        $situation->date_debut = $today;
+        $situation->date_fin = $today;
+
+        $situation->save();
 
         $matricule= $donne['Matricule'];
 

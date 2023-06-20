@@ -228,15 +228,15 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($situations as $situation)
+                                @foreach ($marins as $marin)
                                     <tr>
-                                        <td>{{ $situation->marin->Nom}}</td>               
-                                        <td>{{ $situation->marin->Prenom}}</td>
-                                        <td>{{ $situation->marin->Matricule }}</td>
-                                        <td>{{ $situation->marin->Post_travail}}</td>
+                                        <td>{{ $marin->Nom}}</td>               
+                                        <td>{{ $marin->Prenom}}</td>
+                                        <td>{{ $marin->Matricule }}</td>
+                                        <td>{{ $marin->Post_travail}}</td>
                                         <td>
                                             <a href="{{ route('situation-dispo',[
-                                                'marin' => $situation->marin->Matricule
+                                                'marin' => $marin->Matricule
                                             ])}}">
                                             ARRETE CONGE
                                             </a>

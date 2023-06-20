@@ -10,9 +10,20 @@ use Illuminate\Support\Facades\DB;
 class situationController extends Controller
 {
     public function create(){
-        $situations = Situation::where('situation', '=', 'conge')->get();
+      $marins = DB::table('marins')
+      ->join('situations', function ($marin) {
+          $marin->on('marins.id', '=', 'situations.marin_id')
+               ->whereRaw('situations.id = (
+                  SELECT MAX(id) FROM situations WHERE marin_id = marins.id
+               )')
+               ->where('situations.situation', '=', 'conge');
+      })
+      ->get();
+
+     // dd($marins);
+  
         
-        return view('situation',['situations' => $situations]);
+        return view('situation',['marins' => $marins]);
     }
 
     
