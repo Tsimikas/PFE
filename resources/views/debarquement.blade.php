@@ -201,7 +201,7 @@
 <form class="form" action="/debarquement" method="POST" enctype="multipart/form-data">
     @csrf
 
-    <p class="heading">Bon debarquement</p>
+    <span class="heading">Bon debarquement</span>
 
 
     <input class="input" laceholder="Matricule du Marin" type="text" id="marin_name" name="marin_name" required

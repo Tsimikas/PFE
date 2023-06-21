@@ -194,7 +194,7 @@
 
   <form class="form-hayder" method="POST" enctype="multipart/form-data" action="/ajoute-marin">
     @csrf
-    <p class="heading">Ajouter un Marin</p>
+    <span class="heading">Ajouter un Marin</span>
 
 
     <div class="form-row">

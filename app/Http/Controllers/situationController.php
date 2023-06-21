@@ -9,7 +9,8 @@ use Illuminate\Support\Facades\DB;
 
 class situationController extends Controller
 {
-    public function create(){
+    public function create(Request $request){
+        $search = $request->input('search');
       $marins = DB::table('marins')
       ->join('situations', function ($marin) {
           $marin->on('marins.id', '=', 'situations.marin_id')
@@ -18,12 +19,26 @@ class situationController extends Controller
                )')
                ->where('situations.situation', '=', 'conge');
       })
+      ->when($search, function ($query, $search) {
+        $query->where(function ($subquery) use ($search) {
+            $subquery->where('marins.Nom', 'LIKE', '%'.$search.'%')
+                     ->orWhere('situations.situation', 'LIKE', '%'.$search.'%')
+                     ->orWhere('Prenom', 'like', '%' . $search . '%')
+                     ->orWhere('email', 'like', '%' . $search . '%')
+                     ->orWhere('Matricule', 'like', '%' . $search . '%')
+                     ->orWhere('Date_Naissance', 'like', '%' . $search . '%')
+                     ->orWhere('Numero_telephone', 'like', '%' . $search . '%')
+                     ->orWhere('Post_travail', 'like', '%' . $search . '%');
+        });
+    })
       ->get();
 
      // dd($marins);
   
         
-        return view('situation',['marins' => $marins]);
+        return view('situation',['marins' => $marins , 'search' => $search
+    
+    ]);
     }
 
     

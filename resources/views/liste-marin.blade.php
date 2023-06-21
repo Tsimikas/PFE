@@ -210,7 +210,7 @@
                     <div class="d-flex align-items-center justify-content-between mb-4">
                         <h6 class="mb-0">Liste des marins</h6>
                         <a href="ajoute-marin">
-                          <button>Ajouter un marin</button>
+                          <button class="btn btn-primary">Ajouter un marin</button>
                         </a>
                     </div>
                     <div class="table-responsive">
@@ -244,7 +244,7 @@
                                         <form method="POST" action="/marin/{{ $marin->id }}">
                                           @csrf
                                           @method('DELETE')
-                                          <button type="submit">Delete</button>
+                                          <button class="btn btn-primary" type="submit">Delete</button>
                                         </form>
                                        </td>
 

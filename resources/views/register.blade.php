@@ -187,7 +187,7 @@
 
   <form class="form" method="POST" action="/register" enctype="multipart/form-data">
     @csrf
-    <p class="heading">CREATE AN USER </p>
+    <span class="heading">CREATE AN USER </span>
 
 
             <input class="input" placeholder="Username" type="text" id="Username" name="Username" value="{{ old('Username') }}" required>

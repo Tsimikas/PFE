@@ -4,7 +4,8 @@
     --secondary: #191C24;
     --light: #6C7293;
     --dark: #000000;
-    --white : #e4e4e4
+    --white : #e4e4e4;
+    --ciel : #218EC0;
 
 }
 
@@ -307,7 +308,7 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    background-color: rgb(33, 142, 192);
+    background-color:  rgb(33, 142, 192);
     padding: 2.5em;
     border-radius: 25px;
     transition: .4s ease-in-out;
@@ -333,12 +334,29 @@
     box-shadow: 10px 10px 0px #666666;
   }
 
-  .heading {
+  .form span {
     color: black;
     padding-bottom: 2em;
     text-align: center;
     font-weight: bold;
+    
   }
+
+  .form-hayder span {
+    color: black;
+    padding-bottom: 2em;
+    text-align: center;
+    font-weight: bold;
+    
+  }
+
+  .form p {
+    color:#00063f;
+    margin: 0px;
+    text-align: left;
+    background-color: rgb(33, 142, 192);
+   
+}
 
   .input {
     border-radius: 5px;

@@ -190,7 +190,7 @@
 
 <form class="form-hayder" method="POST" action="/bondembarquement" enctype="multipart/form-data">
     @csrf
-    <p class="heading">Bon Embarquement</p>
+    <span class="heading">Bon Embarquement</span>
 
 
 

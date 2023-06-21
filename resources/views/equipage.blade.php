@@ -191,7 +191,7 @@
 
   <form class="form"  method="POST" action="/equipage" enctype="multipart/form-data">
     @csrf
-    <p class="heading">Equipage</p>
+    <span class="heading">Equipage</span>
 
 
     <input class="input" placeholder="Matricule du Marin" type="text" id="marin" name="marin" required

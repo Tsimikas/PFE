@@ -196,7 +196,7 @@
 
   <form class="form" method="POST" enctype="multipart/form-data" action="/contrat">
     @csrf
-    <p class="heading">Creation d'une contrat</p>
+    <span class="heading">Creation d'une contrat</span>
 
     <input class="input"  placeholder="Matricule du Marin" type="text" id="marin" name="marin" required
     value="{{ old('marin') }}" />

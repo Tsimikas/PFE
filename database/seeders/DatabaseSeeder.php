@@ -35,6 +35,27 @@ class DatabaseSeeder extends Seeder
         bondembarquement::factory()->create();
         bondebarquement::factory()->create();
         visitemedical::factory()->create();
+
+        Port::create([
+            'Nom' => 'Alger',
+            'user_id' => '1'
+        ]);
+
+        Port::create([
+            'Nom' => 'Annaba',
+            'user_id' => '1'
+        ]);
+       
+        Port::create([
+            'Nom' => 'Skikda',
+            'user_id' => '1'
+        ]);
+       
+        Port::create([
+            'Nom' => 'Oran',
+            'user_id' => '1'
+        ]);
+       
        
         navire::create([
 

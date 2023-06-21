@@ -355,7 +355,7 @@
   <div id="pdf-container-1" class="document">
     <div id="pdf-content-1">
       <div class="header">
-        <img src="C:\Users\BUYMORE\example-app\Algerie_ferries_entmv_logo.png" alt="logo" id="logo">
+        <img src="img/logo.jpg" alt="logo" id="logo">
         <h4>ENTREPRISE NATIONALE DE TRASPORT MARITIME DE VOYAGEURS</h4>
         <h4>DIRECTION ARMEMENT</h4>
         <h6>SOUS DIRECTION ARMEMENT</h6>

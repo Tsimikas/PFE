@@ -192,7 +192,7 @@
 
   <form class="form"  method="POST" action="/fasicule" enctype="multipart/form-data">
     @csrf
-    <p class="heading">Fasicule</p>
+    <span class="heading">Fasicule</span>
 
 
     <input class="input" placeholder="Matricule du Marin" type="text" id="marin" name="marin" required

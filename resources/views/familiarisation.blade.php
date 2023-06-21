@@ -193,7 +193,7 @@
 
   <form class="form"  method="POST" action="/familiarisation" enctype="multipart/form-data">
     @csrf
-    <p class="heading">Familiarisation</p>
+    <span class="heading">Familiarisation</span>
 
     <input class="input" placeholder="Matricule du Marin" type="text" id="marin" name="marin" required
       value="{{ old('marin') }}" />

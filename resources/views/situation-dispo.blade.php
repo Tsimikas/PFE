@@ -191,7 +191,7 @@
 
   <form class="form" method="POST" action="/situation-dispo" enctype="multipart/form-data">
     @csrf
-    <p class="heading">Situation</p>
+    <span class="heading">Situation</span>
 
     <input class="input" placeholder="Matricule du Marin" type="text" id="marin" name="marin" required
     value="{{ request('marin')}}" />
