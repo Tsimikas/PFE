@@ -4,6 +4,8 @@
     --secondary: #191C24;
     --light: #6C7293;
     --dark: #000000;
+    --white : #e4e4e4
+    
 }
 
 .back-to-top {
@@ -299,7 +301,10 @@
     border-radius: 25px;
     transition: .4s ease-in-out;
     box-shadow: rgba(0, 0, 0, 0.4) 1px 2px 2px;
-    width: 300px;
+    width: 400px;
+    text-align: center;
+     margin: 0 auto;
+     margin-top : 30px
   }
   body {
     display: flex;
@@ -330,6 +335,8 @@
     padding: 0.7em;
     transition: .4s ease-in-out;
   }
+
+
 
   .input:hover {
     box-shadow: 6px 6px 0px #969696,
