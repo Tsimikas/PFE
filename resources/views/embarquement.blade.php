@@ -45,14 +45,15 @@
 
  
 
-  <body class="dark-mode">
-    <div class="container-fluid position-relative d-flex p-0">
-        <!-- Spinner Start -->
-        <div id="spinner" class="show bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-                <span class="sr-only">Loading...</span>
-            </div>
-        </div>
+        <body class="dark-mode">
+            <div class="container-fluid position-relative d-flex p-0">
+                <!-- Spinner Start -->
+                <div id="spinner" class="show bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+                    <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
+
     <div class="sidebar pe-4 pb-3">
         <nav class="navbar bg-secondary navbar-dark">
             <a href="/" class="navbar-brand mx-4 mb-3">
@@ -187,11 +188,13 @@
   </nav>
 
 
-<form class="form" method="POST" action="/bondembarquement" enctype="multipart/form-data">
+<form class="form-hayder" method="POST" action="/bondembarquement" enctype="multipart/form-data">
     @csrf
     <p class="heading">Bon Embarquement</p>
 
 
+
+    <div class="form-row">
     <input class="input" placeholder="Matricule du Marin" type="text" id="marin_name" name="marin_name" required
     value="{{ old('marin_name', request('matricule')) }}" />
     @error('marin_name')
@@ -199,9 +202,7 @@
     @enderror
 
 
-    <p>
-        Date Embarquement :
-    </p>
+
     <input class="input" placeholder="Date Embarquement" type="date" id="date_embarquement" name="date_embarquement"required />
     @error('date_embarquement')
     <p class="error"> {{$message}} </p>
@@ -214,7 +215,9 @@
     @error('wilaya_embarquement')
     <p class="error"> {{$message}} </p>
     @enderror
+    </div>
 
+    <div class="form-row">
     <input class="input" placeholder="Numero bon d'embarquement" type="number" id="numero" name="numero" required />
     @error('numero')
     <p class="error"> {{$message}} </p>
@@ -237,8 +240,10 @@
      @error('navire')
      <p class="error"> {{$message}} </p>
      @enderror
+    </div>
 
 
+    <div class="form-row">
      <input class="input" placeholder="Fonction Actuel" type="text" id="post_actuel" name="post_actuel" required
            value="{{old('post_actuel')}}"/>
     @error('post_actuel')
@@ -256,9 +261,10 @@
     @error('cas_familiarisation')
     <p class="error"> {{$message}} </p>
     @enderror
+    </div>
 
 
-          <button class="btn" type="submit">ok </button>
+          <button class="btn" type="submit">Embarquer le marin</button>
 </form>
 
   </body>

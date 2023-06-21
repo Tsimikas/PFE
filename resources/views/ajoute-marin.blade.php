@@ -192,10 +192,12 @@
 
   </nav>
 
-  <form class="form" method="POST" enctype="multipart/form-data" action="/ajoute-marin">
+  <form class="form-hayder" method="POST" enctype="multipart/form-data" action="/ajoute-marin">
     @csrf
     <p class="heading">Ajouter un Marin</p>
 
+
+    <div class="form-row">
     <input class="input" placeholder="Nom" type="text" id="Nom" name="Nom" value="{{old('Nom')}}"/>
     @error('Nom')
     <p class="error"> {{$message}} </p>
@@ -211,7 +213,9 @@
     @error('Matricule')
     <p class="error"> {{$message}} </p>
     @enderror
+    </div>
 
+    <div class="form-row">
     <input class="input"  required placeholder="Email" type="email" value="{{old('email')}}" id="email" name="email"/>
     @error('email')
     <p class="error"> {{$message}} </p>
@@ -230,8 +234,11 @@
     @error('wilaya_de_domicile')
     <p class="error"> {{$message}} </p>
     @enderror
+    </div>
 
+    
 
+    <div class="form-row">
     <input class="input" placeholder="Wilaya de naissance" type="text" id="wilaya_de_naissance" name="wilaya_de_naissance" required
     value="{{old('wilaya_de_naissance')}}"/>
     @error('wilaya_de_naissance')
@@ -251,11 +258,16 @@
     @error('Post_travail')
     <p class="error"> {{$message}} </p>
     @enderror
-
+    </div>
+   
+    <div class="form-row">
     <input class="input" placeholder="Numero telephone"  type="number" id="Numero_telephone" name="Numero_telephone"  value="{{ old('Numero_telephone') }}" required>
     @error('Numero_telephone')
     <p class="error"> {{$message}} </p>
     @enderror
+</div>
+
+   
     <button class="btn" type="submit">Ajouter Marin</button>
 </form>
 

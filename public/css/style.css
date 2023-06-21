@@ -5,8 +5,19 @@
     --light: #6C7293;
     --dark: #000000;
     --white : #e4e4e4
-    
+
 }
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .form-row input, .form-row select{
+    width: 30%;
+    margin-bottom: 10px;
+  }
 
 .back-to-top {
     position: fixed;
@@ -306,6 +317,8 @@
      margin: 0 auto;
      margin-top : 30px
   }
+
+
   body {
     display: flex;
     justify-content: center;
@@ -379,4 +392,53 @@
     transition: .2s;
     transform: translateX(0em) translateY(0em);
     box-shadow: none;
+  }
+
+
+  .form-hayder{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: rgb(33, 142, 192);
+    padding: 2.5em;
+    border-radius: 25px;
+    transition: .4s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.4) 1px 2px 2px;
+    width: 700px;
+    text-align: center;
+     margin: 0 auto;
+     margin-top : 30px
+  }
+
+  
+  .form-hayder .btn {
+    margin-top: 2em;
+    align-self: center;
+    padding: 0.7em;
+    padding-left: 1em;
+    padding-right: 1em;
+    border-radius: 10px;
+    background-color: #00063f;
+    border: none;
+    color: white;
+    transition: .4s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.4) 1px 1px 1px;
+  }
+
+  .form-hayder .btn:hover {
+    box-shadow: 6px 6px 0px #969696,
+               -3px -3px 10px #00063f;
+    transform: translateX(-0.5em) translateY(-0.5em);
+  }
+
+  .form-hayder .btn:active {
+    transition: .2s;
+    transform: translateX(0em) translateY(0em);
+    box-shadow: none;
+  }
+
+  .form-hayder:hover {
+    transform: translateX(-0.5em) translateY(-0.5em);
+    border: 1px solid #171717;
+    box-shadow: 10px 10px 0px #666666;
   }
