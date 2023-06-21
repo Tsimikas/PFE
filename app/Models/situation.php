@@ -15,7 +15,7 @@ class situation extends Model
         'marin_id',
         'user_id',
         'date_debut',
-        'date_fin',
+       
         'situation'
 
     ];

@@ -47,7 +47,7 @@ class DebarquementController extends Controller
         $situation->marin_id = $marin->id;
         $situation->situation = 'conge';
         $situation->date_debut = $date_debarquement;
-        $situation->date_fin = $date_debarquement;
+       
 
 
         $bondebarquement->save();

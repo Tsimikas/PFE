@@ -16,7 +16,7 @@ class CreateSituationsTable extends Migration
         Schema::create('situations', function (Blueprint $table) {
             $table->id();
             $table->date('date_debut');
-            $table->date('date_fin');
+           
             $table->enum('situation',['disponible','conge','embarquer'])->default('conge');
             $table->foreignId('marin_id')->constrained()->onDelete('cascade');
             $table->foreignId('user_id')->constrained();

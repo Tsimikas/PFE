@@ -35,18 +35,20 @@
 
 
 
+@if (session()->has('success'))
+<div style='background: fixed;
+text-align: center;
+border: double;
+background-color: green'>
+    <p>
+        {{session('success')}}
+    </p>
+</div>
+@endif
+
+
 
         <body class="dark-mode">
-            @if (session()->has('success'))
-            <div style='background: fixed;
-            text-align: center;
-            border: double;
-            background-color: green'>
-                <p>
-                    {{session('success')}}
-                </p>
-            </div>
-        @endif
             <div class="container-fluid position-relative d-flex p-0">
                 <!-- Spinner Start -->
                 <div id="spinner" class="show bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">

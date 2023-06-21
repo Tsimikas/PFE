@@ -60,7 +60,7 @@ class EmbarquementController extends Controller
              $situation->marin_id = $marin->id;
              $situation->situation = 'embarquer';
              $situation->date_debut = $date_embarquement;
-             $situation->date_fin = $date_embarquement;
+            
 
 
 

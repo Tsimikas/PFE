@@ -1,255 +1,12 @@
- {{-- <section class="px-6 py-8">
-
-    <main class="max-w-lg mx-auto mt-40 bg-gray-300 p-6 rounded-xl ">
-        <h1 class="text-center font-bold text-xl">Register!</h1>
-    <form action="/register" method="post" class="mt-20">
-       <div class="mb-6">
-
-            <p class="block ml-2 uppercase font-bold text-xs text-gray-700"     for="Nom">
-                  Nom
-          </p>
-
-               <input class="border border-gray-400 p-2 w-full"
-                type="text"
-                name="Nom"
-                id="Nom"
-                required>
-
-      </div> --}}
-
-    {{--  <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Registrer!</title>
-    <style>
-        /* Form Styles */
-        form {
-            max-width: 500px;
-            margin: 0 auto;
-        }
-        h1 {
-            max-width: 500px;
-            margin: 0 auto;
-
-        }
-        .form-group {
-            margin-bottom: 1rem;
-        }
-        p {
-            display: block;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-        }
-        input[type="text"],
-        input[type="email"],
-        input[type="password"],
-        input[type="tel"],
-        input[type="profil"] {
-            display: block;
-            width: 100%;
-            padding: 0.5rem;
-            border: 1px solid #ccc;
-            border-radius: 0.25rem;
-            font-size: 1rem;
-            margin-top: 0.25rem;
-        }
-        button[type="submit"] {
-            display: inline-block;
-            background-color: #4CAF50;
-            color: white;
-            padding: 0.5rem 1rem;
-            border: none;
-            border-radius: 0.25rem;
-            font-size: 1rem;
-            cursor: pointer;
-        }
-        button[type="submit"]:hover {
-            background-color: #3e8e41;
-        }
-        /* Error Styles */
-        .error {
-
-            color:red;
-            margin-top: 0.25rem;
-            font-size: 0.8rem;
-        }
-    </style>
-</head>
-<body>
-    <h1>Create User</h1>
-    <form method="POST" action="/register" enctype="multipart/form-data">
-        @csrf
-        <div class="form-group">
-            <p for="Username">Username</p>
-            <input type="text" id="Username" name="Username" value="{{ old('Username') }}" required>
-            @error('Username')
-            <p class="error"> {{$message}} </p>
-            @enderror
-        </div>
 
 
 
 
-        <div class="form-group">
-            <p for="profil">Profil</p>
-            <select type="profil" id="profil" name="profil"  value="{{ old('profil') }}" required>
-                <option value="admin">admin</option>
-                <option value="directeur">directeur</option>
-                <option value="gestionnaire">gestionnaire</option>
-                <option value="ecrivant">ecrivant</option>
-            </select>
-            @error('profil')
-            <p class="error"> {{$message}} </p>
-            @enderror
-        </div>
-
-        <div class="form-group">
-            <p for="password">Password</p>
-            <input type="password" id="password" name="password" required>
-            @error('password')
-            <p class="error"> {{$message}} </p>
-            @enderror
-        </div>
-        {{-- <div class="form-group">
-            <p for="password_confirmation">Confirm Password</p>
-            <input type="password" id="password_confirmation" name="password_confirmation" required>
-        </div> //
-        <button type="submit">Create User</button>
-    </form>
-</body>
-</html> 
 
 
 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Register!</title>
-    <style>
-        /* Form Styles */
-        body {
-            background: linear-gradient(135deg, #667eea 0%, #87ceeb 100%);
-            padding: 2rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
 
-        form {
-            max-width: 500px;
-            margin: 0 auto;
-            background-color: white;
-            padding: 2rem;
-            border-radius: 0.25rem;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        }
 
-        h1 {
-            text-align: center;
-            margin-bottom: 2rem;
-            color: #878aeb;
-        }
-
-        .form-group {
-            margin-bottom: 1rem;
-        }
-
-        p {
-            display: block;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-            color: #878aeb;
-        }
-
-        input[type="text"],
-        input[type="email"],
-        input[type="password"],
-        input[type="tel"],
-        input[type="profil"] {
-            display: block;
-            width: 100%;
-            padding: 0.5rem;
-            border: 1px solid #ccc;
-            border-radius: 0.25rem;
-            font-size: 1rem;
-            margin-top: 0.25rem;
-        }
-
-        select {
-            display: block;
-            width: 100%;
-            padding: 0.5rem;
-            border: 1px solid #ccc;
-            border-radius: 0.25rem;
-            font-size: 1rem;
-            margin-top: 0.25rem;
-            background-color: white;
-            color: #878aeb;
-        }
-
-        button[type="submit"] {
-            display: inline-block;
-            background-color: #878aeb;
-            color: white;
-            padding: 0.5rem 1rem;
-            border: none;
-            border-radius: 0.25rem;
-            font-size: 1rem;
-            cursor: pointer;
-        }
-
-        button[type="submit"]:hover {
-            background-color: #6ca6cd;
-        }
-
-        /* Error Styles */
-        .error {
-            color: red;
-            margin-top: 0.25rem;
-            font-size: 0.8rem;
-        }
-    </style>
-</head>
-<body>
-    <form method="POST" action="/register" enctype="multipart/form-data">
-        @csrf
-        <h1>Create User</h1>
-        <div class="form-group">
-            <p for="Username">Username</p>
-            <input type="text" id="Username" name="Username" value="{{ old('Username') }}" required>
-            @error('Username')
-            <p class="error"> {{$message}} </p>
-            @enderror
-        </div>
-
-        <div class="form-group">
-            <p for="profil">Profil</p>
-            <select type="profil" id="profil" name="profil" value="{{ old('profil') }}" required>
-                <option value="admin">admin</option>
-                <option value="directeur">directeur</option>
-                <option value="gestionnaire">gestionnaire</option>
-                <option value="ecrivant">ecrivant</option>
-            </select>
-            @error('profil')
-            <p class="error"> {{$message}} </p>
-            @enderror
-        </div>
-
-        <div class="form-group">
-            <p for="password">Password</p>
-            <input type="password" id="password" name="password" required>
-            @error('password')
-            <p class="error"> {{$message}} </p>
-            @enderror
-        </div>
-
-        <button type="submit">Create User</button>
-    </form>
-</body>
-</html> --}}
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -259,16 +16,180 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
   </head>
 
 
-  <body style="background-color: #000328; background-image: url('img/oo.jpg');">
-<form class="form" method="POST" action="/register" enctype="multipart/form-data">
+
+  <body class="dark-mode">
+    <div class="container-fluid position-relative d-flex p-0">
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-sark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+
+    <div class="sidebar pe-4 pb-3">
+        <nav class="navbar bg-secondary navbar-dark">
+            <a href="/" class="navbar-brand mx-4 mb-3">
+                <h3 class="text-primary"><i class="fa fa-user-edit me-2"></i>ShipMates</h3>
+            </a>
+            <div class="d-flex align-items-center ms-4 mb-4">
+                <div class="position-relative">
+                    <img class="rounded-circle" src="img/avatar.jpg" alt="" style="width: 40px; height: 40px;">
+                    <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
+                </div>
+                <div class="ms-3">
+                    <h6 class="mb-0">{{auth()->user()->Username}}</h6>
+                    <span>{{auth()->user()->profil}}</span>
+                </div>
+            </div>
+
+
+
+            <div class="navbar-nav w-100">
+
+
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Tableau de bord</a>
+                    <div class="dropdown-menu bg-transparent border-0">
+                        <a href="equipe" class="dropdown-item">Equipage</a>
+                        <a href="recapmarin" class="dropdown-item">Recape marin</a>
+                        <a href="liste-port" class="dropdown-item">Movement</a>
+                    </div>
+                </div>
+
+
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Données de Base</a>
+                    <div class="dropdown-menu bg-transparent border-0">
+                        <a href="liste-navires" class="dropdown-item">Liste Navires</a>
+                        <a href="liste-port" class="dropdown-item">Liste Ports</a>
+                    </div>
+                </div>
+
+
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Gestion Marin</a>
+                    <div class="dropdown-menu bg-transparent border-0">
+
+                        <a href="liste-marin" class="dropdown-item">Liste Marins</a>
+                        <a href="fasicule" class="dropdown-item">Mise a jour Fascicule</a>
+                        <a href="visitemedical" class="dropdown-item">Mise a jour Visite Medicale</a>
+                        <a href="contrat" class="dropdown-item">Create Contrat</a>
+
+                        <a href="situation" class="dropdown-item">Gestion des canges</a>
+
+                    </div>
+                    </div>
+
+
+
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Embarquement</a>
+                        <div class="dropdown-menu bg-transparent border-0">
+                            <a href="liste_bonembarquement" class="dropdown-item">Embarquer un Marin</a>
+
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Débarquement</a>
+                        <div class="dropdown-menu bg-transparent border-0">
+                            <a href="liste_bondebarquement" class="dropdown-item">Debarquer un marin</a>
+
+                        </div>
+
+                            <div class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Gestion Users</a>
+                                <div class="dropdown-menu bg-transparent border-0">
+                                    <a href="register" class="dropdown-item">Create an User</a>
+                                </div>
+                                </div>
+                  </div>
+              </div>
+          </nav>
+      </div>
+<!-- Sidebar End -->
+
+
+
+<!-- Content Start -->
+<div class="content">
+  <!-- Navbar Start -->
+  <nav class="navbar navbar-expand bg-secondary navbar-light sticky-top px-4 py-0">
+      <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
+          <h2 class="text-primary mb-0"><i class="fa fa-user-edit"></i></h2>
+      </a>
+      <a href="#" class="sidebar-toggler flex-shrink-0">
+          <i class="fa fa-bars"></i>
+      </a>
+      <form class="d-none d-md-flex ms-4">
+          <input class="form-control bg-dark border-0" type="search" placeholder="Search">
+      </form>
+      <div class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+              <i class="fa fa-bell me-lg-2"></i>
+              <span class="d-none d-lg-inline-flex">Notificatin</span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
+              <a href="#" class="dropdown-item">
+                  <h6 class="fw-normal mb-0">Fascicule de moh is dead</h6>
+                  <small>Date ex :</small>
+              </a>
+          </div>
+      </div>
+
+         <div class="navbar-nav ms-auto order-1">
+          <div class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                  <img class="rounded-circle me-lg-2" src="img/avatar.jpg" alt="" style="width: 40px; height: 40px;">
+                  <span class="d-none d-lg-inline-flex">{{auth()->user()->profil}}</span>
+              </a>
+              @auth
+
+              <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
+
+                <form method="POST" action="/logout" enctype="multipart/form-data">
+                    @csrf
+
+                    <button class="dropdown-item" type="submit"> Log Out</button>
+                </form>
+
+              </div>
+              @endauth
+          </div>
+      </div>
+
+  </nav>
+
+
+  <form class="form" method="POST" action="/register" enctype="multipart/form-data">
     @csrf
     <p class="heading">CREATE AN USER </p>
 
-   
+
             <input class="input" placeholder="Username" type="text" id="Username" name="Username" value="{{ old('Username') }}" required>
             @error('Username')
             <p class="error"> {{$message}} </p>
@@ -284,7 +205,7 @@
             <p class="error"> {{$message}} </p>
             @enderror
 
-           
+
             <input class="input" placeholder="Password" type="password" id="password" name="password" required>
             @error('password')
             <p class="error"> {{$message}} </p>
@@ -292,7 +213,26 @@
 
     <button class="btn" type="submit">Create an user</button>
 </form>
+
   </body>
 </html>
 
- 
+   <!-- JavaScript Libraries -->
+   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+   <script src="lib/chart/chart.min.js"></script>
+   <script src="lib/easing/easing.min.js"></script>
+   <script src="lib/waypoints/waypoints.min.js"></script>
+   <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+   <script src="lib/tempusdominus/js/moment.min.js"></script>
+   <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+   <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+   <!-- Template Javascript -->
+   <script src="js/main.js"></script>
+  </body>
+</html>
+
+
+
+

@@ -17,7 +17,7 @@ class situationFactory extends Factory
     {
         return [
             'date_debut'=>$this->faker->date(),
-            'date_fin'=>$this->faker->date(),
+          
             'marin_id'=> Marin::factory(),
             'user_id'=> User::factory(),
         ];

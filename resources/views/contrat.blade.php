@@ -1,279 +1,18 @@
-{{--<!DOCTYPE html>
-<html>
-<head>
-  <title>Medical Visit Form</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-    }
-
-    form {
-      max-width: 400px;
-      margin: 0 auto;
-    }
-
-    label {
-      display: block;
-      margin-bottom: 10px;
-    }
-
-    input[type="text"],
-    select {
-      width: 100%;
-      padding: 5px;
-      border-radius: 4px;
-      border: 1px solid #ccc;
-    }
-
-    input[type="submit"] {
-      background-color: #4CAF50;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    .error {
-
-color:red;
-margin-top: 0.25rem;
-font-size: 0.8rem;
-}
-  <
-  </style>
-</head>
-<body>
-  <h2>ADD CONTRAT</h2>
-  <form method="POST" action="/contrat" enctype="multipart/form-data">
-   @csrf
-
-   <label for="marin">Marin:</label>
-    <input type="text" id="marin" name="marin" value="{{ old('marin') }}" equired>
-    @error('marin')
-    <p class="error"> {{$message}} </p>
-    @enderror
-
-
-    <label for="date_debut">Date Debut:</label>
-    <input type="date" id="date_debut" name="date_debut" value="{{ old('date_debut') }}" required>
-    @error('date_debut')
-    <p class="error"> {{$message}} </p>
-    @enderror
-
-
-
-    <label for="date_fin">Date Fin:</label>
-    <input type="date" id="date_fin" name="date_fin" value="{{ old('date_fin') }}">
-    @error('date_fin')
-    <p class="error"> {{$message}} </p>
-    @enderror
-
-
-
-    <label for="type">Type</label>
-    <select type="text" id="type" name="type" value="{{ old('type') }}" required>
-    <option value="CDD">CDD</option>
-    <option value="CDI">CDI</option>
-    </select>
-    @error('type')
-    <p class="error"> {{$message}} </p>
-    @enderror
-
-    <input type="submit" value="Submit">
-  </form>
-</body>
-</html> --}}
-
-    {{-- 2 --}}
-
-
-{{--<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8" />
-  <title>Contrat</title>
-  <style>
-    @import "https://fonts.googleapis.com/css?family=Poppins";
-    * {
-      box-sizing: border-box;
-    }
-    body {
-      margin: 0;
-      padding: 0;
-      background: #333;
-      font-family: Poppins;
-      text-transform: uppercase;
-      font-size: 11px;
-      background: #0f0c29;
-      /* fallback for old browsers */
-      background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);
-      /* Chrome 10-25, Safari 5.1-6 */
-      background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
-      /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    }
-    h1 {
-      margin: 0;
-    }
-    #contact {
-      margin: 4em auto;
-      width: 100px;
-      height: 30px;
-      line-height: 30px;
-      font-weight: 700;
-      text-align: center;
-      cursor: pointer;
-      border: 1px solid white;
-    }
-    #contact:hover {
-      background: #000000;
-    }
-    #contact:active {
-      background: #444;
-    }
-    #contactForm {
-
-      border: 6px solid 3324be;
-      padding: 2em;
-      width: 400px;
-      text-align: center;
-      background: #fff;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      -webkit-transform: translate(-50%, -50%);
-      border-radius: 16px;
-    }
-    input,
-    textarea,select {
-      outline: 0;
-      background: #f2f2f2;
-      width: 100%;
-      border: 0;
-      margin: 0 0 15px;
-      padding: 15px;
-      box-sizing: border-box;
-      font-size: 14px;
-      border-radius: 15px;
-    }
-    textarea {
-      height: 80px;
-      resize: none;
-    }
-    .formBtn {
-      outline: 0;
-      background: #3324be;
-      width: 140px;
-      height: 30px;
-      border: 0;
-      color: #ffffff;
-      font-size: 1.2em;
-      border-radius: 15px;
-      -webkit-transition: all 0.3 ease;
-      transition: all 0.3 ease;
-      cursor: pointer;
-    }
-
-    .error {
-
-color:red;
-font-size: 0.8rem;
-}
-  </style>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-</head>
-<body>
-  <div id="contact" class="formBtn">Click here</div>
-  <div id="contactForm">
-    <h1 style="margin-bottom: 10px;">Creation d'une Contrat</h1>
-    <form method="POST" action="/contrat"" enctype="multipart/form-data">
-        @csrf
-
-      <input placeholder="Matricule du Marin" type="text" id="marin" name="marin" required
-      value="{{ old('marin') }}" />
-      @error('marin')
-      <p class="error"> {{$message}} </p>
-      @enderror
-
-      <label for="date_debut" id="dateDebutLabel">Date Debut</label>
-      <input placeholder="Date Debut " type="date" id="date_debut" name="date_debut"required />
-      @error('date_debut')
-      <p class="error"> {{$message}} </p>
-      @enderror
-
-      <label for="date_fin" id="dateFinLabel">Date Fin</label>
-      <input placeholder="Date Fin" type="date" id="date_fin" name="date_fin" />
-      @error('date_fin')
-      <p class="error"> {{$message}} </p>
-      @enderror
-
-      <select placeholder="Type Contrat" type="date" id="type" name="type" required >
-        <option value="CDD">CDD</option>
-        <option value="CDI">CDI</option>
-      </select>
-      @error('type')
-      <p class="error"> {{$message}} </p>
-      @enderror
 
 
 
 
-      <button class="formBtn" type="submit">Ajouter Contrat</button>
-    </form>
-  </div>
-  <script>
-    $(function() {
-      $('#contact').click(function() {
-        $('#contactForm').fadeToggle();
-      });
 
 
-      var dateDebutInput = document.getElementById("date_debut");
-      var dateFinInput = document.getElementById("date_fin");
-      var dateDebutLabel = document.getElementById("dateDebutLabel");
-      var dateFinLabel = document.getElementById("dateFinLabel");
 
-      // Hide the labels when the input fields gain focus
-      dateDebutInput.addEventListener("focus", function() {
-        dateDebutLabel.style.display = "none";
-      });
 
-      dateFinInput.addEventListener("focus", function() {
-        dateFinLabel.style.display = "none";
-      });
 
-      // Show the labels when the input fields lose focus and are empty
-      dateDebutInput.addEventListener("blur", function() {
-        if (!dateDebutInput.value) {
-          dateDebutLabel.style.display = "block";
-        }
-      });
 
-      dateFinInput.addEventListener("blur", function() {
-        if (!dateFinInput.value) {
-          dateFinLabel.style.display = "block";
-        }
-      });
 
-      // Check if the input fields have values on page load and hide/show the labels accordingly
-      if (dateDebutInput.value) {
-        dateDebutLabel.style.display = "none";
-      } else {
-        dateDebutLabel.style.display = "block";
-      }
 
-      if (dateFinInput.value) {
-        dateFinLabel.style.display = "none";
-      } else {
-        dateFinLabel.style.display = "block";
-      }
 
-    });
-  </script>
-</body>
-</html> --}}
+
+
 
 
 <!DOCTYPE html>
@@ -284,12 +23,178 @@ font-size: 0.8rem;
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
   </head>
 
 
-  <body style="background-color: #000328; background-image: url('img/oo.jpg');">
-<form class="form" method="POST" enctype="multipart/form-data" action="/contrat">
+
+  <body class="dark-mode">
+    <div class="container-fluid position-relative d-flex p-0">
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+
+    <div class="sidebar pe-4 pb-3">
+        <nav class="navbar bg-secondary navbar-dark">
+            <a href="/" class="navbar-brand mx-4 mb-3">
+                <h3 class="text-primary"><i class="fa fa-user-edit me-2"></i>ShipMates</h3>
+            </a>
+            <div class="d-flex align-items-center ms-4 mb-4">
+                <div class="position-relative">
+                    <img class="rounded-circle" src="img/avatar.jpg" alt="" style="width: 40px; height: 40px;">
+                    <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
+                </div>
+                <div class="ms-3">
+                    <h6 class="mb-0">{{auth()->user()->Username}}</h6>
+                    <span>{{auth()->user()->profil}}</span>
+                </div>
+            </div>
+
+
+
+            <div class="navbar-nav w-100">
+
+
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Tableau de bord</a>
+                    <div class="dropdown-menu bg-transparent border-0">
+                        <a href="equipe" class="dropdown-item">Equipage</a>
+                        <a href="recapmarin" class="dropdown-item">Recape marin</a>
+                        <a href="liste-port" class="dropdown-item">Movement</a>
+                    </div>
+                </div>
+
+
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Données de Base</a>
+                    <div class="dropdown-menu bg-transparent border-0">
+                        <a href="liste-navires" class="dropdown-item">Liste Navires</a>
+                        <a href="liste-port" class="dropdown-item">Liste Ports</a>
+                    </div>
+                </div>
+
+
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Gestion Marin</a>
+                    <div class="dropdown-menu bg-transparent border-0">
+
+                        <a href="liste-marin" class="dropdown-item">Liste Marins</a>
+                        <a href="fasicule" class="dropdown-item">Mise a jour Fascicule</a>
+                        <a href="visitemedical" class="dropdown-item">Mise a jour Visite Medicale</a>
+                        <a href="contrat" class="dropdown-item">Create Contrat</a>
+
+                        <a href="situation" class="dropdown-item">Gestion des canges</a>
+
+                    </div>
+                    </div>
+
+
+
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Embarquement</a>
+                        <div class="dropdown-menu bg-transparent border-0">
+                            <a href="liste_bonembarquement" class="dropdown-item">Embarquer un Marin</a>
+
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Débarquement</a>
+                        <div class="dropdown-menu bg-transparent border-0">
+                            <a href="liste_bondebarquement" class="dropdown-item">Debarquer un marin</a>
+
+                        </div>
+
+                            <div class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Gestion Users</a>
+                                <div class="dropdown-menu bg-transparent border-0">
+                                    <a href="register" class="dropdown-item">Create an User</a>
+                                </div>
+                                </div>
+                  </div>
+              </div>
+          </nav>
+      </div>
+<!-- Sidebar End -->
+
+
+
+<!-- Content Start -->
+<div class="content">
+  <!-- Navbar Start -->
+  <nav class="navbar navbar-expand bg-secondary navbar-light sticky-top px-4 py-0">
+      <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
+          <h2 class="text-primary mb-0"><i class="fa fa-user-edit"></i></h2>
+      </a>
+      <a href="#" class="sidebar-toggler flex-shrink-0">
+          <i class="fa fa-bars"></i>
+      </a>
+      <form class="d-none d-md-flex ms-4">
+          <input class="form-control bg-dark border-0" type="search" placeholder="Search">
+      </form>
+      <div class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+              <i class="fa fa-bell me-lg-2"></i>
+              <span class="d-none d-lg-inline-flex">Notificatin</span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
+              <a href="#" class="dropdown-item">
+                  <h6 class="fw-normal mb-0">Fascicule de moh is dead</h6>
+                  <small>Date ex :</small>
+              </a>
+          </div>
+      </div>
+
+         <div class="navbar-nav ms-auto order-1">
+          <div class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                  <img class="rounded-circle me-lg-2" src="img/avatar.jpg" alt="" style="width: 40px; height: 40px;">
+                  <span class="d-none d-lg-inline-flex">{{auth()->user()->profil}}</span>
+              </a>
+              @auth
+
+              <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
+
+                <form method="POST" action="/logout" enctype="multipart/form-data">
+                    @csrf
+
+                    <button class="dropdown-item" type="submit"> Log Out</button>
+                </form>
+
+              </div>
+              @endauth
+          </div>
+      </div>
+
+  </nav>
+
+
+
+
+  <form class="form" method="POST" enctype="multipart/form-data" action="/contrat">
     @csrf
     <p class="heading">Creation d'une contrat</p>
 
@@ -325,8 +230,33 @@ font-size: 0.8rem;
 
     <button class="btn" type="submit">Ajouter Contrat</button>
 </form>
+
+
   </body>
 </html>
+
+   <!-- JavaScript Libraries -->
+   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+   <script src="lib/chart/chart.min.js"></script>
+   <script src="lib/easing/easing.min.js"></script>
+   <script src="lib/waypoints/waypoints.min.js"></script>
+   <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+   <script src="lib/tempusdominus/js/moment.min.js"></script>
+   <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+   <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+   <!-- Template Javascript -->
+   <script src="js/main.js"></script>
+  </body>
+</html>
+
+
+
+
+
+
+
 
 
 

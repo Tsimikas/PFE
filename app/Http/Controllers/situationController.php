@@ -36,7 +36,7 @@ class situationController extends Controller
             $attributes = request()->validate([
                  'marin'=>['required','string', 'exists:Marins,Matricule'],
                  'date_debut'=>['required','date'],
-                 'date_fin'=>['required','date'],
+                
                  'situation'=>['required',],
     
     

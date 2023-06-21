@@ -227,8 +227,6 @@
                                     <th scope="col">Matricule</th>
                                     <th scope="col">Poste de travail</th>
                                     <th scope="col">Situation</th>
-                                    <th scope="col">Visite medical</th>
-                                    <th scope="col">fasicule</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -298,21 +296,6 @@
                                             <td>{{ $situation }}</td>
                                         @endif
                         
-                                     @if ($isMoreThanTwoYears || optional($marin->visitemedical->last()) === null)
-                                       <td>
-                                        <a href="{{ route('visitemedical.create',['matricule' => $marin->Matricule,])}}">Visite medical morte</a>
-                                       </td>
-                                     @else
-                                         <td>Good</td>
-                                     @endif
-                        
-                                     @if ($isMoreThanFiveYears)
-                                         <td>
-                                            <a href="{{ route('fasicule.create',['matricule' => $marin->Matricule,])}}">Fasicule morte</a>
-                                         </td>
-                                     @else
-                                         <td>Good</td>
-                                     @endif
                         
                         
                         

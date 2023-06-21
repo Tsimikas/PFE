@@ -46,7 +46,7 @@ class MarinController extends Controller
         $situation->marin_id = $marin->id;
         $situation->situation = 'disponible';
         $situation->date_debut = $today;
-        $situation->date_fin = $today;
+        
 
         $situation->save();
 
