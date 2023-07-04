@@ -30,7 +30,7 @@ class familiarisationController extends Controller
     $familiarisation->marin_id = $marin->id;
     $familiarisation->save();
 
-    return redirect('/');
+    return redirect('/')->with('success', 'Marin has been familiarise');;
     }
 
 }

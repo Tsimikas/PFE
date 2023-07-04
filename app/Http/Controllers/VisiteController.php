@@ -28,7 +28,7 @@ class VisiteController extends Controller
         $visitemedical->marin_id = $marin->id;
         $visitemedical->save();
 
-        return redirect('/');
+        return redirect('/')->with('success', 'Marin has been created');;
         }
 
 

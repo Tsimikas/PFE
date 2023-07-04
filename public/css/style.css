@@ -1,20 +1,25 @@
 /********** Template CSS **********/
+
 :root {
     --primary: #0f387a;
     --secondary: #191C24;
     --light: #6C7293;
     --dark: #000000;
-    --white : #e4e4e4;
-    --ciel : #218EC0;
-
+    --white: #e4e4e4;
+    --ciel: #218EC0;
+    --gray: #2F4F4F;
+    --sky: #87CEFA;
+    --teal: #007B7F;
+    --golden: #FFC857;
 }
+
 
 .form-row {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
   }
-  
+
   .form-row input, .form-row select{
     width: 30%;
     margin-bottom: 10px;
@@ -133,6 +138,10 @@
 
 
 /*** Navbar ***/
+.logo-img {
+    width: 50px;  /* Adjust the width as needed */
+    height: 50px; /* Adjust the height as needed */
+}
 .sidebar .navbar .navbar-nav .nav-link {
     padding: 7px 20px;
     color: var(--light);
@@ -339,7 +348,7 @@
     padding-bottom: 2em;
     text-align: center;
     font-weight: bold;
-    
+
   }
 
   .form-hayder span {
@@ -347,7 +356,7 @@
     padding-bottom: 2em;
     text-align: center;
     font-weight: bold;
-    
+
   }
 
   .form p {
@@ -355,7 +364,7 @@
     margin: 0px;
     text-align: left;
     background-color: rgb(33, 142, 192);
-   
+
 }
 
   .input {
@@ -428,7 +437,7 @@
      margin-top : 30px
   }
 
-  
+
   .form-hayder .btn {
     margin-top: 2em;
     align-self: center;

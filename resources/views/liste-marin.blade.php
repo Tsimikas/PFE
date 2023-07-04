@@ -59,10 +59,11 @@
 
 
                 <!-- Sidebar Start -->
-                <div class="sidebar pe-4 pb-3">
+                    <div class="sidebar pe-4 pb-3">
                     <nav class="navbar bg-secondary navbar-dark">
-                        <a href="index.html" class="navbar-brand mx-4 mb-3">
-                            <h3 class="text-primary"><i class="fa fa-user-edit me-2"></i>ShipMates</h3>
+                        <a href="/" class="navbar-brand mx-4 mb-3">
+                           
+                            <h3 class="text-primary"> <img src="img//logo.jpg" alt="Logo" class="logo-img"></i>ShipMates</h3>
                         </a>
                         <div class="d-flex align-items-center ms-4 mb-4">
                             <div class="position-relative">
@@ -82,7 +83,7 @@
                                 <div class="dropdown-menu bg-transparent border-0">
                                     <a href="equipe" class="dropdown-item">Equipage</a>
                                     <a href="recapmarin" class="dropdown-item">Recape marin</a>
-                                    <a href="liste-port" class="dropdown-item">Movement</a>
+                                   
                                 </div>
                             </div>
 
@@ -210,9 +211,10 @@
                     <div class="d-flex align-items-center justify-content-between mb-4">
                         <h6 class="mb-0">Liste des marins</h6>
                         <a href="ajoute-marin">
-                          <button class="btn btn-primary">Ajouter un marin</button>
+                          <button class="btn btn-primary">Ajouter un marin</button> 
                         </a>
                     </div>
+                
                     <div class="table-responsive">
                         <table class="table text-start align-middle table-bordered table-hover mb-0">
                             <thead>

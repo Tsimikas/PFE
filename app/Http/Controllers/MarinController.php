@@ -46,7 +46,7 @@ class MarinController extends Controller
         $situation->marin_id = $marin->id;
         $situation->situation = 'disponible';
         $situation->date_debut = $today;
-        
+
 
         $situation->save();
 
@@ -72,12 +72,12 @@ class MarinController extends Controller
         ]);
 
     }
-     
+
 
     public function liste_embarquement(Request $request)
     {
         $search = $request->input('search');
-    
+
         $marins = Marin::leftJoin('situations', function ($join) {
                 $join->on('marins.id', '=', 'situations.marin_id')
                      ->whereRaw('situations.id = (SELECT MAX(id) FROM situations WHERE marin_id = marins.id)');
@@ -97,24 +97,40 @@ class MarinController extends Controller
             ->orderByRaw("FIELD(situations.situation, 'disponible', 'conge', 'embarquer')")
             ->select('marins.*')
             ->get();
-    
+
         return view('liste_embarquement', [
             'marins' => $marins,
             'search' => $search
         ]);
     }
-    
-    
-    
 
-     public function liste_debarquement()
-{   
-        
-        
-        $marins = Marin::all();
-        return view('liste_debarquement', [
-             'marins' => $marins
-         ]);
+
+
+
+     public function liste_debarquement(Request $request)
+{
+
+    $search = $request->input('search');
+    $marins = Marin::query()
+    ->when($search, function ($query) use ($search) {
+        return $query->where(function ($subquery) use ($search) {
+            $subquery->where('marins.Nom', 'LIKE', '%'.$search.'%')
+
+                     ->orWhere('Prenom', 'like', '%' . $search . '%')
+                     ->orWhere('email', 'like', '%' . $search . '%')
+                     ->orWhere('Matricule', 'like', '%' . $search . '%')
+                     ->orWhere('Date_Naissance', 'like', '%' . $search . '%')
+                     ->orWhere('Numero_telephone', 'like', '%' . $search . '%')
+                     ->orWhere('Post_travail', 'like', '%' . $search . '%');
+        });
+    })
+    ->get();
+
+return view('liste_debarquement', [
+    'marins' => $marins,
+    'search' => $search
+]);
+
      }
 
 public function destroy($id)
@@ -131,15 +147,15 @@ public function recap(){
     ->get();
 
     $table = '<table>';
-    
+
     // Loop through the marins
     foreach ($marins as $marin) {
-    
+
         // Get the contrat and fasicule for the marin
         $contrat = $marin->contrat()->latest('date_fin')->first();
         $fasicule = $marin->fasicule()->latest('date_expriration')->first();
         $visitemedical = $marin->visitemedical()->latest('date_fin')->first();
-    
+
         // Add a row to the table
         $table .= '<tr>';
         $table .= '<td>' . $marin->Nom . '</td>';
@@ -148,15 +164,15 @@ public function recap(){
         $table .= '<td>' . ($visitemedical ? $visitemedical->date_fin : 'N/A') . '</td>';
         $table .= '</tr>';
     }
-    
+
     // Close the table
     $table .= '</table>';
-    
+
     // Return the table
     return view('recap', compact('table','marins'));
 }
-     
-     
+
+
 
 
 

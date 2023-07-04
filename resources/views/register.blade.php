@@ -51,21 +51,22 @@
             </div>
         </div>
 
-    <div class="sidebar pe-4 pb-3">
-        <nav class="navbar bg-secondary navbar-dark">
-            <a href="/" class="navbar-brand mx-4 mb-3">
-                <h3 class="text-primary"><i class="fa fa-user-edit me-2"></i>ShipMates</h3>
-            </a>
-            <div class="d-flex align-items-center ms-4 mb-4">
-                <div class="position-relative">
-                    <img class="rounded-circle" src="img/avatar.jpg" alt="" style="width: 40px; height: 40px;">
-                    <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
-                </div>
-                <div class="ms-3">
-                    <h6 class="mb-0">{{auth()->user()->Username}}</h6>
-                    <span>{{auth()->user()->profil}}</span>
-                </div>
-            </div>
+           <div class="sidebar pe-4 pb-3">
+                    <nav class="navbar bg-secondary navbar-dark">
+                        <a href="/" class="navbar-brand mx-4 mb-3">
+                           
+                            <h3 class="text-primary"> <img src="img//logo.jpg" alt="Logo" class="logo-img"></i>ShipMates</h3>
+                        </a>
+                        <div class="d-flex align-items-center ms-4 mb-4">
+                            <div class="position-relative">
+                                <img class="rounded-circle" src="img/avatar.jpg" alt="" style="width: 40px; height: 40px;">
+                                <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
+                            </div>
+                            <div class="ms-3">
+                                <h6 class="mb-0">{{auth()->user()->Username}}</h6>
+                                <span>{{auth()->user()->profil}}</span>
+                            </div>
+                        </div>
 
 
 
@@ -77,7 +78,7 @@
                     <div class="dropdown-menu bg-transparent border-0">
                         <a href="equipe" class="dropdown-item">Equipage</a>
                         <a href="recapmarin" class="dropdown-item">Recape marin</a>
-                        <a href="liste-port" class="dropdown-item">Movement</a>
+                     
                     </div>
                 </div>
 
@@ -192,7 +193,7 @@
 
             <input class="input" placeholder="Username" type="text" id="Username" name="Username" value="{{ old('Username') }}" required>
             @error('Username')
-            <p class="error"> {{$message}} </p>
+            <h1 class="error"> {{$message}} </h1>
             @enderror
 
             <select class="input" placeholder="Profil" type="profil" id="profil" name="profil" value="{{ old('profil') }}" required>
@@ -202,13 +203,13 @@
                 <option value="ecrivant">ecrivant</option>
             </select>
             @error('profil')
-            <p class="error"> {{$message}} </p>
+            <h1 class="error"> {{$message}} </h1>
             @enderror
 
 
             <input class="input" placeholder="Password" type="password" id="password" name="password" required>
             @error('password')
-            <p class="error"> {{$message}} </p>
+            <h1 class="error"> {{$message}} </h1>
             @enderror
 
     <button class="btn" type="submit">Create an user</button>

@@ -31,7 +31,7 @@ class contratController extends Controller
         $contrat->marin_id = $marin->id;
         $contrat->save();
 
-        return redirect('/');
+        return redirect('/')->with('success', ' Contrat has been created');;
         }
 }
 

@@ -85,7 +85,7 @@
                     <div class="dropdown-menu bg-transparent border-0">
                         <a href="equipe" class="dropdown-item">Equipage</a>
                         <a href="recapmarin" class="dropdown-item">Recape marin</a>
-                        <a href="liste-port" class="dropdown-item">Movement</a>
+                      
                     </div>
                 </div>
 
@@ -199,66 +199,95 @@
 
     <div class="form-row">
     <input class="input" placeholder="Nom" type="text" id="Nom" name="Nom" value="{{old('Nom')}}"/>
-    @error('Nom')
-    <p class="error"> {{$message}} </p>
-    @enderror
+  
 
     <input class="input" required placeholder="Prenom" type="text" id="Prenom" name="Prenom" value="{{old('Prenom')}}"/>
-    @error('Prenom')
-    <p class="error"> {{$message}} </p>
-    @enderror
+   
 
 
     <input class="input" required placeholder="Matricule" type="text" id="Matricule" name="Matricule"  value="{{old('Matricule')}}"/>
-    @error('Matricule')
+  
+    </div>
+
+     <div class="form-row">
+      @error('Nom')
     <p class="error"> {{$message}} </p>
     @enderror
+
+      @error('Matricule')
+    <p class="error"> {{$message}} </p>
+    @enderror
+
+     @error('Prenom')
+    <p class="error"> {{$message}} </p>
+    @enderror
+
     </div>
 
     <div class="form-row">
     <input class="input"  required placeholder="Email" type="email" value="{{old('email')}}" id="email" name="email"/>
-    @error('email')
-    <p class="error"> {{$message}} </p>
-    @enderror
-
+ 
 
     <input class="input"  required placeholder="Adresse" type="text" id="adress" name="adress" required
     value="{{old('adress')}}"/>
-    @error('adress')
-    <p class="error"> {{$message}} </p>
-    @enderror
-
+   
 
     <input class="input" placeholder="Wilaya domicile" type="text" id="wilaya_de_domicile" name="wilaya_de_domicile" required
     value="{{old('wilaya_de_domicile')}}"/>
-    @error('wilaya_de_domicile')
-    <p class="error"> {{$message}} </p>
-    @enderror
+ 
     </div>
 
-    
+
+     
+    <div class="form-row">
+       @error('email')
+    <p class="error"> {{$message}} </p>
+    @enderror
+  
+
+     @error('adress')
+    <p class="error"> {{$message}} </p>
+    @enderror
+
+
+       @error('wilaya_de_domicile')
+    <p class="error"> {{$message}} </p>
+    @enderror
+
+     </div>
 
     <div class="form-row">
     <input class="input" placeholder="Wilaya de naissance" type="text" id="wilaya_de_naissance" name="wilaya_de_naissance" required
     value="{{old('wilaya_de_naissance')}}"/>
-    @error('wilaya_de_naissance')
-    <p class="error"> {{$message}} </p>
-    @enderror
-
+   
 
     <input class="input" placeholder="Date Naissance" type="date" id="Date_Naissance" name="Date_Naissance" required
     value="{{old('Date_Naissance')}}"/>
-    @error('Date_Naissance')
-    <p class="error"> {{$message}} </p>
-    @enderror
-
+   
 
     <input class="input" placeholder="Fonction" type="text" id="Post_travail" name="Post_travail"  value="{{ old('Post_travail') }}" required
     value="{{old('Date_Naissance')}}"/>
-    @error('Post_travail')
+  
+    </div>
+
+        <div class="form-row">
+      @error('wilaya_de_naissance')
     <p class="error"> {{$message}} </p>
     @enderror
-    </div>
+
+  
+
+     @error('Date_Naissance')
+    <p class="error"> {{$message}} </p>
+    @enderror
+
+
+
+   @error('Post_travail')
+    <p class="error"> {{$message}} </p>
+    @enderror
+
+     </div>
    
     <div class="form-row">
     <input class="input" placeholder="Numero telephone"  type="number" id="Numero_telephone" name="Numero_telephone"  value="{{ old('Numero_telephone') }}" required>
@@ -270,6 +299,7 @@
    
     <button class="btn" type="submit">Ajouter Marin</button>
 </form>
+
 
 
 

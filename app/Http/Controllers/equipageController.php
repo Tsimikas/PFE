@@ -32,7 +32,7 @@ class equipageController extends Controller
         $equipage->save();
 
 
-        return redirect('/');
+        return redirect('/')->with('success', 'Equipage has been created');;
         }
 
 

@@ -31,24 +31,16 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
 </head>
 
 
 
-@if (session()->has('success'))
-<div style='background: fixed;
-text-align: center;
-border: double;
-background-color: green'>
-    <p>
-        {{session('success')}}
-    </p>
-</div>
-@endif
 
 
 
-        <body class="dark-mode">
+
+        <body " class="dark-mode">
             <div class="container-fluid position-relative d-flex p-0">
                 <!-- Spinner Start -->
                 <div id="spinner" class="show bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
@@ -63,7 +55,8 @@ background-color: green'>
                 <div class="sidebar pe-4 pb-3">
                     <nav class="navbar bg-secondary navbar-dark">
                         <a href="/" class="navbar-brand mx-4 mb-3">
-                            <h3 class="text-primary"><i class="fa fa-user-edit me-2"></i>ShipMates</h3>
+                           
+                            <h3 class="text-primary"> <img src="img//logo.jpg" alt="Logo" class="logo-img"></i>ShipMates</h3>
                         </a>
                         <div class="d-flex align-items-center ms-4 mb-4">
                             <div class="position-relative">
@@ -83,7 +76,7 @@ background-color: green'>
                                 <div class="dropdown-menu bg-transparent border-0">
                                     <a href="equipe" class="dropdown-item">Equipage</a>
                                     <a href="recapmarin" class="dropdown-item">Recape marin</a>
-                                    <a href="liste-port" class="dropdown-item">Movement</a>
+                               
                                 </div>
                             </div>
 
@@ -139,6 +132,19 @@ background-color: green'>
 
         <!-- Content Start -->
         <div class="content">
+                @if (session()->has('success'))
+               <div style='background: fixed;
+                     text-align: center;
+                      border: double;
+                      color : white;
+                     background-color: green 
+                     font-size :24px'>
+             <p>
+        {{session('success')}}
+        </p>
+</div>
+@endif
+<div>
             <!-- Navbar Start -->
             <nav class="navbar navbar-expand bg-secondary navbar-dark sticky-top px-4 py-0">
                 <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
